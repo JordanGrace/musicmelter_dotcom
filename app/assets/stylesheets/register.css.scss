@@ -1,3 +1,28 @@
 // Place all the styles related to the register controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* move me to overrides for global */
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: 'OldStamperRegular';
+    font-size: 70pt;
+    color: #9ACE6D;
+    line-height: 72pt;
+}
+
+h2 {
+    font-family: 'cleanhousemedium';
+    font-size: 30pt;
+    color: #FFFFFF;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}

@@ -12,11 +12,11 @@ body {
 /* Fonts */
 @font-face {
     font-family: 'cleanhousemedium';
-    src: url('cleanhouse-webfont.eot');
-    src: url('cleanhouse-webfont.eot?#iefix') format('embedded-opentype'),
-         url('cleanhouse-webfont.woff') format('woff'),
-         url('cleanhouse-webfont.ttf') format('truetype'),
-         url('cleanhouse-webfont.svg#cleanhousemedium') format('svg');
+    src: font-url('cleanhouse-webfont.eot');
+    src: font-url('cleanhouse-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('cleanhouse-webfont.woff') format('woff'),
+         font-url('cleanhouse-webfont.ttf') format('truetype'),
+         font-url('cleanhouse-webfont.svg#cleanhousemedium') format('svg');
     font-weight: normal;
     font-style: normal;
 
@@ -26,15 +26,16 @@ body {
 
 
 @font-face {
-    font-family: 'old_stamperregular';
-    src: url('oldstamper-webfont.eot');
-    src: url('oldstamper-webfont.eot?#iefix') format('embedded-opentype'),
-         url('oldstamper-webfont.woff') format('woff'),
-         url('oldstamper-webfont.ttf') format('truetype'),
-         url('oldstamper-webfont.svg#old_stamperregular') format('svg');
+    font-family: 'OldStamperRegular';
+    src: font-url('oldstamper-webfont.eot');
+    src: font-url('oldstamper-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('oldstamper-webfont.woff') format('woff'),
+         font-url('oldstamper-webfont.ttf') format('truetype'),
+         font-url('oldstamper-webfont.svg#old_stamperregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
 
 /* /Fonts */
+
