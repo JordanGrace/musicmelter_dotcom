@@ -22,7 +22,81 @@ h2 {
     color: #FFFFFF;
 }
 
+/* Font Special Effects */
+.sharper-glow {
+    text-shadow: 1px 0px 0px #686868, 1px 1px 0px #686868, 0px 1px 0px #686868, 
+    -1px 1px 0px #686868, -1px 0px 0px #686868, -1px -1px 0px #686868, 
+    0px -1px 0px #686868, 1px -1px 0px #686868, 1px 4px 5px #aeaeae;
+}
+
+.inset {
+    text-shadow: 0px 2px 3px #666;
+}
+
+
+
+/* Page Regions */
+
+
+header {
+
+    
+    img {
+      width: 70%;
+      margin-left: 15%;
+      margin-top: -1%;
+
+    }
+}
+
+
 footer {
     position: absolute;
     bottom: 0;
+
+    .copyright {
+        font-family: helvetica;
+        font-size: 12pt;
+        color: #92BE6E;
+        font-weight: 100;
+    }
+}
+
+
+
+/* Business specific styles */
+.business {
+
+    p{
+        font-family: 'cleanhousemedium';
+        font-size: 18pt;
+        color: #FFFFFF;
+        line-height: 22pt;
+
+    }
+ 
+    h1{
+        font-family: 'OldStamperRegular';
+        font-size: 32pt;
+        color: #92BE6E;
+        line-height: 60pt;
+        margin: auto;
+        text-decoration: none;
+    
+    }
+
+    h2{
+        font-family: 'OldStamperRegular';
+        font-size: 21pt;
+        color: #92BE6E;
+        line-height: 32pt;
+        margin: auto;
+        text-decoration: none;
+    
+    }
+
+    .readingscreen {
+        background-color:rgba(0,0,0,0.6);
+    }
+
 }
