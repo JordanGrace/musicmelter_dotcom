@@ -17,10 +17,22 @@ h1 {
 }
 
 h2 {
-    font-family: 'cleanhousemedium';
-    font-size: 30pt;
+    font-family: 'crackhouseregular';
+    font-size: 55pt;
+    line-height: 60pt;
     color: #FFFFFF;
+    font-weight: 200;
 }
+
+h3 {
+    font-family: 'crackhouseregular';
+    font-size: 30pt;
+    line-height: 40pt;
+    color: #FFFFFF;
+    font-weight: 200;
+
+}
+
 
 /* Font Special Effects */
 .sharper-glow {
@@ -51,9 +63,10 @@ header {
 
 
 footer {
+  /*
     position: absolute;
     bottom: 0;
-
+*/
     .copyright {
         font-family: helvetica;
         font-size: 12pt;
@@ -63,21 +76,59 @@ footer {
 }
 
 
+/* User specific styles */
+
+
+    .icebreaker{
+       .top {
+            font-family: 'crackhouseregular';
+            font-size: 65pt;
+            color: #FFF;
+            line-height: 67pt;
+        }
+        .bottom {
+            font-family: 'crackhouseregular';
+            font-size: 55pt;
+            color: #FFF;
+            line-height: 67pt;   
+        }
+    }
+    .register-button {
+        padding-top: 40px;
+    }
+
+    .tablet {
+        font-family: 'OldStamperRegular';
+        font-size: 36pt;
+        color: #92BE6E;
+        line-height: 37pt;
+        margin: auto;
+        text-decoration: none;
+    }
+
+    .mobile {
+        font-family: 'OldStamperRegular';
+        font-size: 21pt;
+        color: #92BE6E;
+        line-height: 32pt;
+        margin: auto;
+        text-decoration: none;
+    }
+
 
 /* Business specific styles */
 .business {
 
     p{
         font-family: 'cleanhousemedium';
-        font-size: 18pt;
+        font-size: 20pt;
         color: #FFFFFF;
         line-height: 22pt;
-
     }
  
     h1{
         font-family: 'OldStamperRegular';
-        font-size: 32pt;
+        font-size: 35pt;
         color: #92BE6E;
         line-height: 60pt;
         margin: auto;
@@ -87,7 +138,7 @@ footer {
 
     h2{
         font-family: 'OldStamperRegular';
-        font-size: 21pt;
+        font-size: 22pt;
         color: #92BE6E;
         line-height: 32pt;
         margin: auto;
@@ -95,8 +146,30 @@ footer {
     
     }
 
-    .readingscreen {
-        background-color:rgba(0,0,0,0.6);
+    h2.sharper-glow {
+        margin: 15px 0px 15px 0px;
+    }
+
+    h3{
+        font-family: 'OldStamperRegular';
+        font-size: 21pt;
+        color: #92BE6E;
+        line-height: 32pt;
+        margin: auto;
+        text-decoration: none;    
+    }
+
+    .center {
+        margin:0 auto;
+        float:none;
+    }
+
+    .button {
+        margin-left: 20%;
+        width: 60%;
+    }
+    .video {
+      padding-top: 26px;   
     }
 
 }
