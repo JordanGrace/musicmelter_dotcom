@@ -1,10 +1,11 @@
 @import "bootstrap";
 body { 
-    padding-top: 60px; 
+    /*padding-top: 60px; */
     background-color: black; 
     background-image: image-url('background.png');
     background-repeat: repeat-x;
     @include background-size(cover);
+    
 }
 
 @import "bootstrap-responsive";
@@ -32,6 +33,18 @@ body {
          font-url('oldstamper-webfont.woff') format('woff'),
          font-url('oldstamper-webfont.ttf') format('truetype'),
          font-url('oldstamper-webfont.svg#old_stamperregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'crackhouseregular';
+    src: font-url('09938_crackhouse-webfont.eot');
+    src: font-url('09938_crackhouse-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('09938_crackhouse-webfont.woff') format('woff'),
+         font-url('09938_crackhouse-webfont.ttf') format('truetype'),
+         font-url('09938_crackhouse-webfont.svg#crackhouseregular') format('svg');
     font-weight: normal;
     font-style: normal;
 
