@@ -1,32 +1,70 @@
 
+<div class="container user">
 
-<div class="row">
-    <div class="span6">
-        <!-- video holder -->
-    </div>
-    <div class="span4">
-        <h2>100% FREE</h2>
-        <h2>As it should be!</h2>
-        <p />
-        <%= image_tag "register_button.png" %>
-    </div>
-</div>
-<div class="row">
-    <div class="span6">
-        <h2>Breaking the ice in the Music World!</h2>
-    </div>
-</div>
+<header>
+        <div class="row-fluid">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+        <script type="text/javascript">
+            var flashvars = {};
+            var params = {};
+            var attributes = {};
+                    
+            
+            params.play="true"; 
+            params.loop="true"; 
+            params.quality="high"; 
+            params.fullscreenonselection="false"; 
+            
+            attributes.name = "";
+            attributes.styleclass = "";
+            attributes.align = "";          
+            swfobject.embedSWF("/musicmelter_headertest.swf", "header", "100%", "300", "9.0.0", false, flashvars, params, attributes);
+        </script>
+        <div id="header">
+            Get <a href="http://www.adobe.com/go/getflash">Adobe Flash Player</a>. Embedded with the help of <a href="http://embed-swf.org">embed-swf.org</a>.
+        </div>
+    </header>
 
-
-<footer>
     <div class="row">
-        <div class="span12 centered">
-            <h1>Coming Summer 2013...</h1>
+        <div class="span6">
+            <%= image_tag "movie-holder.png" %>
+        </div>
+        <div class="span4 hidden-tablet">
+            <h2>100% FREE</h2>
+            <h2>As it should be!</h2>
+            <p />
+             <span><%= image_tag "register_button.png", class: 'register-button' %></span>
+        </div>
+        <div class="span4 hidden-phone hidden-desktop">
+            <h3>100% FREE</h3>
+            <h3>As it should be!</h3>
+            <p />
+             <span><%= image_tag "register_button.png", class: 'register-button' %></span>
         </div>
     </div>
-    </div class="row">
+    <div class="row">
+        <div class="span6 icebreaker hidden-phone hidden-tablet">
+            <h2 class="top">BREAKING THE ICE </h2>
+            <h2 class="bottom">IN THE MUSIC WORLD!</h2>
+        </div>
+    </div>
+    <div class="row">
         <div class="span12">
-            <p>&copy;2013 Music Melter</p>
+            <!-- put copy here -->
         </div>
     </div>
-</footer>
+    <footer>
+        <div class="content">
+        <div class="row">
+            <div class="span12">
+                <h1 class="desktop hidden-tablet hidden-phone">Coming Winter 2013...</h1>
+                <h1 class="tablet hidden-desktop hidden-phone">Coming Winter 2013...</h1>
+                <h1 class="mobile hidden-desktop hidden-tablet">Coming Winter 2013...</h1>
+            </div>
+            <div class="span12">
+                <p class="copyright">&copy; 2013 MUSICMELTER.COM</p>
+            </div>
+        </div>
+    </div>
+    </footer>
+</div>
