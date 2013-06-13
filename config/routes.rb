@@ -3,7 +3,7 @@ Musicmelter::Application.routes.draw do
 
   get "register/user"
 
-  root :to => "register#user"
+  root :to => "register#business"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
