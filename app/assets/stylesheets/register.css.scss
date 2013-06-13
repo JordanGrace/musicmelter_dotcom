@@ -33,6 +33,33 @@ h3 {
 
 }
 
+.video {
+    position: relative;
+    padding-bottom: 39.25%; /* 16:9 */
+    height: 0;
+
+     iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.mobile-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+
+     iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
 
 /* Font Special Effects */
 .sharper-glow {
@@ -126,6 +153,23 @@ footer {
         line-height: 22pt;
     }
  
+    .icebreaker {
+        
+           .top {
+                font-family: 'crackhouseregular';
+                font-size: 95pt;
+                color: #FFF;
+                line-height: 75pt;
+            }
+            .bottom {
+                font-family: 'crackhouseregular';
+                font-size: 79pt;
+                color: #FFF;
+                line-height: 67pt;   
+            }
+       
+    }
+
     h1{
         font-family: 'OldStamperRegular';
         font-size: 35pt;
