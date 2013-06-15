@@ -29,4 +29,6 @@ group :development, :test do
     gem 'terminal-notifier-guard'
     gem 'guard-rspec'
     gem 'capybara'
+    gem 'factory_girl_rails'
+    gem 'faker'
 end
