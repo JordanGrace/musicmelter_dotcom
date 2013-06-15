@@ -20,14 +20,6 @@ class BusinessAccountsController < ApplicationController
   # GET /business_accounts/new.json
   def new
     @business_account = BusinessAccount.new
-      @business_types = [
-                      ['Store'],
-                      ['Tutor'],
-                      ['WholeSaler'],
-                      ['Venue'],
-                      ['Studio'],
-                      ['Producer']
-                  ]
       respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @business_account }

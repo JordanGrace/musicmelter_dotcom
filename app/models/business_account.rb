@@ -17,6 +17,9 @@ class BusinessAccount
   validates_presence_of :name_first, :name_last, :business, :email
   validates_presence_of :phone, :address, :city, :state, :zip, :type
 
+  #TODO: Validate Canadian Zip based on country of origin
+  #validates_format_of :zip, with: '\b[ABCEGHJKLMNPRSTVXY][0-9][A-Z] [0-9][A-Z][0-9]\b' 
+
   embeds_many :payments
 
 end
