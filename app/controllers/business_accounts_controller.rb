@@ -2,12 +2,7 @@ class BusinessAccountsController < ApplicationController
   # GET /business_accounts
   # GET /business_accounts.json
   def index
-    @business_accounts = BusinessAccount.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @business_accounts }
-    end
+    redirect_to(new_business_account_path)
   end
 
   # GET /business_accounts/1
@@ -39,13 +34,13 @@ class BusinessAccountsController < ApplicationController
     end
   end
 
-  # GET /business_accounts/1/edit
-  def edit
-    @business_account = BusinessAccount.find(params[:id])
-  end
+  # # GET /business_accounts/1/edit
+  # def edit
+  #   @business_account = BusinessAccount.find(params[:id])
+  # end
 
-  # POST /business_accounts
-  # POST /business_accounts.json
+  # # POST /business_accounts
+  # # POST /business_accounts.json
   def create
     @business_account = BusinessAccount.new(params[:business_account])
 
@@ -76,15 +71,15 @@ class BusinessAccountsController < ApplicationController
     end
   end
 
-  # DELETE /business_accounts/1
-  # DELETE /business_accounts/1.json
-  def destroy
-    @business_account = BusinessAccount.find(params[:id])
-    @business_account.destroy
+  # # DELETE /business_accounts/1
+  # # DELETE /business_accounts/1.json
+  # def destroy
+  #   @business_account = BusinessAccount.find(params[:id])
+  #   @business_account.destroy
 
-    respond_to do |format|
-      format.html { redirect_to business_accounts_url }
-      format.json { head :no_content }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to business_accounts_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
 end

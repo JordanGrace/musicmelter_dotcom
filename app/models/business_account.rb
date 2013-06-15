@@ -13,4 +13,10 @@ class BusinessAccount
   field :state, :type => String
   field :zip, :type => String
   field :type, :type => String
+
+  validates_presence_of :name_first, :name_last, :business, :email
+  validates_presence_of :phone, :address, :city, :state, :zip, :type
+
+  embeds_many :payments
+
 end
