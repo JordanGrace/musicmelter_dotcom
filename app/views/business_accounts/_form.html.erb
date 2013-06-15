@@ -40,7 +40,7 @@
     <%= f.text_field :zip, placeholder: "Zip" %>
   </div>
   <div class="field">
-    <%= f.text_field :type %>
+    <%= select_tag(:type, options_for_select(@business_types)) %>
   </div>
   <div class="actions">
     <%= f.submit %>
