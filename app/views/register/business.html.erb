@@ -1,24 +1,36 @@
 <header>
-        <div class="row-fluid">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-        <script type="text/javascript">
-            var flashvars = {};
-            var params = {};
-            var attributes = {};
-                    
-            params.play="true"; 
-            params.loop="true"; 
-            params.quality="high"; 
-            params.fullscreenonselection="false";
-            params.scale="exactfit";
-            
-            attributes.name = "MusicMelter Header";
-            attributes.styleclass = "";
-            attributes.align = "center";          
-            swfobject.embedSWF("http://assets.musicmelter.com.s3.amazonaws.com/MusicMelter_double.swf", "header", "100%", "100%", "9.0.0", false, flashvars, params, attributes);
-        </script>
-        <div id="header">
-            Get <a href="http://www.adobe.com/go/getflash">Adobe Flash Player</a>. Embedded with the help of <a href="http://embed-swf.org">embed-swf.org</a>.
+     <!--   <div class="row-fluid hidden-desktop hidden-tablet hidden-phone">
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+            <script type="text/javascript">
+                var flashvars = {};
+                var params = {};
+                var mobileattributes = {};
+                var desktopattributes = {};
+                        
+                params.play="true"; 
+                params.loop="true"; 
+                params.quality="high"; 
+                params.fullscreenonselection="false";
+                params.scale="exactfit";
+                
+                mobileattributes.name = "MusicMelter Header";
+                mobileattributes.styleclass = "hidden-desktop hidden-tablet";
+                mobileattributes.align = "center";          
+
+                desktopattributes.styleclass = "hidden-phone hidden-desktop centered";
+                desktopattributes.align = "top";
+                desktopattributes.name = "MusicMelter Header";
+
+                swfobject.embedSWF("http://assets.musicmelter.com.s3.amazonaws.com/MusicMelter_single.swf", "mobile-header", "100%", "100%", "9.0.0", false, flashvars, params, mobileattributes);
+                swfobject.embedSWF("http://assets.musicmelter.com.s3.amazonaws.com/MusicMelter_double.swf", "desktop-header", "90%", "100%", "9.0.0", false, flashvars, params, desktopattributes); 
+            </script>
+        </div>
+    -->
+        <div id="mobile-header" class="hidden-desktop">
+                <%= image_tag('mm-header-mobile.png', width: "100%") %>
+        </div>
+        <div id="desktop-header" class="hidden-tablet">
+
         </div>
     </header>
 <div class="container">
@@ -49,7 +61,7 @@
         <div class="span12">
         <h1 class="sharper-glow inset hidden-tablet hidden-phone">The newest way to boom your business!</h1>
         <h2 class="sharper-glow inset hidden-desktop hidden-phone">The newest way to boom your business!</h2>
-        <h2 class="sharper-glow inset hidden-desktop hidden-tablet">The newest way to boom your business!</h2>
+        <h3 class="sharper-glow inset hidden-desktop hidden-tablet">The newest way to boom your business!</h2>
         </div>
     </div>
     <div class="business row-fluid hidden-desktop">
