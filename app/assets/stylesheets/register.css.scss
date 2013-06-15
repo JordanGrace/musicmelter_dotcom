@@ -5,17 +5,34 @@
     -webkit-box-shadow: 3px 2px 45px #ffffff;
     box-shadow: 3px 2px 45px #ffffff;
     background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 15px;
+    border-radius: 15px;
 
  
     .formbox {
         background-color: rgba(255, 255, 255, 0.8);
         background: rgba(255, 255, 255, 0.8);
         padding-top: 20px;   
-        padding-left: 20px;
         padding-bottom: 20px;
-        opacity: 0.8;
+        opacity: 0.5;
         border-radius: 15px;
+
+        legend {
+            font-family: 'crackhouseregular';
+            font-size: 21pt;
+            width: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            height: 30px;
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
     }
 }
 header {

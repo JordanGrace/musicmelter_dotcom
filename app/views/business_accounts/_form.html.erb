@@ -1,7 +1,8 @@
 <%= form_for(@business_account) do |f| %>
+<legend>Business Registration</legend>
   <% if @business_account.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@business_account.errors.count, "error") %> prohibited this business_account from being saved:</h2>
+      <h2><%= pluralize(@business_account.errors.count, "error") %> prohibited your registration from being saved:</h2>
 
       <ul>
       <% @business_account.errors.full_messages.each do |msg| %>
