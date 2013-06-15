@@ -1,0 +1,41 @@
+<h1>Listing business_accounts</h1>
+
+<table>
+  <tr>
+    <th>Name first</th>
+    <th>Name last</th>
+    <th>Business</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @business_accounts.each do |business_account| %>
+  <tr>
+    <td><%= business_account.name_first %></td>
+    <td><%= business_account.name_last %></td>
+    <td><%= business_account.business %></td>
+    <td><%= business_account.email %></td>
+    <td><%= business_account.phone %></td>
+    <td><%= business_account.address %></td>
+    <td><%= business_account.city %></td>
+    <td><%= business_account.state %></td>
+    <td><%= business_account.zip %></td>
+    <td><%= business_account.type %></td>
+    <td><%= link_to 'Show', business_account %></td>
+    <td><%= link_to 'Edit', edit_business_account_path(business_account) %></td>
+    <td><%= link_to 'Destroy', business_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Business account', new_business_account_path %>
