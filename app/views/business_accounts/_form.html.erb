@@ -22,10 +22,10 @@
     <%= f.text_field :business, placeholder: "Business Name" %>
   </div>
   <div class="field">
-    <%= f.text_field :email, placeholder: "Email" %>
+    <%= f.text_field :email, placeholder: "Email", pattern: "[^ @]*@[^ @]*" %>
   </div>
   <div class="field">
-    <%= f.text_field :phone, placeholder: "Phone" %>
+    <%= f.text_field :phone, placeholder: "Phone", type: "tel" %>
   </div>
   <div class="field">
     <%= f.text_field :address, placeholder: "Address" %>
@@ -37,12 +37,12 @@
     <%= f.text_field :state, placeholder: "State" %>
   </div>
   <div class="field">
-    <%= f.text_field :zip, placeholder: "Zip" %>
+    <%= f.text_field :zip, placeholder: "Zip", pattern: "[0-9]*" %>
   </div>
   <div class="field">
     <%= select_tag(:type, options_for_select(@business_types)) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= image_submit_tag "signup/open-up-shop-button.png", class: "centered" %>
   </div>
 <% end %>
