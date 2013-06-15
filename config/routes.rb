@@ -1,4 +1,11 @@
 Musicmelter::Application.routes.draw do
+  resources :business_accounts
+
+
+  get "signup/business"
+
+  get "signup/user"
+
   get "register/business"
 
   get "register/user"
