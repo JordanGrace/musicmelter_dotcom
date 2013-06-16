@@ -53,6 +53,27 @@
             margin-left: auto;
             margin-right: auto;            
         }
+
+        .warranty {
+            font-size: 14pt;
+            line-height: 18px;
+            font-weight: 300;
+            font-family: 'cleanhousemedium';
+            padding: 0px -1px 0px 30px;
+            .attention {
+                color: green;
+                text-decoration: italic;
+                font-weight: strong;
+            }
+            .red {
+                color: red;
+            }
+            i {
+                margin-top: 5px;
+            }
+          
+        }
+
     }
 }
 
