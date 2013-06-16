@@ -1,4 +1,8 @@
 Musicmelter::Application.routes.draw do
+  get "terms/refund"
+
+  get "terms/privacy"
+
   resources :business_accounts, only: [:create, :show, :new, :update, :index] do
     resources :payment
   end
