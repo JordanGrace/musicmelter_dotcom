@@ -8,6 +8,7 @@ class Payment
   field :confirmation,  type: String
 
 
+  belongs_to :business_account
   embedded_in :business_account, inverse_of: :payments
 
   validates_presence_of :status, :comment

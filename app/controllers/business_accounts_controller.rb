@@ -38,7 +38,7 @@ class BusinessAccountsController < ApplicationController
 
     respond_to do |format|
       if @business_account.save
-        format.html { redirect_to @business_account, notice: 'Business account was successfully created.' }
+        format.html { redirect_to url_for(@business_account, @business_account.payments.new), notice: 'Business account was successfully created.' }
         format.json { render json: @business_account, status: :created, location: @business_account }
       else
         format.html { render action: "new" }
@@ -60,6 +60,14 @@ class BusinessAccountsController < ApplicationController
         format.html { render action: "edit" }
         format.json { render json: @business_account.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def payments
+    @business_account = BusinessAccount.find(params[:id])
+
+    respond_to do |format|
+      format.html { render action: "payment" }
     end
   end
 

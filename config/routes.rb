@@ -1,5 +1,7 @@
 Musicmelter::Application.routes.draw do
-  resources :business_accounts, only: [:create, :show, :new, :update, :index]
+  resources :business_accounts, only: [:create, :show, :new, :update, :index] do
+    resources :payment, as: :payments, only: [:create, :new, :update, :index ]
+  end
 
 
   get "signup/business"
