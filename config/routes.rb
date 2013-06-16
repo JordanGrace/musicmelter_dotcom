@@ -1,6 +1,6 @@
 Musicmelter::Application.routes.draw do
   resources :business_accounts, only: [:create, :show, :new, :update, :index] do
-    resources :payment, as: :payments, only: [:create, :new, :update, :index ]
+    resources :payment
   end
 
 

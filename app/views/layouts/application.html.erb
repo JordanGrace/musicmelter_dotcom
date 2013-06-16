@@ -24,7 +24,14 @@
     
   </head>
   <body>
-    
+    <header>
+      <div class="hidden-phone hidden-tablet">
+          <%= image_tag 'mm-header.png' %>
+      </div>
+      <div class="hidden-desktop">
+          <%= image_tag 'mm-header-mobile.png' %>
+      </div>
+    </header>
       <%= yield %>
 
 
