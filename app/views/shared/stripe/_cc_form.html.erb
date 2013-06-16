@@ -1,4 +1,5 @@
 
+ <%= form_for @payment, :url => business_account_payment_index_path do |f| %>
  <div class="field">
     <%= f.label :email %>
     <%= text_field_tag :email, nil, name: nil, value: @business_account.email %>
@@ -21,3 +22,6 @@
         <%= text_field_tag :promo_code, nil, name: nil %>
   </div>
   <%= f.hidden_field :stripe_card_token %>
+  <div class="actions"><%= image_submit_tag "signup/subscribe.png",  class: "centered" %></div>
+
+  <% end %>

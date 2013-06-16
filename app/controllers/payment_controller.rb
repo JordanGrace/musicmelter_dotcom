@@ -43,6 +43,8 @@ class PaymentController < ApplicationController
                 redirect_to new_business_account_payment_path
               end
 
+              logger.warn "Leaving create"
+
           end
         
         rescue Stripe::CardError => e

@@ -31,7 +31,7 @@ class BusinessAccount
     end
 
     def no_payment?
-      self.payments == []
+      self.payments.count == 0 || self.payments.nil?
     end
 
     def not_a_customer?
@@ -39,7 +39,7 @@ class BusinessAccount
     end
 
     def no_really?
-      self.payments.last.status == "Complete" && self.customer_id != nil 
+      self.payments.last.status == "Complete" && self.customer_id != nil  && self.payments.count != 0
     end
 
 end

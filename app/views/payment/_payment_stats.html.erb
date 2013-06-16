@@ -1,6 +1,11 @@
 <ul>
-    <li>AccountID: <%= @business_account.id %></li>
-    <li>Email: <%= @business_account.email %></li>
-    <li>Activated: <%= @business_account.created_at.to_s %></li>
-    <li>Charges on file: <%= @business_account.payments.count %></li>
+    <li><i class="icon-envelope"></i>  Email: <%= @business_account.email %></li>
+    <li><i class="icon-ok"></i>Activated: <%= @business_account.created_at.to_s %></li>
+    <li>
+        <i class="<%= @business_account.no_payment? ? "icon-remove" : "icon-ok" %>"></i>
+        
+            Charges on file: <span class="<%= @business_account.no_payment? ? "red" : "green" %>">
+            <%= @business_account.payments.count %>
+            </span>
+        </li>
 </ul>

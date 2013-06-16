@@ -3,33 +3,36 @@
     about the subscription level for your business, <a href="mailto:sales@musicmelter.com?subject=new account registration <%= @business_account.id %>">contact us</a></p>
 <% end %>
 
-<%= form_for @payment, :url => business_account_payment_index_path do |f| %>
-
-    <% if @business_account.not_a_customer? %>
-        <legend>Price: $600</legend>
-        <%= render "shared/stripe/cc_form" %>
-    <% end %>
 
     <% if @business_account.no_payment?  %>
+
         <legend>Price: $600</legend>
         <div class="warranty">
             <p><span class="attention">You are already registered!</span> However your account is marked as <span class="red">inactive</span> since your payment has not been made. Click <strong>Subscribe</strong> to get rocking!</p>
             <p>
+
+            <p> 
                 <%= render "payment_stats" %>
+                <span class="help">
+                <i class="icon-large icon-question-sign"></i> <i class="icon-large icon-plus-sign"></i>   
+            </span>
             </p>
         </div>
+
      <% end %>  
 
-     <% if !@business_account.no_really? %>
-        <div class="warranty">
-            <p><strong>GREAT NEWS! You're active and ready for your beta key. We'll let you know when its ready</strong></p>
-            <p><%= render "payment_stats" %></p>
 
-        </div>
-     <% end %>
 
     <% if @business_account.not_a_customer? || @business_account.no_payment? %>
-      <div id="stripe_error"></div>
-      <div class="actions"><%= image_submit_tag "signup/subscribe.png", class: "centered" %></div>
+        <div id="stripe_error"></div>
+        
+            <%= render "shared/stripe/cc_form" %>
+    
     <% end %>
-<% end %>
+
+    <% if @business_account.no_really? %>
+    <div class="warranty">
+        <p><strong>GREAT NEWS! You're active and ready for your beta key. We'll let you know when its ready</strong></p>
+        <p><%= render "payment_stats" %></p>
+    </div>
+    <% end %>

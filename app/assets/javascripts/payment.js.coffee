@@ -9,7 +9,7 @@ subscription =
     setupForm: ->
         $('#new_payment').submit ->
             if $('#card_number').length == 0
-                return true;
+                $('#new_payment')[0].submit()
             subscription.processCard()
             return false;
 
