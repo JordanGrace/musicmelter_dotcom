@@ -14,5 +14,5 @@ FactoryGirl.define do
         type        { ['Tutor', 'Store', 'Instructor', 'Venue', 'Third Party'].sample }
   end
 
-  
+
 end

@@ -28,9 +28,9 @@ describe "business_accounts/new" do
       assert_select "input#business_account_phone[name=?]", "business_account[phone]"
       assert_select "input#business_account_address[name=?]", "business_account[address]"
       assert_select "input#business_account_city[name=?]", "business_account[city]"
-      assert_select "input#business_account_state[name=?]", "business_account[state]"
+      assert_select "select#business_account_state[name=?]", "business_account[state]"
       assert_select "input#business_account_zip[name=?]", "business_account[zip]"
-      assert_select "input#business_account_type[name=?]", "business_account[type]"
+      assert_select "select#business_account_type[name=?]", "business_account[type]"
     end
   end
 end

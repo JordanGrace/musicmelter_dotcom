@@ -4,6 +4,5 @@ FactoryGirl.define do
   factory :payment do
     status "Pending"
     comment "Signup"
-    stripe "XJs13Zy"
   end
 end

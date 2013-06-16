@@ -17,8 +17,9 @@ describe BusinessAccount do
 
         it "must have a processed signup payment" do
             expect(business.payments.first.status).to eq('Pending')
-            business.payments.first.complete_payment
-            expect(business.payments.first.status).to eq('Paid')
+            business.payments.first.complete_payment("XXXXXXX")
+            expect(business.payments.first.status).to eq('Complete')
+            expect(business.payments.first.confirmation).not_to eq(nil)
         end
 
     end

@@ -1,5 +1,5 @@
 Musicmelter::Application.routes.draw do
-  resources :business_accounts
+  resources :business_accounts, only: [:create, :show, :new, :update, :index]
 
 
   get "signup/business"
@@ -10,7 +10,7 @@ Musicmelter::Application.routes.draw do
 
   get "register/user"
 
-  root :to => "register#business"
+  root :to => "signup#business"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

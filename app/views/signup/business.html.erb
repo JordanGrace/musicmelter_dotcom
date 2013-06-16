@@ -45,7 +45,8 @@
         <p>The world of MusicMelter creates a unique opportunity for musicians and artists to create and expand on their talents, where they can find you and your services to help get them there!</p>
         <p>Expanding your business has never been easier!</p>
           <span width="75%">
-            <%= image_tag "register_button.png" %>
+
+            <%= link_to image_tag("register_button.png"), new_business_account_path %>
         </p>
         </div>
     </div>
@@ -71,7 +72,7 @@
         <p>Expanding your business has never been easier!</p>
     </div>
     <div class="business row-fluid hidden-desktop">
-        <%= image_tag "register_button.png", class: 'button center' %>
+            <%= link_to image_tag("register_button.png", class: "button center"), new_business_account_path %>
     </div>
     <footer>
         <div class="row">
