@@ -1,4 +1,5 @@
 class PaymentController < ApplicationController
+    layout "layouts/stripe"
     before_filter :set_account, :only => [:new, :create]
     
     def set_account
@@ -15,23 +16,38 @@ class PaymentController < ApplicationController
 
     def create
          # Amount in cents
-          @amount = 5000
+          @amount = 60000
+          if @business_account.customer_id.nil?
+              customer = Stripe::Customer.create(
+                :email => @business_account.email,
+                :card  => params[:payment][:stripe_card_token]
+              )
+              @business_account.customer_id = customer.id
+              @business_account.save
+          end
 
-          customer = Stripe::Customer.create(
-            :email => @business_account.email,
-            :card  => params[:stripeToken]
-          )
+          unless @business_account.payments.count > 0 
 
-          charge = Stripe::Charge.create(
-            :customer    => customer.id,
-            :amount      => @amount,
-            :description => 'Test Charge',
-            :currency    => 'usd'
-          )
+              payment = @business_account.payments.new({comment: "signup", status: 'active' })
+              charge = Stripe::Charge.create(
+                :customer    => @business_account.customer_id,
+                :amount      => @amount,
+                :description => "signup",
+                :currency    => 'usd'
+              )
 
+              payment.complete_payment charge
+              
+              unless payment.save!
+                flash[:error] = payment.errors.to_s
+                redirect_to new_business_account_payment_path
+              end
+
+          end
+        
         rescue Stripe::CardError => e
           flash[:error] = e.message
-          redirect_to charges_path
+          redirect_to new_business_account_payment_path
 
     end
 

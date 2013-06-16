@@ -1,3 +1,61 @@
 // Place all the styles related to the business_accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.formglow {
+
+    -moz-box-shadow: 3px 2px 45px #ffffff;
+    -webkit-box-shadow: 3px 2px 45px #ffffff;
+    box-shadow: 3px 2px 45px #ffffff;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+
+    .formbackground {
+        background-color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.8);
+        padding-top: 20px;   
+        padding-bottom: 20px;
+        opacity: 0.5;
+        border-radius: 15px;
+    }
+    
+    .formbox {
+
+        legend {
+            font-family: 'crackhouseregular';
+            font-size: 31pt;
+            width: auto;
+            border: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form 
+            input {
+            height: 30px;
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        form input[type=image] {
+            opacity: 2;
+            height: auto;
+        }
+
+        select {
+            height: 30px;
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;            
+        }
+    }
+}
+
+header {
+    padding-bottom: 50px;
+}

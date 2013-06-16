@@ -1,12 +1,35 @@
-<%= form_tag business_account_payment_index_path do %>
-  <article>
-    <label class="amount">
-      <span>Amount: $50.00</span>
-    </label>
-  </article>
+<% if @business_account.not_a_customer? %>
+    <p class="warranty">Your first payment will secure a low price for the first year. If you have any questions
+    about the subscription level for your business, <a href="mailto:sales@musicmelter.com?subject=new account registration <%= @business_account.id %>">contact us</a></p>
+<% end %>
 
-  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="5000"></script>
+<%= form_for @payment, :url => business_account_payment_index_path do |f| %>
+
+    <% if @business_account.not_a_customer? %>
+        <legend>Price: $600</legend>
+        <%= render "shared/stripe/cc_form" %>
+    <% end %>
+
+    <% if @business_account.no_payment?  %>
+        <legend>Price: $600</legend>
+        <div class="warranty">
+            <p><span class="attention">You are already registered!</span> However your account is marked as <span class="red">inactive</span> since your payment has not been made. Click <strong>Subscribe</strong> to get rocking!</p>
+            <p>
+                <%= render "payment_stats" %>
+            </p>
+        </div>
+     <% end %>  
+
+     <% if !@business_account.no_really? %>
+        <div class="warranty">
+            <p><strong>GREAT NEWS! You're active and ready for your beta key. We'll let you know when its ready</strong></p>
+            <p><%= render "payment_stats" %></p>
+
+        </div>
+     <% end %>
+
+    <% if @business_account.not_a_customer? || @business_account.no_payment? %>
+      <div id="stripe_error"></div>
+      <div class="actions"><%= image_submit_tag "signup/subscribe.png", class: "centered" %></div>
+    <% end %>
 <% end %>

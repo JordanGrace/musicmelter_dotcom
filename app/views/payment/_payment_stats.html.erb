@@ -1,0 +1,6 @@
+<ul>
+    <li>AccountID: <%= @business_account.id %></li>
+    <li>Email: <%= @business_account.email %></li>
+    <li>Activated: <%= @business_account.created_at.to_s %></li>
+    <li>Charges on file: <%= @business_account.payments.count %></li>
+</ul>
