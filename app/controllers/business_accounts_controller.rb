@@ -38,7 +38,7 @@ class BusinessAccountsController < ApplicationController
 
     respond_to do |format|
       if @business_account.save
-        format.html { redirect_to "/business_accounts/#{@business_account.id.to_s}/payment/new" , notice: 'Business account was successfully created.' }
+        format.html { redirect_to "/business_accounts/#{@business_account.id.to_s}/payment/new", notice: 'Business account was successfully created.' }
         format.json { render json: @business_account, status: :created, location: @business_account }
       else
         format.html { render action: "new" }

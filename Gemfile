@@ -8,7 +8,8 @@ gem 'bootstrap-sass'
 gem 'mongoid', '~> 3.0'
 gem 'mongoid-history', '~> 0.3.3'
 gem 'newrelic_rpm'
-    
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
