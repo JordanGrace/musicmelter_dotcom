@@ -10,19 +10,25 @@ describe BusinessAccount do
     it "Contains no payment" do
         business = FactoryGirl.build(:business_account)
         expect(business.payments.count).to eq(0)
+        expect(business.no_payment?).to eq(true)
+        expect(business.not_a_customer?).to eq(true)
+        expect(business.no_really?).to eq(false)
     end
 
     context "In order to be registered" do
-        let(:business) { FactoryGirl.create(:business_account, payments: [FactoryGirl.build(:payment)]) }
+        let(:business) { FactoryGirl.create(:business_account, payments: [FactoryGirl.build(:payment, comment: "test")]) }
 
         it "must have a processed signup payment" do
             expect(business.payments.first.status).to eq('Pending')
-            business.payments.first.complete_payment("XXXXXXX")
+            business.payments.first.complete_payment({id: "XXXXXXX",
+                                                    amount: "40400",
+                                                    card: { fingerprint: "1234xxx"}
+                                                     })
             expect(business.payments.first.status).to eq('Complete')
-            expect(business.payments.first.confirmation).not_to eq(nil)
         end
 
     end
+    
     
 
 end

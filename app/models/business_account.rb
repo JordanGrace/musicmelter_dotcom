@@ -39,7 +39,6 @@ class BusinessAccount
     end
 
     def no_really?
-      self.payments.last.status == "Complete" && self.customer_id != nil  && self.payments.count != 0
+      self.payments.count > 0 && self.payments.last.status == "Complete" && self.customer_id != nil  
     end
-
 end
