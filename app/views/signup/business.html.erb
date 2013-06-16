@@ -1,39 +1,3 @@
-<header>
-     <!--   <div class="row-fluid hidden-desktop hidden-tablet hidden-phone">
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-            <script type="text/javascript">
-                var flashvars = {};
-                var params = {};
-                var mobileattributes = {};
-                var desktopattributes = {};
-                        
-                params.play="true"; 
-                params.loop="true"; 
-                params.quality="high"; 
-                params.fullscreenonselection="false";
-                params.scale="exactfit";
-                
-                mobileattributes.name = "MusicMelter Header";
-                mobileattributes.styleclass = "hidden-desktop hidden-tablet";
-                mobileattributes.align = "center";          
-
-                desktopattributes.styleclass = "hidden-phone hidden-desktop centered";
-                desktopattributes.align = "top";
-                desktopattributes.name = "MusicMelter Header";
-
-                swfobject.embedSWF("http://assets.musicmelter.com.s3.amazonaws.com/MusicMelter_single.swf", "mobile-header", "100%", "100%", "9.0.0", false, flashvars, params, mobileattributes);
-                swfobject.embedSWF("http://assets.musicmelter.com.s3.amazonaws.com/MusicMelter_double.swf", "desktop-header", "90%", "100%", "9.0.0", false, flashvars, params, desktopattributes); 
-            </script>
-        </div>
-    -->
-        <div id="mobile-header" class="hidden-desktop">
-                <%= image_tag('mm-header-mobile.png', width: "100%") %>
-        </div>
-        <div id="desktop-header" class="hidden-tablet hidden-phone">
-                <%= image_tag('mm-header.png', width: "100%") %>
-
-        </div>
-    </header>
 <div class="container">
 
     <div class="row business hidden-tablet hidden-phone">
