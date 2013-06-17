@@ -16,14 +16,13 @@ class BusinessAccount
   field :customer_id,     :type => String
   field :coupon_code,     :type => String
   field :coupon_redeem,   :type => Boolean
-  field :stripe_token,    :type => String
   field :subscription,    :type => String
   field :last4,           :type => Integer
 
   validates_presence_of :name_first, :name_last, :business, :email
   validates_presence_of :address, :city, :state, :zip, :type
 
-  attr_accessor :valid_types
+  attr_accessor :valid_types, :discount_amount, :stripe_token
   @valid_types = ["Recording Studio", "Rehearsal Studio", "Mix/Mastering Studio",
                    "Show/Concert Venue", "Vocal Coach", "Music Instructor", 
                    "Music School", "Wholesaler", "Producer", "DJ Services", "Other"]
@@ -33,45 +32,40 @@ class BusinessAccount
 
   embeds_many :payments
 
-before_save :update_stripe
 
-def update_stripe
-    return if email.include?('@example.com') and not Rails.env.production?
-    if customer_id.nil? && payments.count == 0
-      if !stripe_token.present?
-        raise "Stripe token not present. Can't create account."
-      end
-      if coupon.blank?
+
+  def valid_coupon?
+    return if coupon_redeem 
+    coupon =  Stripe::Coupon.retrieve(coupon_code)
+    #all amounts are in denomination of pennies
+    self.discount_amount = coupon.amount_off / 100    
+    coupon.max_redemptions >= coupon.times_redeemed
+    rescue Stripe::StripeError => e
+      logger.error "Stripe Error: " + e.message
+      false
+  end
+
+  def update_stripe
+    #return if email.include?('@test.com') #and not Rails.env.production?
+      if customer_id.blank? && stripe_token.present?
         customer = Stripe::Customer.create(
-          :email => email,
-          :description => name_first,
-          :card => stripe_token,
-          :plan => roles.first.name
-        )
-      else
-        customer = Stripe::Customer.create(
-          :email => email,
-          :description => name,
-          :card => stripe_token,
-          :plan => roles.first.name,
-          :coupon => coupon
-        )
+                                            email: email,
+                                            card: stripe_token,
+                                            description: name_first << name_last,
+                                            )
+        if valid_coupon?
+          customer.coupon = coupon_code
+          coupon_redeem = true
+        end
+        customer.save
+        self.last4 = customer.active_card.last4
+        self.customer_id = customer.id
+        self.stripe_token = nil
+        self.save
       end
-    else
-      customer = Stripe::Customer.retrieve(customer_id)
-      if stripe_token.present?
-        customer.card = stripe_token
-      end
-      if stripe.coupon_redeem.false && !coupon_code.nil?
-        customer.coupon = stripe.coupon_code
-      end
-      customer.email = email
-      customer.description = name
-      customer.save
-    end
-    self.last_4_digits = customer.active_card.last4
-    self.customer_id = customer.id
-    self.stripe_token = nil
+
+
+  
   rescue Stripe::StripeError => e
     logger.error "Stripe Error: " + e.message
     errors.add :base, "#{e.message}."
@@ -80,8 +74,14 @@ def update_stripe
   end
   
 
+  def process_payment(payment = {})
+    self.stripe_token = payment.stripe_token
+    update_stripe
+  end
 
-
+    def stripe_customer
+      Stripe::Customer.retrieve(customer_id)
+    end
 
     def old_payment?
       if self.payments.nil?

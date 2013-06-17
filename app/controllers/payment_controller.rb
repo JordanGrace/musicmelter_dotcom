@@ -11,62 +11,36 @@ class PaymentController < ApplicationController
     end
 
     def new
-        @payment = @business_account.payments.new
+        @payment = @business_account.payments.new({amount: "600"})
     end
 
     def create
-         # Amount in cents
-          @amount = 60000
-          if @business_account.customer_id.nil?
-              customer = Stripe::Customer.create(
-                :email => @business_account.email,
-                :card  => params[:payment][:stripe_card_token]
-              )
-              @business_account.customer_id = customer.id
-              @business_account.save
-          end
+        payment = @business_account.payments.new(params[:payment])
+        #be implicit with applying the token
+        payment.stripe_token = params[:payment][:stripe_token]
 
-          unless @business_account.payments.count > 0 
-              payment = @business_account.payments.new({comment: "signup", status: 'active' })
-              
-              unless @business_account.coupon_redeem? || @business_account.coupon_code.nil?
-                charge = Stripe::Charge.create(
-                  :customer    => @business_account.customer_id,
-                  :amount      => @amount,
-                  :description => "signup",
-                  :currency    => 'usd',
-                  :coupon      => @business_account.coupon_code
-                )
-                @business_account.coupon_redeem = true
-              else
-                charge = Stripe::Charge.create(
-                  :customer    => @business_account.customer_id,
-                  :amount      => @amount,
-                  :description => "signup",
-                  :currency    => 'usd',
-                  :coupon      => @business_account.coupon_code
-                )
-              end
-              payment.complete_payment charge
-              
-              unless payment.save!
-                flash[:error] = payment.errors.to_s
-                redirect_to new_business_account_payment_path
-              end
-
-              logger.warn "Leaving create"
-
-          end
+        @business_account.process_payment(payment)
+        @business_account.save
+        debugger
+        customer = Stripe::Customer.retrieve(@business_account.customer_id)
+        #now subscribe to the deal
+        customer.update_subscription(plan: "earlyadopter")
+        @business_account.subscription = customer.subscription.plan.id
         
-        rescue Stripe::CardError => e
+        payment.status = "Complete"
+        payment.comment = "EarlyAdopter Signup"
+        payment.save
+        @business_account.payments.push(payment)
+
+        
+
+        rescue => e
           flash[:error] = e.message
-          redirect_to new_business_account_payment_path
-
-    end
-
-    def update
+          render :text => e.message
 
     end
 
 
 end
+
+

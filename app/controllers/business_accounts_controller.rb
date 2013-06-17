@@ -54,7 +54,7 @@ class BusinessAccountsController < ApplicationController
 
     respond_to do |format|
       if @business_account.update_attributes(params[:business_account])
-        format.html { redirect_to @business_account, notice: 'Business account was successfully updated.' }
+        format.html { redirect_to "/business_accounts/#{@business_account.id.to_s}/payment/new", notice: 'Business account was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

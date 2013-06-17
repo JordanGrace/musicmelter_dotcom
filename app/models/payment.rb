@@ -9,7 +9,7 @@ class Payment
   field :charge_id,     type: String
   field :amount,        type: Integer
   field :fingerprint,    type: String
-  attr_accessor :stripe_card_token
+  attr_accessor :stripe_token
 
   belongs_to :business_account
   embedded_in :business_account, inverse_of: :payments

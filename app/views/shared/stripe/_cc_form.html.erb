@@ -17,11 +17,22 @@
     <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
     <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
   </div>
-  <div class="field">
-        <%= label_tag :promo_code, "Promo Code" %>
-        <%= text_field_tag :promo_code, nil, name: nil %>
-  </div>
-  <%= f.hidden_field :stripe_card_token %>
+  <% unless @business_account.valid_coupon? %>
+    <div class="field">
+      <%= label_tag :discount, "Have A Discount Code?" %>
+      <%= check_box_tag("show_coupon") %>
+    </div>
+  <% end %>
+  <%= f.hidden_field :stripe_token %>
+  <%= f.hidden_field :amount %>
   <div class="actions"><%= image_submit_tag "signup/subscribe.png",  class: "centered" %></div>
 
   <% end %>
+
+
+    <div id="coupon" class="hide">
+        <%= form_for @business_account, :url => "/business_accounts/#{@business_account.id}", :method => :put do |f| %>
+            <%= f.text_field :coupon_code, placeholder: "Secret Code" %>
+            <%= image_submit_tag "signup/redeem-code-button.png", class: "centered" %>
+        <% end %>
+     </div>

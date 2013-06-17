@@ -1,7 +1,6 @@
 
     <% if @business_account.no_payment?  %>
-
-        <legend>Price: $600</legend>
+        <legend>Price: $<%= @business_account.valid_coupon? ? @payment.amount - @business_account.discount_amount : @payment.amount  %></legend>
         <div class="warranty">
             <p><span class="attention">You have registered!</span> However your account is <span class="red">inactive</span> since your payment has not been made. Click <strong>Subscribe</strong> to get rocking!</p>
             <p>
@@ -16,18 +15,7 @@
 
      <% end %>  
 
-
-
     <% if @business_account.not_a_customer? || @business_account.no_payment? %>
         <div id="stripe_error"></div>
-        
-            <%= render "shared/stripe/cc_form" %>
-    
-    <% end %>
-
-    <% if @business_account.no_really? %>
-    <div class="warranty">
-        <p><strong>GREAT NEWS! You're active and ready for your beta key. We'll let you know when its ready</strong></p>
-        <p><%= render "payment_stats" %></p>
-    </div>
+            <%= render "shared/stripe/cc_form" %>    
     <% end %>
