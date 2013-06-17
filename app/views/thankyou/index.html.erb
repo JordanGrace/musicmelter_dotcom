@@ -8,12 +8,22 @@
     <!-- bootstrap default css (DO NOT REMOVE) -->
 
     
- 
-    <!-- main theme files -->
-    <link rel="stylesheet" href="http://www.myorange.ca/theme/jarvisadmin/css/theme.css?v=1">
-    <link rel="stylesheet" href="http://www.myorange.ca/theme/jarvisadmin/css/theme-responsive.css?v=1">
-    <body class="animate">
-        <div class="container">
+ <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag "thankyou", :media => "all" %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <body>
+        <header>
+      <div class="hidden-phone hidden-tablet">
+          <%= image_tag 'mm-header.png' %>
+      </div>
+      <div class="hidden-desktop">
+          <%= image_tag 'mm-header-mobile.png' %>
+      </div>
+    </header>
+
+        <div id="page-content" class="container">
             <!-- animation background starts here, please do not alter the order -->
             <p>
                 <span id="fog"></span>
@@ -27,7 +37,7 @@
             </p>
             <!-- end animation -->
             <div class='thanks-message'>
-                <h1 class="dimention"><i class="icon-check"></i> Thank You!</h1>    
+                <h1 class="dimention">Thank You!</h1>    
 
                 <h3>We've received your payment. We will be reaching out soon with your account details prior to public launch.</h3>
             </div>

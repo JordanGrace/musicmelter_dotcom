@@ -20,8 +20,7 @@ class PaymentController < ApplicationController
         payment.stripe_token = params[:payment][:stripe_token]
 
         @business_account.process_payment(payment)
-        @business_account.save
-        debugger
+
         customer = Stripe::Customer.retrieve(@business_account.customer_id)
         #now subscribe to the deal
         customer.update_subscription(plan: "earlyadopter")
