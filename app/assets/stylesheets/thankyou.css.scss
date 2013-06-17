@@ -37,56 +37,6 @@
         margin: 0;
         padding: 0;
     }
-
-    *{
-        margin: 0;
-        outline:none !important; /* removes the ugly dotted lines in Firefox and IE */
-    }
-    
-    /* a flash of color when links and buttons are pressed, a nice UI effect for mobile / tablet users */ 
-    a:link, button {
-        -webkit-tap-highlight-color: #e53b2c;
-    }
-    
-    html, body {
-        height: 100%;
-        min-height: 100%;
-        color:#5F5F5F;
-    }
-    
-    
-    h1, h2, h3, h4, h5, h6, .my-profile span, .number-stats {
-        font-family: 'Lato', Arial, Helvetica, sans-serif;
-    }
-    
-    .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
-        font-weight:normal;
-    }
-    
-    body, .jarviswidget > header h2, .fc-header-title h2  {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    a, a.active {
-        color:#333;
-    }
-    a:hover, a:focus {
-        text-decoration:none;
-    }
-    
-    .contained {
-        max-width: 1170px;
-        height: 100%;
-        margin: 0px auto;
-        position: relative;
-    }
-    
-    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-      color: #8b8b8b;
-    }
-    input:-moz-placeholder, textarea:-moz-placeholder {
-      color: #8b8b8b;
-    }
     
     footer, 
     div#main, 
@@ -155,79 +105,7 @@
     [class^="icon-"], [class*=" icon-"] {
         background-image:none;
     }
-    
-    /* ---------------------------------------------------------------------- */
-    /*  Keep footer down
-    /* ---------------------------------------------------------------------- */
-
-    /* Fill the window but let some space for the footer 
-       this div wraps the entire body segment to calculate page height 
-       and push footer down
-    */
-    
-    .height-wrapper {
-        height: auto !important;
-        height: 100%;
-        margin: 0 auto -38px;
-        min-height: 100%;
-    }
-    
-    .footer, .push {
-        position:relative;
-        height: 37px; /* .push must be the same height as .footer */
-    }
-    
    
-    /* ---------------------------------------------------------------------- */
-    /*  Page content divs
-    /* ---------------------------------------------------------------------- */
-    
-    /* div that engulfs the entire content and aside  */
-    
-    div#main {
-        height: 100%;
-        position: relative;
-    }
-    
-    /* applies the page content div */
-    
-    #page-content {
-        padding: 20px 25px 0;
-        overflow: hidden;
-        height:100%;
-        background:#fff;
-        margin-top:15px;
-        border-radius:10px 0px 0px 10px;
-        -webkit-border-radius: 10px 0px 0px 10px;
-        -moz-border-radius: 10px 0px 0px 10px;
-        background:url('../img/backgrounds/bgnoise.png')
-    }
-    
-    /* ---------------------------------------------------------------------- */
-    /*  Page content header
-    /* ---------------------------------------------------------------------- */
-    
-    div#main #page-header, h1.message-title {
-        display: block;
-        margin: 2px 0 20px;
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 40px;
-        padding-bottom: 10px;
-        border-bottom: 1px dotted transparent;
-        text-transform:capitalize;
-        text-shadow: 0px 1px 0px white;
-        font-size:40px;
-        
-        -webkit-text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
-        -moz-text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
-        text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
-    }
-    
-    #page-header span {
-        float: right;
-        color: #AAA;
-    }
 
    
 
