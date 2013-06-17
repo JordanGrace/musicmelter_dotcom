@@ -1,0 +1,499 @@
+    
+
+    /* ---------------------------------------------------------------------- */
+    /*  CSS base
+    /* ---------------------------------------------------------------------- */
+    
+
+/* Fonts */
+@font-face {
+    font-family: 'cleanhousemedium';
+    src: font-url('cleanhouse-webfont.eot');
+    src: font-url('cleanhouse-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('cleanhouse-webfont.woff') format('woff'),
+         font-url('cleanhouse-webfont.ttf') format('truetype'),
+         font-url('cleanhouse-webfont.svg#cleanhousemedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'crackhouseregular';
+    src: font-url('09938_crackhouse-webfont.eot');
+    src: font-url('09938_crackhouse-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('09938_crackhouse-webfont.woff') format('woff'),
+         font-url('09938_crackhouse-webfont.ttf') format('truetype'),
+         font-url('09938_crackhouse-webfont.svg#crackhouseregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* /Fonts */
+
+    header img {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    *{
+        margin: 0;
+        outline:none !important; /* removes the ugly dotted lines in Firefox and IE */
+    }
+    
+    /* a flash of color when links and buttons are pressed, a nice UI effect for mobile / tablet users */ 
+    a:link, button {
+        -webkit-tap-highlight-color: #e53b2c;
+    }
+    
+    html, body {
+        height: 100%;
+        min-height: 100%;
+        color:#5F5F5F;
+    }
+    body {
+        background: url('../img/backgrounds/mesh.png') #333;
+    }
+    
+    h1, h2, h3, h4, h5, h6, .my-profile span, .number-stats {
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
+    }
+    
+    .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+        font-weight:normal;
+    }
+    
+    body, .jarviswidget > header h2, .fc-header-title h2  {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    a, a.active {
+        color:#333;
+    }
+    a:hover, a:focus {
+        text-decoration:none;
+    }
+    
+    .contained {
+        max-width: 1170px;
+        height: 100%;
+        margin: 0px auto;
+        position: relative;
+    }
+    
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+      color: #8b8b8b;
+    }
+    input:-moz-placeholder, textarea:-moz-placeholder {
+      color: #8b8b8b;
+    }
+    
+    footer, 
+    div#main, 
+    #page-content, 
+    aside, 
+    aside.divider, 
+    div#main #page-header, 
+    .jarviswidget > div, 
+    aside ul.menu, 
+    .alert,
+    .dt-header, 
+    .dt-footer, 
+    .well,
+    .wysihtml5,
+    .wysihtml5-widget,
+    .widget-content-padding,
+    .aside-buttons .btn,
+    .chat-box,
+    .form-signin input[type="text"], 
+    .form-signin input[type="password"],
+    .chat-box textarea,
+    #chat-box-textarea,
+    .toolbar ul.progressbox,
+    .main-search input,
+    .d3-charts,
+    .slashc-sliding-menu,
+    div.slashc-sliding-menu span.tiny-des,
+    div.slashc-sliding-menu span.tiny-sub,
+    div.slashc-sliding-menu h1,
+    .message-control-panel,
+    .bwizard-steps,
+    .inbox-control-panel,
+    .dropdown-menu.toolbar h3   {
+        box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        /*-webkit-box-sizing:border-box; - box-sizing is supported */
+    }
+    
+    /* font adjust */
+    
+    select, 
+    textarea, 
+    input[type="text"], 
+    input[type="password"], 
+    input[type="datetime"], 
+    input[type="datetime-local"], 
+    input[type="date"], 
+    input[type="month"], 
+    input[type="time"], 
+    input[type="week"], 
+    input[type="number"], 
+    input[type="email"], 
+    input[type="url"], 
+    input[type="search"], 
+    input[type="tel"], 
+    input[type="color"], 
+    .uneditable-input {
+        font-size: 12px;
+    }
+
+    
+    /* disable background image from default bootstrap css to allow for 
+       font icons to appear without any glitch 
+    */
+     
+    [class^="icon-"], [class*=" icon-"] {
+        background-image:none;
+    }
+    
+    /* ---------------------------------------------------------------------- */
+    /*  Keep footer down
+    /* ---------------------------------------------------------------------- */
+
+    /* Fill the window but let some space for the footer 
+       this div wraps the entire body segment to calculate page height 
+       and push footer down
+    */
+    
+    .height-wrapper {
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -38px;
+        min-height: 100%;
+    }
+    
+    .footer, .push {
+        position:relative;
+        height: 37px; /* .push must be the same height as .footer */
+    }
+    
+   
+    /* ---------------------------------------------------------------------- */
+    /*  Page content divs
+    /* ---------------------------------------------------------------------- */
+    
+    /* div that engulfs the entire content and aside  */
+    
+    div#main {
+        height: 100%;
+        position: relative;
+    }
+    
+    /* applies the page content div */
+    
+    #page-content {
+        padding: 20px 25px 0;
+        overflow: hidden;
+        height:100%;
+        background:#fff;
+        margin-top:15px;
+        border-radius:10px 0px 0px 10px;
+        -webkit-border-radius: 10px 0px 0px 10px;
+        -moz-border-radius: 10px 0px 0px 10px;
+        background:url('../img/backgrounds/bgnoise.png')
+    }
+    
+    /* ---------------------------------------------------------------------- */
+    /*  Page content header
+    /* ---------------------------------------------------------------------- */
+    
+    div#main #page-header, h1.message-title {
+        display: block;
+        margin: 2px 0 20px;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 40px;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted transparent;
+        text-transform:capitalize;
+        text-shadow: 0px 1px 0px white;
+        font-size:40px;
+        
+        -webkit-text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+        -moz-text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+        text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+    }
+    
+    #page-header span {
+        float: right;
+        color: #AAA;
+    }
+
+   
+
+    /* ---------------------------------------------------------------------- */
+    /*  Adjustments
+    /* ---------------------------------------------------------------------- */
+    
+
+    .dimention {
+        font: normal 960% crackhouseregular;
+        margin: 3% 0;
+        text-align: center;
+        color: #FFF;
+        text-shadow: 0 1px 0 #CCC, 0 2px 0 #C9C9C9, 0 3px 0 #BBB, 0 4px 0 #B9B9B9, 0 5px 0 #AAA, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+    }
+    
+    .error-page #page-content {
+        background:none;
+        text-align:center;
+    }
+
+    /* ---------------------------------------------------------------------- */
+    /*  THanks
+    /*  Tutorial credit: http://24ways.org/2009/css-animations/ 
+    /* ---------------------------------------------------------------------- */
+    
+    .negative .notification-icon {
+        background: url('../img/jarvis/negative_48.png') no-repeat center center rgba(0, 0, 0, 0);
+    }
+    
+    .error-page body, .error-page.animate body {
+        margin:0;
+        overflow: hidden;
+        background:#000;
+    }
+    
+    .error-page .main-search {
+        margin:50px auto;
+        max-width:300px;
+    }
+    
+    .error-page .main-search input {
+        height: 50px;
+        font-size: 20px;
+        padding-left: 39px;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        -webkit-border-radius: 6px;
+        border: 1px solid #ADADAD;
+        color:#ADADAD;
+    }
+    .error-page .main-search input:focus {
+        color:#fff;
+    }
+    .error-page .main-search label {
+        top: 15px;
+        left: 16px;
+        font-size: 20px;
+        color:#ADADAD;
+    }
+    
+    .error-page.animate body {
+        -webkit-animation-name: pulse;
+        -webkit-animation-duration: 30s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+    
+     #page-content p {
+        z-index: -1;
+        position:fixed;
+        top:50%;
+        left:50%;
+    }
+    #page-content h3 {
+        color:#fff;
+                font-family: 'cleanhousemedium';
+
+    }
+    
+    @-webkit-keyframes pulse {
+        from {
+            background: #000;
+        }
+        25% {
+            background-color: #003;
+        }
+        50% {
+            background-color: #030;
+        }
+        to {
+            background: #000;
+        }
+    }
+    
+    .error-page #fog,
+    .error-page #fog-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2000px;
+        height: 2000px;
+        margin-top: -1000px;
+        margin-left: -1000px;
+        opacity: .5;
+        background: image-url("thanks/fog.png") ;
+        background-repeat: repeat-x 0 center;
+        -webkit-animation-name: fogAnimation;
+        -webkit-animation-duration: 30s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+    
+    .error-page #fog-2 {
+        opacity: 1;
+        -webkit-animation-duration: 120s;
+    }
+    
+    @-webkit-keyframes fogAnimation {
+        from {
+            -webkit-transform: rotate(0deg);
+            background-position: 0 center;
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+            background-position: 1000px center;
+        }
+    }
+    
+    .error-page #glow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 800px;
+        height: 800px;
+        margin: -400px 0 0 -400px;
+        background: image-url("thanks/glow.png");
+        background-repeat: repeat-x 0 0;
+        -webkit-animation-name: glowAnimation;
+        -webkit-animation-duration: 5s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+    
+    @-webkit-keyframes glowAnimation {
+        from {
+            opacity: 1;
+        }
+        50% {
+            opacity: .75;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    .error-page #light {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 800px;
+        height: 800px;
+        margin: -400px 0 0 -400px;
+        background: image-url("thanks/light.png");
+        background-repeat: no-repeat center center;
+        -webkit-animation-name: lightAnimation;
+        -webkit-animation-duration: 1s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+    
+    @-webkit-keyframes lightAnimation {
+        from {
+            opacity: .25;
+        }
+        50% {
+            opacity: .5;
+        }
+        to {
+            opacity: .25;
+        }
+    }
+    
+    .error-page #stars,
+    .error-page #stars-2,
+    .error-page #small-stars,
+    .error-page #small-stars-2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 600px;
+        margin: -300px 0 0 -300px;
+        background: image-url("thanks/stars-large.png");
+        background-repeat: no-repeat center center;
+        -webkit-animation-name: starsLarge;
+        -webkit-animation-duration: 60s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+    
+    @-webkit-keyframes starsLarge {
+        from {
+            -webkit-transform: rotate(0deg) scale(3);
+            opacity: .1;
+        }
+        to {
+            -webkit-transform: rotate(360deg) scale(.5);
+            opacity: 0;
+        }
+    }
+    
+    .error-page #stars-2 {
+        -webkit-animation-name: starsLargeAlt;
+        -webkit-animation-duration: 45s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+    }
+    
+    @-webkit-keyframes starsLargeAlt {
+        from {
+            -webkit-transform: rotate(180deg) scale(3);
+            opacity: .25;
+        }
+        to {
+            -webkit-transform: rotate(360deg) scale(.5);
+            opacity: 0;
+        }
+    }
+    
+    .error-page #small-stars,
+    .error-page #small-stars-2 {
+        background: image-url("thanks/stars-small.png");
+        background-repeat: no-repeat center center;
+        -webkit-animation-duration: 15s;
+        -webkit-animation-name: starsSmall;
+    }
+    
+    .error-page #small-stars-2 {
+        -webkit-animation-name: starsSmallAlt;
+        -webkit-animation-duration: 30s;
+    }
+    
+    @-webkit-keyframes starsSmall {
+        from {
+            -webkit-transform: rotate(360deg) scale(3);
+            opacity: .25;
+        }
+        to {
+            -webkit-transform: rotate(0deg) scale(.5);
+            opacity: 0;
+        }
+    }
+    
+    @-webkit-keyframes starsSmallAlt {
+        from {
+            -webkit-transform: rotate(0deg) scale(3);
+            opacity: .1;
+        }
+        to {
+            -webkit-transform: rotate(360deg) scale(.5);
+            opacity: 0;
+        }
+    }
+
+
+    
