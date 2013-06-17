@@ -1,7 +1,7 @@
 <%= form_for(@business_account) do |f| %>
 <legend>Business Registration</legend>
   <% if @business_account.errors.any? %>
-    <div id="error_explanation">
+    <div class="warranty">
       <h2><%= pluralize(@business_account.errors.count, "error") %> </h2>
 
       <ul>
@@ -25,13 +25,10 @@
     <%= f.text_field :email, placeholder: "Email", pattern: "[^ @]*@[^ @]*" %>
   </div>
   <div class="field">
-    <%= f.text_field :phone, placeholder: "Phone", type: "tel" %>
-  </div>
-  <div class="field">
     <%= f.text_field :address, placeholder: "Address" %>
   </div>
   <div class="field">
-    <%= f.text_field :zip, placeholder: "Zip",  maxlength: "5", pattern: "[0-9]*" %>
+    <%= f.text_field :zip, placeholder: "Zip / PostalCode",  maxlength: 7 %>
   </div>
   <div class="field">
     <%= f.text_field :city, placeholder: "City" %>
@@ -43,6 +40,6 @@
     <%= select :business_account, :type, business_types %>
   </div>
   <div class="actions">
-    <%= image_submit_tag "signup/open-up-shop-button.png", class: "centered" %>
+    <%= image_submit_tag "signup/get-started-button.png", class: "centered" %>
   </div>
 <% end %>

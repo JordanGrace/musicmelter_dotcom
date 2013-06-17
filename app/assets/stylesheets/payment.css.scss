@@ -23,12 +23,19 @@
 
         legend {
             font-family: 'crackhouseregular';
-            font-size: 31pt;
+            font-size: 121pt;
             width: auto;
             border: none;
             display: block;
             margin-left: auto;
             margin-right: auto;
+            padding-top: 10pt;
+        }
+
+        .refund {
+            font-size: 12pt;
+            line-height: 13pt;
+            font-family: 'cleanhousemedium';
         }
 
         form 
@@ -55,7 +62,7 @@
         }
         .warranty {
             font-size: 14pt;
-            line-height: 18px;
+            line-height: 16pt;
             font-weight: 300;
             font-family: 'cleanhousemedium';
             padding: 0px 10px 0px 10px;

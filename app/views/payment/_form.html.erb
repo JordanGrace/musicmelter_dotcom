@@ -1,20 +1,15 @@
-<% if @business_account.not_a_customer? %>
-    <p class="warranty">Your first payment will secure a low price for the first year. If you have any questions
-    about the subscription level for your business, <a href="mailto:sales@musicmelter.com?subject=new account registration <%= @business_account.id %>">contact us</a></p>
-<% end %>
-
 
     <% if @business_account.no_payment?  %>
 
         <legend>Price: $600</legend>
         <div class="warranty">
-            <p><span class="attention">You are already registered!</span> However your account is marked as <span class="red">inactive</span> since your payment has not been made. Click <strong>Subscribe</strong> to get rocking!</p>
+            <p><span class="attention">You have registered!</span> However your account is <span class="red">inactive</span> since your payment has not been made. Click <strong>Subscribe</strong> to get rocking!</p>
             <p>
+            <p><a href="/terms/refund" class="refund">Refund Policy</a></p>
 
             <p> 
                 <%= render "payment_stats" %>
                 <span class="help">
-                <i class="icon-large icon-question-sign"></i> <i class="icon-large icon-plus-sign"></i>   
             </span>
             </p>
         </div>

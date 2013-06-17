@@ -60,15 +60,21 @@ end
 
 def business_types 
  [
-  ['What type of Business?', ''],
-  ['Store', 'sto'],
-  ['Tutor', 'tut'],
-  ['WholeSaler', 'wsale'],
-  ['Venue', 'ven'],
-  ['Studio', 'stud'],
-  ['Producer', 'prod'],
-  ['DeeJay', 'dj']
+  ["What type of business?", ""],
+  ["Recording Studio", "recstud"],
+  ["Rehearsal Studio", "rehstud"],
+  ["Mix/Mastering Studio", "mixstud"],
+  ["Show/Concert Venue", "venu"],
+  ["Vocal Coach", "voccoach"],
+  ["Music Instructor", "musins"],
+  ["Music School", "mussch"],
+  ["Wholesaler", "wsale"],
+  ["Producer", "prod"],
+  ["DJ Services", "dj"],
+  ["Other", "other"]
  ]
+
+
 end
 
 end
