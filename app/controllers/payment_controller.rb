@@ -27,15 +27,26 @@ class PaymentController < ApplicationController
           end
 
           unless @business_account.payments.count > 0 
-
               payment = @business_account.payments.new({comment: "signup", status: 'active' })
-              charge = Stripe::Charge.create(
-                :customer    => @business_account.customer_id,
-                :amount      => @amount,
-                :description => "signup",
-                :currency    => 'usd'
-              )
-
+              
+              unless @business_account.coupon_redeem? || @business_account.coupon_code.nil?
+                charge = Stripe::Charge.create(
+                  :customer    => @business_account.customer_id,
+                  :amount      => @amount,
+                  :description => "signup",
+                  :currency    => 'usd',
+                  :coupon      => @business_account.coupon_code
+                )
+                @business_account.coupon_redeem = true
+              else
+                charge = Stripe::Charge.create(
+                  :customer    => @business_account.customer_id,
+                  :amount      => @amount,
+                  :description => "signup",
+                  :currency    => 'usd',
+                  :coupon      => @business_account.coupon_code
+                )
+              end
               payment.complete_payment charge
               
               unless payment.save!
@@ -54,22 +65,6 @@ class PaymentController < ApplicationController
     end
 
     def update
-
-    end
-
-    def discount
-      if params[:coupon].blank?
-          render :file => "#{RAILS_ROOT}/public/404.html",  :status => 404
-      end
-
-      coupons = Stripe::Coupons.all
-
-      coupons.each do |c|
-        unless c.max_redemptions > c.times_redeemed
-          if params[:coupon].downcase == c.id.downcase then
-
-          end
-        end
 
     end
 

@@ -15,6 +15,10 @@ class BusinessAccount
   field :type,            :type => String
   field :customer_id,     :type => String
   field :coupon_code,     :type => String
+  field :coupon_redeem,   :type => Boolean
+  field :stripe_token,    :type => String
+  field :subscription,    :type => String
+  field :last4,           :type => Integer
 
   validates_presence_of :name_first, :name_last, :business, :email
   validates_presence_of :address, :city, :state, :zip, :type
@@ -28,6 +32,56 @@ class BusinessAccount
   #validates_format_of :zip, with: '\b[ABCEGHJKLMNPRSTVXY][0-9][A-Z] [0-9][A-Z][0-9]\b' 
 
   embeds_many :payments
+
+before_save :update_stripe
+
+def update_stripe
+    return if email.include?('@example.com') and not Rails.env.production?
+    if customer_id.nil? && payments.count == 0
+      if !stripe_token.present?
+        raise "Stripe token not present. Can't create account."
+      end
+      if coupon.blank?
+        customer = Stripe::Customer.create(
+          :email => email,
+          :description => name_first,
+          :card => stripe_token,
+          :plan => roles.first.name
+        )
+      else
+        customer = Stripe::Customer.create(
+          :email => email,
+          :description => name,
+          :card => stripe_token,
+          :plan => roles.first.name,
+          :coupon => coupon
+        )
+      end
+    else
+      customer = Stripe::Customer.retrieve(customer_id)
+      if stripe_token.present?
+        customer.card = stripe_token
+      end
+      if stripe.coupon_redeem.false && !coupon_code.nil?
+        customer.coupon = stripe.coupon_code
+      end
+      customer.email = email
+      customer.description = name
+      customer.save
+    end
+    self.last_4_digits = customer.active_card.last4
+    self.customer_id = customer.id
+    self.stripe_token = nil
+  rescue Stripe::StripeError => e
+    logger.error "Stripe Error: " + e.message
+    errors.add :base, "#{e.message}."
+    self.stripe_token = nil
+    false
+  end
+  
+
+
+
 
     def old_payment?
       if self.payments.nil?
