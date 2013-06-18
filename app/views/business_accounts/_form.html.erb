@@ -12,18 +12,23 @@
     </div>
   <% end %>
   <div class="field">
+    <%= label_tag :name_first, "First Name" %>
     <%= f.text_field :name_first, placeholder: "First Name" %>
   </div>
   <div class="field">
+        <%= label_tag :last_name, "Last Name" %>
     <%= f.text_field :name_last, placeholder: "Last Name" %>
   </div>
   <div class="field">
+        <%= label_tag :business %>
     <%= f.text_field :business, placeholder: "Business Name" %>
   </div>
   <div class="field">
+    <%= label_tag :email %>
     <%= f.text_field :email, placeholder: "Email", pattern: "[^ @]*@[^ @]*" %>
   </div>
   <div class="field">
+    <%= label_tag :business_account, "Type of business" %>
     <%= select :business_account, :type, business_types %>
   </div>
   <div class="countryselector row">

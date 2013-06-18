@@ -10,10 +10,12 @@ class BusinessAccount
   #field :phone,          :type => String
   field :address,         :type => String
   field :city,            :type => String
-  field :state,           :type => String
-  field :zip,             :type => String
   field :type,            :type => String
 
+  #US Fields
+  field :state,           :type => String
+  field :zip,             :type => String
+  
   #Canadian Fields
   field :province,        :type => String
   field :postal,          :type => String
@@ -26,8 +28,8 @@ class BusinessAccount
   field :subscription,    :type => String
   field :last4,           :type => Integer
 
-  validates_presence_of :name_first, :name_last, :business, :email
-  validates_presence_of :address, :city, :state, :zip, :type
+  validates_presence_of :name_first, :name_last, :business, :email, :type
+  #validates_presence_of :address, :city, :state, :zip, 
 
   attr_accessor :valid_types, :discount_amount, :stripe_token
   @valid_types = ["Recording Studio", "Rehearsal Studio", "Mix/Mastering Studio",

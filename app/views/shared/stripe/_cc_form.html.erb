@@ -1,9 +1,6 @@
 
  
- <div class="field">
-    <%= f.label :email %>
-    <%= text_field_tag :email, nil, name: nil, value: @business_account.email %>
-  </div>  
+ 
   <div class="field">
       <%= label_tag :card_number, "Credit Card Number " %>
       <%= text_field_tag :card_number, nil, name: nil %>
@@ -22,11 +19,11 @@
       <%= label_tag :discount, "Have A Discount Code?" %>
       <%= check_box_tag("show_coupon") %>
     </div>
+    <div id="coupon" class="hide">
+      <%= label_tag :coupon_code, "Discount Code" %>
+        <%= f.text_field :coupon_code, placeholder: "Secret Code" %>
+     </div>
   <% end %>
   <%= f.hidden_field :stripe_token %>
   <%= f.hidden_field :amount %>
   <div class="actions"><%= image_submit_tag "signup/get-started-button.png",  class: "centered" %></div>
-
-
-
-   

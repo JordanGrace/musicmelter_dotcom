@@ -29,3 +29,33 @@
 
 
 
+jQuery ->
+    subscription.setupForm()
+    $('#show_coupon').click ->
+        $('#coupon').toggle()
+subscription =
+    setupForm: ->
+        $('#new_business_account').submit ->
+            $('input[type=submit]').attr('disabled', true)
+            if $('#card_number').length == 0
+                $('#new_business_account')[0].submit()
+            subscription.processCard()
+            return false;
+
+    processCard: ->
+        card =
+            number: $('#card_number').val()
+            cv: $('#card_code').val()
+            expMonth: $('#card_month').val()
+            expYear: $('#card_year').val()
+        Stripe.createToken(card, subscription.handleStripeResponse)
+
+    handleStripeResponse: (status, response) ->
+        $form = $('#new_business_account')
+
+        if status == 200
+            $('#payment_stripe_token').val(response.id)
+            $('#new_payment')[0].submit()
+        else
+            $('#stripe_error').text(response.error.message)
+            $('input[type=submit]').attr('disabled', false)
