@@ -20,6 +20,7 @@ class BusinessAccountsController < ApplicationController
   # GET /business_accounts/new.json
   def new
     @business_account = BusinessAccount.new
+    @payment = @business_account.payments.new({amount: 0})
       respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @business_account }

@@ -1,5 +1,5 @@
 
- <%= form_for @payment, :url => business_account_payment_index_path do |f| %>
+ 
  <div class="field">
     <%= f.label :email %>
     <%= text_field_tag :email, nil, name: nil, value: @business_account.email %>
@@ -25,14 +25,8 @@
   <% end %>
   <%= f.hidden_field :stripe_token %>
   <%= f.hidden_field :amount %>
-  <div class="actions"><%= image_submit_tag "signup/subscribe.png",  class: "centered" %></div>
-
-  <% end %>
+  <div class="actions"><%= image_submit_tag "signup/get-started-button.png",  class: "centered" %></div>
 
 
-    <div id="coupon" class="hide">
-        <%= form_for @business_account, :url => "/business_accounts/#{@business_account.id}", :method => :put do |f| %>
-            <%= f.text_field :coupon_code, placeholder: "Secret Code" %>
-            <%= image_submit_tag "signup/redeem-code-button.png", class: "centered" %>
-        <% end %>
-     </div>
+
+   

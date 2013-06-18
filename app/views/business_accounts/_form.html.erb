@@ -24,12 +24,6 @@
     <%= f.text_field :email, placeholder: "Email", pattern: "[^ @]*@[^ @]*" %>
   </div>
   <div class="field">
-    <%= f.text_field :address, placeholder: "Address" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :city, placeholder: "City" %>
-  </div>
-  <div class="field">
     <%= select :business_account, :type, business_types %>
   </div>
   <div class="countryselector row">
@@ -48,16 +42,19 @@
   </div>
   <div class="hide us_fields">
     <div class="field">
-      <%= f.text_field :zip, placeholder: "Zip / PostalCode",  maxlength: 5 %>
+      <%= f.text_field :zip, placeholder: "Zip",  maxlength: 5 %>
     </div>
     <div class="field">
       <%= select :business_account, :state, us_states %>
     </div>
   </div>
-  <div class="actions">
-    <%= image_submit_tag "signup/get-started-button.png", class: "centered" %>
-  </div>
+
+  <%= f.fields_for :payment do |q|  %>
+      <%= render "shared/stripe/cc_form",:f => q %>    
+    <% end %>
 <% end %>
+
+
 
 <script type="text/javascript">
   function show_us(){
