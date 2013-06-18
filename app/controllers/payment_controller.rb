@@ -31,7 +31,7 @@ class PaymentController < ApplicationController
         payment.save
         @business_account.payments.push(payment)
 
-        
+        redirect_to "/thankyou"
 
         rescue => e
           flash[:error] = e.message
