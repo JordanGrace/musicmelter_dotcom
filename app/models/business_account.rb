@@ -13,6 +13,13 @@ class BusinessAccount
   field :state,           :type => String
   field :zip,             :type => String
   field :type,            :type => String
+
+  #Canadian Fields
+  field :province,        :type => String
+  field :postal,          :type => String
+
+
+  #Payment Info
   field :customer_id,     :type => String
   field :coupon_code,     :type => String
   field :coupon_redeem,   :type => Boolean
