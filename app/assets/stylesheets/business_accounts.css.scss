@@ -19,6 +19,10 @@
         border-radius: 15px;
     }
     
+    a {
+        font-size: 15pt;
+    }
+
     .formbox {
 
         legend {
@@ -54,6 +58,18 @@
             margin-right: auto;            
         }
 
+        #card_month {
+            width: 90%;
+        }
+
+        #card_year {
+            width: 90%;
+        }
+
+        .terms {
+            font-size: 18pt;
+        }
+
         .warranty {
             font-size: 14pt;
             line-height: 18px;
@@ -74,11 +90,7 @@
           
         }
 
-        form.countryselector {
-            img {
-                    height: 800px;
-                }
-        }
+        
 
     }
 }

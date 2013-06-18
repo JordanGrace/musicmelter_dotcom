@@ -2,33 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-# jQuery ->
-#     account.setupForm()
-
-# account =
-#     setupForm: ->
-#         form = $('#new_business_account');
-#         $('#new_business_account').submit ->
-#             account.processForm()
-#             false
-
-#     processForm: ->
-#         form = $('#new_business_account')
-#         required_field_names = ['name_first', 'name_last', 'business',
-#                             'email', 'phone', 'address','zip','city','state','type']
-            
-#         required_fields = (form.elements[name] for name in required_field_names)
-
-#         errors = []
-#         for field in required_fields
-#           if field.value == ''
-#             errors.push field_name
-
-#         console.log(form)
-#         alert ('existing processForm')
-
-
-
 jQuery ->
     subscription.setupForm()
     $('#show_coupon').click ->
@@ -37,12 +10,11 @@ subscription =
     setupForm: ->
         $('#new_business_account').submit ->
             $('input[type=submit]').attr('disabled', true)
-            if $('#card_number').length == 0
-                $('#new_business_account')[0].submit()
             subscription.processCard()
-            return false;
+            return false
 
     processCard: ->
+        alert('hi from process card')
         card =
             number: $('#card_number').val()
             cv: $('#card_code').val()
@@ -51,6 +23,7 @@ subscription =
         Stripe.createToken(card, subscription.handleStripeResponse)
 
     handleStripeResponse: (status, response) ->
+        alert('hi from handle response')
         $form = $('#new_business_account')
 
         if status == 200

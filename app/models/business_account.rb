@@ -41,6 +41,7 @@ class BusinessAccount
 
   embeds_many :payments
 
+  before_save :update_stripe
 
 
   def valid_coupon?

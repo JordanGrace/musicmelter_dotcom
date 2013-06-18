@@ -51,12 +51,35 @@
     </div>
     <div class="field">
       <%= select :business_account, :state, us_states %>
+      <%= f.hidden_field :stripe_token %>
     </div>
   </div>
-
+<legend>Price: $600</legend>
+  <div id="stripe_error"></div>
   <%= f.fields_for :payment do |q|  %>
-      <%= render "shared/stripe/cc_form",:f => q %>    
-    <% end %>
+    <div class="field">
+    <%= label_tag :card_number, "Credit Card Number " %>
+    <%= text_field_tag :card_number, nil, name: nil %>
+    </div>
+    <div class="field">
+        <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+        <%= text_field_tag :card_code, nil, name: nil %>
+    </div>
+    <div class="field row-fluid">
+      <%= label_tag :card_month, "Card Expiration" %>
+      <div class="offset1 span5"><%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%></div>
+      <div class="span5"><%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%></div>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= label_tag :discount, "Have A Discount Code?" %>
+      <%= check_box_tag("show_coupon") %>
+    </div>
+    <div id="coupon" class="hide">
+      <%= label_tag :coupon_code, "Discount Code" %>
+        <%= text_field :coupon_code, placeholder: "Secret Code" %>
+     </div>
+    <div class="actions"><%= image_submit_tag "signup/get-started-button.png",  class: "centered" %></div>
 <% end %>
 
 
@@ -70,5 +93,8 @@
     $('.ca_fields').show();
     $('.us_fields').hide();
   }
+  $('#show_coupon').click(function(){
+        $('#coupon').toggle() 
+      });
   </script>
 

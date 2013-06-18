@@ -9,21 +9,8 @@
       <%= label_tag :card_code, "Security Code on Card (CVV)" %>
       <%= text_field_tag :card_code, nil, name: nil %>
   </div>
-  <div class="field">
+  <div class="field card-select">
     <%= label_tag :card_month, "Card Expiration" %>
     <%= select_month nil, {add_month_numbers_true: true}, {name: nil, id: "card_month"}%>
     <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
   </div>
-  <% unless @business_account.valid_coupon? %>
-    <div class="field">
-      <%= label_tag :discount, "Have A Discount Code?" %>
-      <%= check_box_tag("show_coupon") %>
-    </div>
-    <div id="coupon" class="hide">
-      <%= label_tag :coupon_code, "Discount Code" %>
-        <%= f.text_field :coupon_code, placeholder: "Secret Code" %>
-     </div>
-  <% end %>
-  <%= f.hidden_field :stripe_token %>
-  <%= f.hidden_field :amount %>
-  <div class="actions"><%= image_submit_tag "signup/get-started-button.png",  class: "centered" %></div>

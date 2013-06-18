@@ -1,6 +1,6 @@
 
     <% if @business_account.no_payment?  %>
-        <legend>Price: $<%= @business_account.valid_coupon? ? @payment.amount - @business_account.discount_amount : @payment.amount  %></legend>
+        <legend>Price: $600</legend>
         <div class="warranty">
             <p><span class="attention">You have registered!</span> However your account is <span class="red">inactive</span> since your payment has not been made. Click <strong>Subscribe</strong> to get rocking!</p>
             <p>
