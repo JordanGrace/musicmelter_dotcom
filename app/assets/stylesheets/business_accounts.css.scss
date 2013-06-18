@@ -46,9 +46,9 @@
             height: auto;
         }
 
-        select {
+        form select {
             height: 30px;
-            width: 80%;
+            width: 85%;
             display: block;
             margin-left: auto;
             margin-right: auto;            
@@ -72,6 +72,12 @@
                 margin-top: 5px;
             }
           
+        }
+
+        form.countryselector {
+            img {
+                    height: 800px;
+                }
         }
 
     }
