@@ -33,7 +33,8 @@ describe BusinessAccountsController do
                             "state" => "tx",
                             "zip" => "55555",
                             "type" => "test",
-                            "business" => "Acme testing co"
+                            "business" => "Acme testing co",
+                            "country" => "US"
                          }
                        }
 
@@ -94,8 +95,8 @@ describe BusinessAccountsController do
       end
 
       it "redirects to the created business_account" do
-        #post :create, {:business_account => valid_attributes}, valid_session
-        #response.should redirect_to(BusinessAccount.last)
+        post :create, {:business_account => valid_attributes}, valid_session
+        response.should redirect_to(thankyou_url)
       end
     end
 
@@ -134,7 +135,7 @@ describe BusinessAccountsController do
         assigns(:business_account).should eq(business_account)
       end
 
-      it "redirects to the business_account" do
+      it "redirects to the thank you page" do
         business_account = BusinessAccount.create! valid_attributes
         put :update, {:id => business_account.to_param, :business_account => valid_attributes}, valid_session
         response.should redirect_to(business_account)
