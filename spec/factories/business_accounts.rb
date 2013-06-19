@@ -11,6 +11,7 @@ FactoryGirl.define do
         state       { Faker::Address.state_abbr }
         zip         { Faker::Address.zip }
         type        { ['Tutor', 'Store', 'Instructor', 'Venue', 'Third Party'].sample }
+        country     { Faker::Address.country }
   end
 
 end
