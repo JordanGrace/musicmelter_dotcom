@@ -11,6 +11,7 @@ class BusinessAccount
   field :address,         :type => String
   field :city,            :type => String
   field :type,            :type => String
+  field :country,         :type => String
 
   #US Fields
   field :state,           :type => String
@@ -28,10 +29,12 @@ class BusinessAccount
   field :subscription,    :type => String
   field :last4,           :type => Integer
 
-  validates_presence_of :name_first, :name_last, :business, :email, :type
+  validates_presence_of :name_first, :name_last, :business, :email, :country
   #validates_presence_of :address, :city, :state, :zip, 
 
   attr_accessor :valid_types, :discount_amount, :stripe_token
+  
+  #Validator(?) Doesnt seem intuitive.
   @valid_types = ["Recording Studio", "Rehearsal Studio", "Mix/Mastering Studio",
                    "Show/Concert Venue", "Vocal Coach", "Music Instructor", 
                    "Music School", "Wholesaler", "Producer", "DJ Services", "Other"]

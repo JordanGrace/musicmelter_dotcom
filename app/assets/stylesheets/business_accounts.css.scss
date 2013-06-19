@@ -90,6 +90,22 @@
           
         }
 
+        .user_error li{
+                font-size: 18pt;
+                line-height: 20px;
+                font-weight: 300;
+                font-family: 'cleanhousemedium';
+                padding: 0px -1px 0px 30px;
+                list-style-type: none;
+                color: red;
+            }
+
+        #stripe_error li{
+            font-size: 22pt;
+            line-height: 24pt;
+            list-style-type: none;
+        }
+
         
 
     }

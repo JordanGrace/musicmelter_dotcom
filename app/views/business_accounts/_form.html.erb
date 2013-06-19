@@ -11,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+  <ul class="user_error"></ul>
   <div class="field">
     <%= label_tag :name_first, "First Name" %>
     <%= f.text_field :name_first, placeholder: "First Name" %>
@@ -35,6 +36,7 @@
     <div width="100%" class="centered">
       <%= image_tag 'signup/america.png', onclick: "show_us()" %> 
       <%= image_tag 'signup/canada.png', onclick: "show_ca()" %>
+      <%= f.hidden_field :country %>
     </div>
   </div>
    <div class="hide ca_fields">
@@ -55,7 +57,7 @@
     </div>
   </div>
 <legend>Price: $600</legend>
-  <div id="stripe_error"></div>
+  <div><ul id="stripe_error"></ul></div>
   <%= f.fields_for :payment do |q|  %>
     <div class="field">
     <%= label_tag :card_number, "Credit Card Number " %>
@@ -88,13 +90,12 @@
   function show_us(){
     $('.ca_fields').hide();
     $('.us_fields').show();
+    $('#business_account_country').val('US')
   }
   function show_ca(){
     $('.ca_fields').show();
     $('.us_fields').hide();
+    $('#business_account_country').val('CA') 
   }
-  $('#show_coupon').click(function(){
-        $('#coupon').toggle() 
-      });
   </script>
 

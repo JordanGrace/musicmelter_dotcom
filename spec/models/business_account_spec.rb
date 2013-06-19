@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe BusinessAccount do
 
-    it "Has a valid factory" do
-        business = FactoryGirl.build(:business_account)
-        expect(business).to be_valid
+    it "Has a valid factory" do   
+        expect(FactoryGirl.build :business_account ).to be_valid
     end 
 
     it "Contains no payment" do
