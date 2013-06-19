@@ -43,6 +43,8 @@ class BusinessAccount
   #validates_format_of :zip, with: '\b[ABCEGHJKLMNPRSTVXY][0-9][A-Z] [0-9][A-Z][0-9]\b' 
 
   embeds_many :payments
+  accepts_nested_attributes_for :payments
+
 
   before_save :update_stripe
 

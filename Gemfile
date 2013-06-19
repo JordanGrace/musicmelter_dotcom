@@ -10,6 +10,10 @@ gem 'mongoid-history', '~> 0.3.3'
 gem 'newrelic_rpm'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+
+#admin
+gem 'rails_admin'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -35,3 +39,6 @@ group :development, :test do
     gem 'faker'
     gem 'debugger'
 end
+
+
+gem "devise"
