@@ -47,17 +47,6 @@ class BusinessAccount
   before_save :update_stripe
 
 
-  def valid_coupon?
-    return if coupon_redeem 
-    coupon =  Stripe::Coupon.retrieve(coupon_code)
-    #all amounts are in denomination of pennies
-    self.discount_amount = coupon.amount_off / 100    
-    coupon.max_redemptions >= coupon.times_redeemed
-    rescue Stripe::StripeError => e
-      logger.error "Stripe Error: " + e.message
-      false
-  end
-
   def update_stripe
     #return if email.include?('@test.com') #and not Rails.env.production?
       if customer_id.blank? && stripe_token.present?

@@ -3,6 +3,9 @@ jQuery ->
         $('#coupon').toggle()
     subscription.setupForm()
 
+#If you're looking for the show_us and show_ca methods - they are at the bottom
+# of the form in views/business_accounts/_form.html.erb
+
 # Stripe card prevalidation routine
 subscription =
     setupForm: ->
