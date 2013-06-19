@@ -41,29 +41,36 @@ subscription =
         bio = subscription.checkCard()
         return card == 0 && bio == 0
     checkBio: ->
-        formErrors = []
+        formErrors = 0
         if $('#business_account_name_first').val().length < 1
-            formErrors.push("First Name can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=name_first]', 'First Name')
+            formErrors += 1
         if $('#business_account_name_last').val().length < 1
-            formErrors.push("Last Name can't be blank")
+            subscription.displayErrors( " can't be blank", 'label[for=last_name]', 'Last Name')
+            formErrors += 1
         if $('#business_account_business').val().length < 1
-            formErrors.push("Business Name can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=business]', 'Business')
+            formErrors += 1
         if $('#business_account_email').val().length < 1
-            formErrors.push("Email can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=email]', 'Email')
+            formErrors += 1
         if $('#business_account_country').val().length < 1
-            formErrors.push("Country can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=country]', 'Country')
+            formErrors += 1
         if $('#business_account_country').val() == "US" && $('#business_account_zip').val().length < 5
-            formErrors.push("Zip Code can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=zip]', 'Zip')
+            formErrors += 1
         if $('#business_account_country').val() == "US" && $('#business_account_state').val().length == 0
-            formErrors.push("State can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=state]', 'State')
+            formErrors += 1
         if $('#business_account_country').val() == "CA" && $('#business_account_postal').val().length < 5
-            formErrors.push("Postal Code can't be blank")
+            subscription.displayErrors(" can't be blank", 'label[for=postal]', 'Postal Code')
+            formErrors += 1
         if $('#business_account_country').val() == "CA" && $('#business_account_province').val().length < 5
-            formErrors.push("Province can't be blank")
-        if formErrors.length > 0
-            subscription.displayErrors(formErrors, '.user_error')
+            subscription.displayErrors(" can't be blank", 'label[for=province]', 'Province')
         return formErrors.count
     checkCard: ->
+        $('#stripe_error').empty()
         formErrors = []
         d = new Date()
         month = parseInt($('#card_month').val())
@@ -77,12 +84,17 @@ subscription =
         if $('input[type=checkbox]:checked').length > 0 && $('#business_account_coupon_code').val() == ""
             formErrors.push ('Missing Discount Code')
         if formErrors.length > 0
-            subscription.displayErrors(formErrors, '#stripe_error')
+            subscription.displayErrors(formErrors, '#stripe_error', '')
 
         return formErrors.count
-    displayErrors: (formErrors, region) ->
-        for error in formErrors
-            do(error) ->
-                $(region).append('<li>' + error + '</li>')
+    displayErrors: (error, region, replacement) ->
+        if replacement == 0
+            for error in error
+                do (error) ->
+                    $(region).append('<li class="red">' + error + '</li>')
+        else
+        $(region).empty().append('<small>' + error + '</small>')
         false
-
+    displayErrors: (error, region, replacement) ->
+        $(region).empty().append(replacement + error)
+        false

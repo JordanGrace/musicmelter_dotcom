@@ -35,31 +35,35 @@
     <%= label_tag :business_account, "Type of business" %>
     <%= select :business_account, :type, business_types %>
   </div>
-  <div class="countryselector row">
-    <div width="100%" class="centered">
+    <div class="field">
+      <%= label_tag :country %>
       <%= image_tag 'signup/america.png', onclick: "show_us()" %> 
       <%= image_tag 'signup/canada.png', onclick: "show_ca()" %>
       <%= f.hidden_field :country %>
-    </div>
   </div>
    <div class="hide ca_fields">
     <div class="field">
+      <%= label_tag :postal, "Postal Code" %>
       <%= f.text_field :postal, placeholder: "PostalCode",  maxlength: 7 %>
     </div>
     <div class="field">
+      <%= label_tag :province %>
       <%= select :business_account, :province, canadian_provinces %>
     </div>
   </div>
   <div class="hide us_fields">
     <div class="field">
+      <%= label_tag :zip %>
       <%= f.text_field :zip, placeholder: "Zip",  maxlength: 5 %>
     </div>
     <div class="field">
+      <%= label_tag :state %>
       <%= select :business_account, :state, us_states %>
       <%= f.hidden_field :stripe_token %>
     </div>
   </div>
 <legend>Price: $600</legend>
+  <h4>Limited Time Offer: One Full Year!!!</h4>
   <div><ul id="stripe_error"></ul></div>
   <%= f.fields_for :payment do |q|  %>
     <div class="field">

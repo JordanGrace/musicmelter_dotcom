@@ -22,7 +22,9 @@
     a {
         font-size: 15pt;
     }
-
+    .red {
+       color: red;
+    }
     .formbox {
 
         legend {
@@ -33,6 +35,11 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        h4 {
+            text-align: center;
+            padding-bottom: 15px;
         }
 
         form 
@@ -57,7 +64,9 @@
             margin-left: auto;
             margin-right: auto;            
         }
-
+        img {
+            padding-left: 20px;
+        }
         #card_month {
             width: 90%;
         }
@@ -80,9 +89,6 @@
                 color: green;
                 text-decoration: italic;
                 font-weight: strong;
-            }
-            .red {
-                color: red;
             }
             i {
                 margin-top: 5px;
