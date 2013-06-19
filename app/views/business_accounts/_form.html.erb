@@ -11,7 +11,10 @@
       </ul>
     </div>
   <% end %>
+  <div class="warranty">
+  <h2 class="error_count"></h2>
   <ul class="user_error"></ul>
+  </div> 
   <div class="field">
     <%= label_tag :name_first, "First Name" %>
     <%= f.text_field :name_first, placeholder: "First Name" %>
@@ -79,7 +82,7 @@
     </div>
     <div id="coupon" class="hide">
       <%= label_tag :coupon_code, "Discount Code" %>
-        <%= text_field :coupon_code, placeholder: "Secret Code" %>
+        <%= f.text_field :coupon_code, placeholder: "Secret Code" %>
      </div>
     <div class="actions"><%= image_submit_tag "signup/get-started-button.png",  class: "centered" %></div>
 <% end %>

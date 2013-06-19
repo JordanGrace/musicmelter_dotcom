@@ -49,8 +49,14 @@ subscription =
             formErrors.push("Email can't be blank")
         if $('#business_account_country').val().length < 1
             formErrors.push("Country can't be blank")
-        if $('#business_account_country').val() == "CA" && $('#business_account_postal').val().length() < 5
+        if $('#business_account_country').val() == "US" && $('#business_account_zip').val().length < 5
+            formErrors.push("Zip Code can't be blank")
+        if $('#business_account_country').val() == "US" && $('#business_account_state').val().length == 0
+            formErrors.push("State can't be blank")
+        if $('#business_account_country').val() == "CA" && $('#business_account_postal').val().length < 5
             formErrors.push("Postal Code can't be blank")
+        if $('#business_account_country').val() == "CA" && $('#business_account_province').val().length < 5
+            formErrors.push("Province can't be blank")
         if formErrors.length > 0
             subscription.displayErrors(formErrors, '.user_error')
         return formErrors.count
@@ -65,8 +71,11 @@ subscription =
             formErrors.push ('Missing CV Code')
         if month <= d.getMonth() && year == d.getFullYear()
             formErrors.push ('Card Expired')
+        if $('input[type=checkbox]:checked').length > 0 && $('#business_account_coupon_code').val() == ""
+            formErrors.push ('Missing Discount Code')
         if formErrors.length > 0
-            subscription.displayErrors(formErrors, '#stripe_errors')
+            subscription.displayErrors(formErrors, '#stripe_error')
+
         return formErrors.count
     displayErrors: (formErrors, region) ->
         for error in formErrors
