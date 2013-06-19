@@ -30,8 +30,6 @@ describe CouponCode do
             end
 
             it "Validates Itself" do
-                p coupon.expired?
-                p coupon.redeemed?
                 expect(coupon.check).to be_true
             end
         end
