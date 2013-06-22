@@ -35,7 +35,7 @@ group :development, :test do
     gem 'terminal-notifier-guard'
     gem 'guard-rspec'
     gem 'capybara'
-    gem 'capybara-webkit'
+    gem 'capybara-webkit', :git => 'https://github.com/thoughtbot/capybara-webkit.git'
     gem 'selenium-webdriver'
     gem 'launchy'
     gem 'factory_girl_rails'

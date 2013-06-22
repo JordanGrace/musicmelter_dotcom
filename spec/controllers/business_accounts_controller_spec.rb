@@ -20,7 +20,7 @@ require 'spec_helper'
 
 describe BusinessAccountsController do
   before(:each) do
-    @customer_response = File.open('spec/fixtures/stripe_customer_response').read
+    @customer_response = File.open('spec/fixtures/stripe_customer_response.json').read
     
     stub_request(:post, "https://api.stripe.com/v1/customers").
       with(:body => {"card"=>"tok_111111111", "description"=>"MyString MyString", "email"=>"test@test.com"},
