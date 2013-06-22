@@ -32,4 +32,6 @@ Musicmelter::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  ENV['stripe_key'] = 'sk_test_WQ62JCppYxctpsEiH0GBvfN6'
 end
