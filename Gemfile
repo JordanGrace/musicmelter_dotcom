@@ -31,15 +31,21 @@ end
 group :development, :test do
     gem 'rspec'
     gem 'rspec-rails'
-    gem 'webmock'
     gem 'guard'
     gem 'terminal-notifier-guard'
     gem 'guard-rspec'
     gem 'capybara'
+    gem 'capybara-webkit'
+    gem 'selenium-webdriver'
+    gem 'launchy'
     gem 'factory_girl_rails'
     gem 'faker'
     gem 'debugger'
 end
 
+group :test do
+    gem 'webmock'
+    gem 'capybara-screenshot'
+end
 
 gem "devise"
