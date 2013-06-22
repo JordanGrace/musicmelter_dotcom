@@ -8,14 +8,16 @@
     <meta name="author" content="Groovy Object LLC">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
     <%= render "shared/google_analytics" %>
     <script type="text/javascript">
-    Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
-  </script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+      Stripe.setPublishableKey('<%= Rails.configuration.stripe[:publishable_key] %>');
+    </script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
     <header>

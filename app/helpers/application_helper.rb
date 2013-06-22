@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def countries
+    [
+        ['Country', ''],
+        ['Canada', 'CA'],
+        ['United States', 'US']
+    ]
+    end
+
   def canadian_provinces
       [
         ['Select a Province', ''],

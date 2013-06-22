@@ -64,7 +64,6 @@ class BusinessAccount
     #todo: uncomment when ready to deploy
     #return if email.include?('@test.com') #and not Rails.env.production?
     if not_a_customer?
-      logger.info("Creating stripe customer: #{email}")
       self.customer_id = create_stripe_customer
     end
   end
@@ -77,7 +76,7 @@ class BusinessAccount
   # example usage: @business_account.purchase(600, "test purchase", "tok_121212121", "CheapSkate")
   def purchase(amount, description, payment_id, coupon_code = self.coupon_code)
    raise "No Payment Method" if self.customer_id.blank? && self.stripe_token.blank?
-  
+    self.save
     coupon = CouponCode.find_by_code(coupon_code)
     unless coupon.blank?
       amount = process_coupon(coupon.last, amount)
@@ -91,6 +90,7 @@ class BusinessAccount
 
   private  
   def create_stripe_customer
+    raise "No Payment Information" if stripe_token.blank?
     info = { 
       email: email, 
       description: name_first << " " << name_last, 
