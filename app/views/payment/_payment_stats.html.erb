@@ -1,4 +1,0 @@
-    <p><i class="icon-envelope"></i>  Email: <%= @business_account.email %></p>
-    <p><i class="icon-ok"></i>Activated: <%= @business_account.created_at.to_s %></li></p>
-    <p><i class="<%= @business_account.no_payment? ? "icon-remove" : "icon-ok" %>"></i>    
-    Charges on file: <span class="<%= @business_account.no_payment? ? "red" : "green" %>"><%= @business_account.payments.count %></span></p>
