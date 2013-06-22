@@ -12,6 +12,7 @@ FactoryGirl.define do
         zip         { Faker::Address.zip }
         type        { ['Tutor', 'Store', 'Instructor', 'Venue', 'Third Party'].sample }
         country     { Faker::Address.country }
+        stripe_token { 'tok_111111111'}
   end
 
 end

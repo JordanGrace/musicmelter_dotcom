@@ -1,4 +1,5 @@
 class BusinessAccountsController < ApplicationController
+  layout "layouts/stripe"
   # GET /business_accounts
   # GET /business_accounts.json
   def index
@@ -19,6 +20,7 @@ class BusinessAccountsController < ApplicationController
   # GET /business_accounts/new
   # GET /business_accounts/new.json
   def new
+    puts "In new controller"
     @business_account = BusinessAccount.new
     @payment = @business_account.payments.new({amount: 0})
       respond_to do |format|
@@ -36,6 +38,9 @@ class BusinessAccountsController < ApplicationController
   # # POST /business_accounts.json
   def create
     @business_account = BusinessAccount.new(params[:business_account])
+
+    puts params[:business_account][:stripe_token]
+    @business_account.stripe_token = params[:business_account][:stripe_token]
 
     respond_to do |format|
       if @business_account.save
