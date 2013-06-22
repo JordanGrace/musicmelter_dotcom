@@ -31,6 +31,7 @@ end
 group :development, :test do
     gem 'rspec'
     gem 'rspec-rails'
+    gem 'webmock'
     gem 'guard'
     gem 'terminal-notifier-guard'
     gem 'guard-rspec'
