@@ -24,7 +24,6 @@ class BusinessAccountsController < ApplicationController
   # GET /business_accounts/new.json
   def new
     @business_account = BusinessAccount.new
-    @payment = @business_account.payments.new({amount: 0})
       respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @business_account }
@@ -47,7 +46,7 @@ class BusinessAccountsController < ApplicationController
 
     respond_to do |format|
       if @business_account.save
-         @business_account.purchase(600, "Business Registration", @business_account.stripe_token)
+         @business_account.purchase(600, "Business Registration", @business_account.customer_id)
         format.html { redirect_to "/thankyou", notice: 'Business account was successfully created.' }
         format.json { render json: @business_account, status: :created, location: @business_account }
       else

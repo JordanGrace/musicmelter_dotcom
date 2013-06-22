@@ -37,7 +37,7 @@
   </div>
     <div class="field">
       <%= label_tag :country, "Country" %>
-      <%= select :business_account, :country, countries %>
+      <%= f.select  :country, countries, :selected => @business_account.country %>
   </div>
    <div class="hide ca_fields">
     <div class="field">
@@ -70,9 +70,7 @@
      </div>
   <div><ul id="stripe_error"></ul></div>
   <div class="payments">
-  <% if @business_account.stripe_token.blank? %>
     <a class="btn btn-primary" id="credit">Credit Card</a>
-  <% end %>
     <a class="btn btn-primary btn-inline" id="paypal">PayPal</a>
     </div>
 <% end %>
