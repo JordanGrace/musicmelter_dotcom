@@ -21,11 +21,17 @@ require 'spec_helper'
 describe BusinessAccountsController do
   before(:each) do
     @customer_response = File.open('spec/fixtures/stripe_customer_response.json').read
-    
+    @charge_response = File.open('spec/fixtures/stripe_charge_response_success.json').read
+    stub_request(:post, "https://api.stripe.com/v1/charges").
+         with(:body => {"amount"=>"600", "currency"=>"usd", "customer"=>"tok_111111111", "description"=>"Business Registration"},
+              :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'82', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
+         to_return(:status => 200, :body => @charge_response, :headers => {})
     stub_request(:post, "https://api.stripe.com/v1/customers").
       with(:body => {"card"=>"tok_111111111", "description"=>"MyString MyString", "email"=>"test@test.com"},
         :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'72', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
       to_return(:status => 200, :body => @customer_response , :headers => {})
+
+
 
   end
   # This should return the minimal set of attributes required to create a valid

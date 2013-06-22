@@ -40,16 +40,14 @@ class BusinessAccountsController < ApplicationController
   # # POST /business_accounts.json
   def create 
     @business_account = BusinessAccount.new(params[:business_account])
-    p @business_account.inspect
     if @business_account.stripe_token.blank?
       render action: "new"
       return
     end
 
-    @business_account.purchase(600, "Business Registration", @business_account.stripe_token)
-
     respond_to do |format|
       if @business_account.save
+         @business_account.purchase(600, "Business Registration", @business_account.stripe_token)
         format.html { redirect_to "/thankyou", notice: 'Business account was successfully created.' }
         format.json { render json: @business_account, status: :created, location: @business_account }
       else

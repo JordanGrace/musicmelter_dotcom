@@ -76,7 +76,7 @@ class BusinessAccount
   # example usage: @business_account.purchase(600, "test purchase", "tok_121212121", "CheapSkate")
   def purchase(amount, description, payment_id, coupon_code = self.coupon_code)
    raise "No Payment Method" if self.customer_id.blank? && self.stripe_token.blank?
-    self.save
+
     coupon = CouponCode.find_by_code(coupon_code)
     unless coupon.blank?
       amount = process_coupon(coupon.last, amount)
@@ -98,7 +98,7 @@ class BusinessAccount
     }
       customer = Stripe::Customer.create( info )
       customer.save 
-      customer.id
+      customer.id 
 
   
     rescue Stripe::StripeError => e

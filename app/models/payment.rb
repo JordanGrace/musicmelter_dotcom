@@ -24,7 +24,7 @@ class Payment
     raise "No Payment Method" if self.stripe_token.blank?
     
     charge = Stripe::Charge.create({amount: self.amount, 
-                                    card: self.stripe_token,
+                                    customer: self.stripe_token,
                                     description: self.comment,
                                     currency: "usd"  
                                     })
@@ -32,14 +32,12 @@ class Payment
     unless charge[:failure_code].blank?
       self.status = "Failed"
       self.comment = charge[:failure_message]
-      self.save
     else
       self.status = 'Complete'
       self.charge_id = charge[:id]
       self.amount = charge[:amount]
       self.fingerprint = charge[:card][:fingerprint]
       self.coupon_id = coupon_id
-      self.save
     end
 
     rescue Stripe::StripeError => e
@@ -48,7 +46,6 @@ class Payment
       self.status = "Failed"
       self.comment = e.message
       self.amount = 0
-      self.save
     end
 
 end
