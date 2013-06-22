@@ -10,10 +10,9 @@ class CouponCode
 
   validates_presence_of :code, :quantity, :redeemed
 
-
-    def validate_coupon
-
-    end
+  def self.find_by_code coupon_code
+    CouponCode.where({code: /coupon_code/}).all
+  end
 
     def redeemed?
         redeemed >= quantity

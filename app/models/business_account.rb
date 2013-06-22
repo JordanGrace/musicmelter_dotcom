@@ -3,36 +3,35 @@ class BusinessAccount
   include Mongoid::Paranoia
   include Mongoid::Timestamps
 
-  field :name_first,      :type => String
-  field :name_last,       :type => String
-  field :business,        :type => String
-  field :email,           :type => String
-  #field :phone,          :type => String
-  field :address,         :type => String
-  field :city,            :type => String
-  field :type,            :type => String
-  field :country,         :type => String
+  field :name_first,        :type => String
+  field :name_last,         :type => String
+  field :business,          :type => String
+  field :email,             :type => String
+  #field :phone,            :type => String
+  field :address,           :type => String
+  field :city,              :type => String
+  field :type,              :type => String
+  field :country,           :type => String
 
   #US Fields
-  field :state,           :type => String
-  field :zip,             :type => String
+  field :state,             :type => String
+  field :zip,               :type => String
   
   #Canadian Fields
-  field :province,        :type => String
-  field :postal,          :type => String
-
+  field :province,          :type => String
+  field :postal,            :type => String
+  field :special,           :type => Array
 
   #Payment Info
-  field :customer_id,     :type => String
-  field :coupon_code,     :type => String
-  field :coupon_redeem,   :type => Boolean
-  field :subscription,    :type => String
-  field :last4,           :type => Integer
+  field :customer_id,       :type => String
+  field :redeemed_coupons,  :type => Array
+  field :subscription,      :type => String
+  field :last4,             :type => Integer
 
   validates_presence_of :name_first, :name_last, :business, :email, :country
   #validates_presence_of :address, :city, :state, :zip, 
 
-  attr_accessor :valid_types, :discount_amount, :stripe_token
+  attr_accessor :valid_types, :discount_amount, :stripe_token, :coupon_code
   
   #Validator(?) Doesnt seem intuitive.
   @valid_types = ["Recording Studio", "Rehearsal Studio", "Mix/Mastering Studio",
@@ -43,66 +42,78 @@ class BusinessAccount
   #validates_format_of :zip, with: '\b[ABCEGHJKLMNPRSTVXY][0-9][A-Z] [0-9][A-Z][0-9]\b' 
 
   embeds_many :payments
+
   accepts_nested_attributes_for :payments
-
-
   before_save :update_stripe
 
 
+  def no_payment?
+    self.payments.count == 0 || self.payments.nil?
+  end
+
+  def not_a_customer?
+    self.customer_id.blank?
+  end
+
+  #public method to interface with stripe, and create customer data
+  # in their API. Since v1.3
   def update_stripe
+    #todo: uncomment when ready to deploy
     #return if email.include?('@test.com') #and not Rails.env.production?
-      if customer_id.blank? && stripe_token.present?
-        customer = Stripe::Customer.create(
-                                            email: email,
-                                            card: stripe_token,
-                                            description: name_first << name_last,
-                                            )
-        if valid_coupon?
-          customer.coupon = coupon_code
-          coupon_redeem = true
-        end
-        customer.save
-        self.last4 = customer.active_card.last4
-        self.customer_id = customer.id
-        self.stripe_token = nil
-        self.save
-      end
-
-
-  
-  rescue Stripe::StripeError => e
-    logger.error "Stripe Error: " + e.message
-    errors.add :base, "#{e.message}."
-    self.stripe_token = nil
-    false
-  end
-  
-
-  def process_payment(payment = {})
-    self.stripe_token = payment.stripe_token
-    update_stripe
+    if not_a_customer?
+      logger.info("Creating stripe customer: #{email}")
+      self.customer_id = create_stripe_customer
+    end
   end
 
-    def stripe_customer
-      Stripe::Customer.retrieve(customer_id)
+  #`Purchase`: 
+  # param amount: Integer - amount in pennies to charge the customer
+  # param description: String - Comment for the payment
+  # param payment_id : String - Serialized token of a stripe card
+  # param coupon_code: String - The distributable description of the coupon.
+  # example usage: @business_account.purchase(600, "test purchase", "tok_121212121", "CheapSkate")
+  def purchase(amount, description, payment_id, coupon_code = self.coupon_code)
+   raise "No Payment Method" if self.customer_id.blank? && self.stripe_token.blank?
+  
+    coupon = CouponCode.find_by_code(coupon_code)
+    unless coupon.blank?
+      amount = process_coupon(coupon.last, amount)
     end
 
-    def old_payment?
-      if self.payments.nil?
-        return false
-      end
-      self.payments.last.created_at >= 1.year.ago
-    end
+    charge = self.payments.create(amount: amount, comment: description, stripe_token: payment_id)
+    charge.process
 
-    def no_payment?
-      self.payments.count == 0 || self.payments.nil?
-    end
+  end
 
-    def not_a_customer?
-      self.customer_id.nil?
-    end
 
-    def no_really?
-      self.payments.count > 0 && self.payments.last.status == "Complete" && self.customer_id != nil  
-    end
+  private  
+  def create_stripe_customer
+    info = { 
+      email: email, 
+      description: name_first << " " << name_last, 
+      card: stripe_token
+    }
+      customer = Stripe::Customer.create( info )
+      customer.save 
+      customer.id
+
+  
+    rescue Stripe::StripeError => e
+      logger.error "Stripe Error: " + e.message
+      errors.add :base, "#{e.message}."
+      self.stripe_token = nil
+  end
+
+  def process_coupon(coupon, amount)
+    return if amount.blank?
+    if coupon.redeem != "Success"
+      amount
+    end 
+
+    amount = amount - coupon.amount
+    self.redeemed_coupons.push(coupon.id)
+    self.save
+    amount
+  end
+
 end

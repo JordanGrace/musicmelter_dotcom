@@ -1,0 +1,41 @@
+{
+  "id": "ch_23TsE0cdAD8AaY",
+  "object": "charge",
+  "created": 1371791822,
+  "livemode": false,
+  "paid": true,
+  "amount": 0,
+  "currency": "usd",
+  "refunded": false,
+  "fee": 0,
+  "fee_details": [
+
+  ],
+  "card": {
+    "object": "card",
+    "last4": "4242",
+    "type": "Visa",
+    "exp_month": 1,
+    "exp_year": 2017,
+    "fingerprint": "XZ12pjL0OW1bJJV1",
+    "country": "US",
+    "name": null,
+    "address_line1": null,
+    "address_line2": null,
+    "address_city": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_country": null,
+    "cvc_check": null,
+    "address_line1_check": null,
+    "address_zip_check": null
+  },
+  "captured": false,
+  "failure_message": null,
+  "failure_code": null,
+  "amount_refunded": 0,
+  "customer": null,
+  "invoice": null,
+  "description": null,
+  "dispute": null
+}
