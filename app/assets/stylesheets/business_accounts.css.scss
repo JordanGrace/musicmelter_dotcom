@@ -101,7 +101,7 @@
             margin-bottom: 0px;
         }
 
-        /* Mobile Styles */
+        /* Tablet Styles */
 
         .hidden-desktop .terms {
             color: #FFFFFF;
@@ -119,6 +119,9 @@
             text-align: center;
         }
 
+        /* Phone Styles */
+
+        .hidden-tablet
 
 
         .warranty {
@@ -155,8 +158,8 @@
         }
 
         .btn-primary {
-            font-size: 18pt;
-            line-height: 18pt;
+            font-size: 22pt;
+            line-height: 24pt;
 
         }
         .payments {
@@ -165,7 +168,8 @@
 
         .discount-text {
             padding-left: 30px;
-            font-size: 13pt;
+            font-size: 15pt;
+            font-weight: bold;
             font-family: 'Helvetica';
         }
 

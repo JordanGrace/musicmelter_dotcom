@@ -68,13 +68,17 @@
    </div>
   <div id="coupon" class="hide">
         <%= f.text_field :coupon_code, placeholder: "Discount" %>
-        <p class="discount-text">Lock this price in for 2 years</p>
+        <p class="discount-text"><i class="icon-key"></i> &nbsp; Lock this price in for 2 years</p>
      </div>
   <div><ul id="stripe_error"></ul></div>
-  <div class="payments">
-    <a class="btn btn-primary" id="credit">Credit Card</a>
-    <a class="btn btn-primary btn-inline" id="paypal">PayPal</a>
+  <div class="row">
+    <div class="span4 centered">
+      <div class="payments">
+        <a class="btn btn-primary" id="credit">Credit Card</a>
+        <a class="btn btn-primary btn-inline" id="paypal">PayPal</a>
+      </div>
     </div>
+  </div>
 <% end %>
 
 <script type="text/javascript">
