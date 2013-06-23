@@ -6,11 +6,24 @@
             <div class="formbox">
                 <%= render 'form' %>
                 <div class="row hidden-phone hidden-tablet">
-                    <div class="span12 ">
+                    <div class="span4 clearfix email-row">
                     <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
                     </div>
                 </div>
+                <!-- Desktop -->
                 <div class="row hidden-phone hidden-tablet">
+                    <div class="span2 pull-left">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                    <div class="span2 pull-right">
+                        <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms pull-right" %>
+                    </div>
+                </div>
+                <!-- Tablet -->
+                <div class="row hidden-desktop hidden-phone clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                </div>
+                <div class="row hidden-desktop hidden-phone">
                     <div class="span2 pull-left">
                         <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
                     </div>
@@ -18,14 +31,15 @@
                         <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms" %>
                     </div>
                 </div>
-                <div class="row hidden-desktop">
+                <!-- Phone -->
+                <div class="row hidden-desktop hidden-tablet clearfix email-row">
                     <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
                 </div>
-                <div class="row hidden-desktop">
-                    <div class="span2 pull-left">
+                <div class="row hidden-desktop hidden-tablet">
+                    <div class="span2">
                         <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
                     </div>
-                    <div class="span2 pull-right">
+                    <div class="span2">
                         <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms" %>
                     </div>
                 </div>

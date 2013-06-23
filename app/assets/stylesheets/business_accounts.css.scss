@@ -80,29 +80,43 @@
             width: 90%;
         }
 
+        .email-row {
+            text-align: center;
+        }
+
         /* Desktop Styles */
-        .hidden-tablet .terms a{
-            font-size: 14pt;
+        .hidden-tablet .terms{
             font-weight: bold;
+            font-family: 'crackhouseregular';
+            font-size: 22pt;
+            line-height: 47px;
+            margin-bottom: 0px;
 
 
         }
-        .hidden-tablet .info-email a{
-                font-size: 16pt;
-                display: inline-block;
+        .hidden-tablet .info-email{
+            font-family: 'crackhouseregular';
+            font-size: 31pt;
+            line-height: 47px;
+            margin-bottom: 0px;
         }
 
         /* Mobile Styles */
 
         .hidden-desktop .terms {
-            font-size: 15pt;
-            padding-bottom: none;
+            color: #FFFFFF;
+            font-family: 'crackhouseregular';
+            font-size: 18pt;
+            line-height: 37px;
+            margin-bottom: 0px;
+            
         }
         .hidden-desktop .info-email {
-            font-size: 15pt;
+            font-size: 28pt;
             display: inline-block;
             font-weight: bold;
             margin-bottom: none;
+            text-align: center;
         }
 
 
