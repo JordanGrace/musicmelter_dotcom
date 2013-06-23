@@ -87,6 +87,8 @@ class BusinessAccount
     charge.save
     self.save
 
+    #kick off the receipt email
+    StripePayment.business_account_registration_receipt(self).deliver
   end
 
 
