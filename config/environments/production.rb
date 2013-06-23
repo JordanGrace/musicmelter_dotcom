@@ -66,16 +66,27 @@ Musicmelter::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-
-  if ENV['MAILTRAP_HOST'].present?
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.smtp_settings = {
-      :user_name => ENV['MAILTRAP_USER_NAME'],
-      :password => ENV['MAILTRAP_PASSWORD'],
-      :address => ENV['MAILTRAP_HOST'],
-      :port => ENV['MAILTRAP_PORT'],
-      :authentication => :plain
-    }
+  unless ENV['MANDRILL_USERNAME'].present?
+    if ENV['MAILTRAP_HOST'].present?
+      ActionMailer::Base.delivery_method = :smtp
+      ActionMailer::Base.smtp_settings = {
+        :user_name => ENV['MAILTRAP_USER_NAME'],
+        :password => ENV['MAILTRAP_PASSWORD'],
+        :address => ENV['MAILTRAP_HOST'],
+        :port => ENV['MAILTRAP_PORT'],
+        :authentication => :plain
+      }
+    end
+  else
+    config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => ENV['MANDRILL_USERNAME'],
+    :password  => ENV["MANDRILL_PASSWORD"], # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'musicmelter.com', # your domain to identify your server when connecting
+  }
   end
 
 end
