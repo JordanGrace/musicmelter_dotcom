@@ -8,6 +8,7 @@ class Payment
   field :confirmation,   type: String
   field :charge_id,      type: String
   field :amount,         type: Integer
+  field :recorded_amount,type: Integer
   field :fingerprint,    type: String
   field :coupon_id,      type: String
   attr_accessor :stripe_token
@@ -38,7 +39,8 @@ class Payment
     else
       self.status = 'Complete'
       self.charge_id = charge[:id]
-      self.amount = charge[:amount]
+      self.amount = amount
+      self.recorded_amount = charge[:amount]
       self.fingerprint = charge[:card][:fingerprint]
       self.coupon_id = coupon_id
     end
