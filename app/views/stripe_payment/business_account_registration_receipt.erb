@@ -334,6 +334,7 @@
                                                             <h1>Subscription Succesful</h1>
                                                             <h2>Thank you for puchasing your new webpage with <a href="http://www.musicmelter.com">MusicMelter.com</a> for <%= @business_account.coupon_code.present? ? "two" : "one" %> full yea<%= @business_account.coupon_code.present? ? "rs" : "r" %></h2>
                                                             <p>Your confirmation #:<strong> <%= @confirmation %></strong></p>
+                                                            <p>You paid: <strong><%= @payment.amount %></strong>
                                                             <p>We will be informing you on the progress of MusicMelter’s official launch date, where you will be able to create and customize your new MusicMelter webpage right in your direct target market!</p>
  
                                                             </h3>Any questions or concerns? please feel free to contact us at <a href="mailto:info@musicmelter.com">info@musicmelter.com</a>.</h3>
