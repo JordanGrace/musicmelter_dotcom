@@ -37,7 +37,7 @@
   </div>
     <div class="field">
       <%= label_tag :country, "Country" %>
-      <%= f.select  :country, countries, :selected => @business_account.country %>
+      <%= f.select  :country, countries, :selected => @business_account.country || 'CA' %>
   </div>
    <div class="hide ca_fields">
     <div class="field">
@@ -62,11 +62,13 @@
 <legend>Price: $600</legend>
   <h4>Limited Time Offer: One Full Year!!!</h4>
    <div class="field">
-      <%= label_tag :discount, "Have A Discount Code?", class: "checkbox inline" %>
-      <%= check_box_tag("show_coupon") %>
+      <%= label_tag :discount, class: "checkbox inline" do %>
+      <%= check_box_tag("show_coupon") %> Have a discount code?
+      <% end %>
    </div>
   <div id="coupon" class="hide">
         <%= f.text_field :coupon_code, placeholder: "Discount" %>
+        <p class="discount-text">Lock this price in for 2 years</p>
      </div>
   <div><ul id="stripe_error"></ul></div>
   <div class="payments">
@@ -98,6 +100,14 @@
 
 
 <script type="text/javascript">
+var bac = $('#business_account_country').val();
+if (bac === "CA"){
+  $('.ca_fields').show()
+} else {
+  $('.us_fields').show()
+}
+
+
   $('#business_account_country').change(function() {
      if ($(this).val() === "CA"){
       $('.ca_fields').show();

@@ -64,6 +64,11 @@
             margin-left: auto;
             margin-right: auto;            
         }
+
+        input#show_coupon {
+            width: 50px;
+        }
+
         img {
             padding-left: 20px;
         }
@@ -75,9 +80,32 @@
             width: 90%;
         }
 
-        .terms {
-            font-size: 18pt;
+        /* Desktop Styles */
+        .hidden-tablet .terms a{
+            font-size: 14pt;
+            font-weight: bold;
+
+
         }
+        .hidden-tablet .info-email a{
+                font-size: 16pt;
+                display: inline-block;
+        }
+
+        /* Mobile Styles */
+
+        .hidden-desktop .terms {
+            font-size: 15pt;
+            padding-bottom: none;
+        }
+        .hidden-desktop .info-email {
+            font-size: 15pt;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: none;
+        }
+
+
 
         .warranty {
             font-size: 14pt;
@@ -121,6 +149,13 @@
             margin-left: 3%;
         }
 
+        .discount-text {
+            padding-left: 30px;
+            font-size: 13pt;
+            font-family: 'Helvetica';
+        }
+
+    
     }
 }
 
