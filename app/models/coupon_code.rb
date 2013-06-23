@@ -11,7 +11,7 @@ class CouponCode
   validates_presence_of :code, :quantity, :redeemed
 
   def self.find_by_code coupon_code
-    CouponCode.where({code: /coupon_code/}).all
+    CouponCode.where({code: /#{coupon_code}/}).last
   end
 
     def redeemed?

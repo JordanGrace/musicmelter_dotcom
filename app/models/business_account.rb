@@ -24,7 +24,7 @@ class BusinessAccount
 
   #Payment Info
   field :customer_id,       :type => String
-  field :redeemed_coupons,  :type => Array
+  field :redeemed_coupons,  :type => Array, :default => []
   field :subscription,      :type => String
   field :last4,             :type => Integer
 
@@ -79,11 +79,13 @@ class BusinessAccount
 
     coupon = CouponCode.find_by_code(coupon_code)
     unless coupon.blank?
-      amount = process_coupon(coupon.last, amount)
+      amount = process_coupon(coupon, amount)
     end
-
+    puts amount
     charge = self.payments.create(amount: amount, comment: description, stripe_token: payment_id)
     charge.process
+    charge.save
+    self.save
 
   end
 
@@ -109,13 +111,13 @@ class BusinessAccount
 
   def process_coupon(coupon, amount)
     return if amount.blank?
-    if coupon.redeem != "Success"
+
+    if coupon.redeem != "Success!"
       amount
     end 
 
     amount = amount - coupon.amount
     self.redeemed_coupons.push(coupon.id)
-    self.save
     amount
   end
 

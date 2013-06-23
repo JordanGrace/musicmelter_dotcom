@@ -16,13 +16,5 @@ describe Payment do
         end
     end
 
-    context "It can" do
-        before(:each) do
-            stripe = double("Stripe::Charge")
-            stripe.should_receive(:create)
-            stripe.stub(:create).and_return()
-        end
-        
-    end
-
+   
 end

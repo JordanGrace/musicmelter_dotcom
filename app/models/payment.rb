@@ -23,7 +23,10 @@ class Payment
   def process 
     raise "No Payment Method" if self.stripe_token.blank?
     
-    charge = Stripe::Charge.create({amount: self.amount, 
+    #stripe works in pennies
+    charge_amount = self.amount * 100
+
+    charge = Stripe::Charge.create({amount: charge_amount, 
                                     customer: self.stripe_token,
                                     description: self.comment,
                                     currency: "usd"  

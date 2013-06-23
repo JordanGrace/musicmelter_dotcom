@@ -58,10 +58,10 @@ describe BusinessAccount do
 
             it "create a stripe charge" do
 
-                stub_request(:post, "https://api.stripe.com/v1/charges").
-                with(:body => {"amount"=>"600", "card"=>"tok_229DddqhXKbEqc", "currency"=>"usd", "description"=>"Testing purchase"},
-                    :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'78', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
-                to_return(:status => 200, :body => @successful_stripe_charge, :headers => {})
+               stub_request(:post, "https://api.stripe.com/v1/charges").
+         with(:body => {"amount"=>"60000", "currency"=>"usd", "customer"=>"tok_229DddqhXKbEqc", "description"=>"Testing purchase"},
+              :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'84', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
+         to_return(:status => 200, :body => @successful_stripe_charge, :headers => {})
 
                 business.purchase(600, "Testing purchase", "tok_229DddqhXKbEqc", "unit_test")
                 expect(business.payments.count).to eq(1)
@@ -73,8 +73,8 @@ describe BusinessAccount do
             it "identify failed stripe charges" do
 
                 stub_request(:post, "https://api.stripe.com/v1/charges").
-                with(:body => {"amount"=>"600", "card"=>"fail", "currency"=>"usd", "description"=>"Failed test purchase"},
-                  :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'70', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
+                    with(:body => {"amount"=>"60000", "currency"=>"usd", "customer"=>"fail", "description"=>"Failed test purchase"},
+                :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'76', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
                 to_return(:status => 200, :body => @failed_stripe_charge, :headers => {})
 
                 business.purchase(600, "Failed test purchase", "fail", "unit_test")
@@ -95,14 +95,14 @@ describe BusinessAccount do
                     coupon.should_receive(:amount).and_return(1)
                     coupon.should_receive(:id).and_return(1234)
                     coupon.stub(:new).and_return({id: 1234,  agent: "Cyril Figgis", code: "ArcherSucks", amount:1, expiration: 30.days.from_now, quantity: 1, redeemed: 0})
-                   CouponCode.stub(:find_by_code).and_return( [coupon] )
+                   CouponCode.stub(:find_by_code).and_return( coupon )
                     @successful_stripe_charge = File.open("spec/fixtures/stripe_charge_response_success.json").read
                 end
 
                 it "reduces payment amount when coupon is valid" do
                     stub_request(:post, "https://api.stripe.com/v1/charges").
-                     with(:body => {"amount"=>"599", "card"=>"tok_111111111111", "currency"=>"usd", "description"=>"testing coupon purchase"},
-                          :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'85', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
+                     with(:body => {"amount"=>"59900", "currency"=>"usd", "customer"=>"tok_111111111111", "description"=>"testing coupon purchase"},
+                          :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'91', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p392 (2013-02-22)","platform":"x86_64-darwin12.3.0","publisher":"stripe","uname":"Darwin ender.local 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
                      to_return(:status => 200, :body => @successful_stripe_charge, :headers => {})
 
                     business.purchase(600, "testing coupon purchase", "tok_111111111111", "ArcherSucks")
