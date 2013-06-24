@@ -82,12 +82,12 @@ class BusinessAccount
       amount = process_coupon(coupon, amount)
     end
 
+    #Calculate HST tax for Canadian registrants
     if self.country == 'CA'
       hst_tax = amount * 0.13
       amount += hst_tax
     end
 
-    debugger
     charge = self.payments.create(amount: amount, comment: description, stripe_token: payment_id)
     charge.process
     charge.save
