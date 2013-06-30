@@ -36,8 +36,10 @@
     <%= select :business_account, :type, business_types %>
   </div>
     <div class="field">
-      <%= label_tag :country, "Country" %>
-      <%= f.select  :country, countries, :selected => @business_account.country || 'CA' %>
+       <%= label_tag :country, "Select your country" %>
+       <%= image_tag 'signup/america.png', onclick: "show_us()" %> 
+       <%= image_tag 'signup/canada.png', onclick: "show_ca()" %>
+       <%= f.hidden_field :country %>
   </div>
    <div class="hide ca_fields">
     <div class="field">
