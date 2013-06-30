@@ -9,19 +9,25 @@
 
     
  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//releases.flowplayer.org/5.4.3/skin/minimalist.css">
 
     <%= stylesheet_link_tag "application", :media => "all" %>
 
-    <body>
-        <header>
-      <div class="hidden-phone hidden-tablet">
-          <%= image_tag 'mm-header.png' %>
-      </div>
-      <div class="hidden-desktop">
-          <%= image_tag 'mm-header-mobile.png' %>
-      </div>
-    </header>
+    <style>
+        header {
+            width: 100%;
+            background-color: #000;
+        }
 
+        .feather-bottom {
+            
+        }
+        </style>
+
+    <body>
+        <div class="row feather-bottom" style="background-color: #000;">
+            <%= render "layouts/video_header" %>
+        </div>
         <div id="page-content" class="container">
             <!-- animation background starts here, please do not alter the order -->
             <p>
