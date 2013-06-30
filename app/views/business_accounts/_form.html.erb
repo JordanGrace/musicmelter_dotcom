@@ -105,26 +105,33 @@
 </script>
 
 
+
 <script type="text/javascript">
-var bac = $('#business_account_country').val();
-if (bac === "CA"){
-  $('.ca_fields').show()
-} else {
-  $('.us_fields').show()
-}
+  var bac = $('#business_account_country').val();
+  if (bac === "CA"){
+    $('.ca_fields').show()
+  } else {
+    $('.us_fields').show()
+  }
 
-
-  $('#business_account_country').change(function() {
-     if ($(this).val() === "CA"){
+  function show_us() {
+      $('.ca_fields').hide()
+      $('.us_fields').show()
+      $('#business_account_country').val('US')
+    }
+    function show_ca() {
       $('.ca_fields').show();
       $('.us_fields').hide();
-      }else{
-      $('.ca_fields').hide();
-      $('.us_fields').show();
-  }
-});
+      $('#business_account_country').val('CA')
+    }
+  
+
+
 
   $('#show_coupon').click(function(){$('#coupon').toggle()});
+
+  
+  
 
   //   $('#business_account_country').val('US')
   // }
