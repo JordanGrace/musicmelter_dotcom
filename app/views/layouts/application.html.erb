@@ -6,25 +6,42 @@
     <title><%= content_for?(:title) ? yield(:title) : "Music Melter" %></title>
     <meta name="description" content="">
     <meta name="author" content="Groovy Object LLC">
+    
+    <!-- Styles styles and more styles -->
+    <link rel="stylesheet" type="text/css" href="//releases.flowplayer.org/5.4.3/skin/minimalist.css">
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Header Javascripts -->
     <%= javascript_include_tag "application" %>
+    <%= render "shared/google_analytics" %>
+
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
+    
 
-    <%= render "shared/google_analytics" %>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
+
   </head>
   <body>
     <header>
-      <div class="hidden-phone hidden-tablet">
-          <%= image_tag 'mm-header.png' %>
-      </div>
-      <div class="hidden-desktop">
-          <%= image_tag 'mm-header-mobile.png' %>
-      </div>
+         <%= render "layouts/video_header" %>
     </header>
       <%= yield %>
 
+
+
+  <!-- 2. flowplayer -->
+  <script type="text/javascript"
+     src="//releases.flowplayer.org/5.4.3/flowplayer.min.js">
+  </script>
+   
+<!-- global options -->
+<script>
+  flowplayer.conf = {
+     engine: "html5",
+     analytics: 'UA-27182341-1'
+  };
+</script>
 
   </body>
 </html>
