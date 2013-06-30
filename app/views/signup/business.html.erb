@@ -1,21 +1,14 @@
 <div class="container">
 
     <div class="row business hidden-tablet hidden-phone">
-        <div class="span7 video">
-            <div class="flowplayer">
-               <video>
-                  <source type="video/mp4" src="http://assets.musicmelter.com.s3.amazonaws.com/MMELTER_v2_720.mp4" poster="<%= image_path 'video.png' %>">
-                  <source type="video/ogg" src="http://assets.musicmelter.com.s3.amazonaws.com/MMELTER_v2_720.ogv" poster="<%= image_path 'video.png' %>">
-                  <source type="video/webm" src="http://assets.musicmelter.com.s3.amazonaws.com/MMELTER_v2_720.webm" poster="<%= image_path 'video.png' %>">
-               </video>
-            </div>
+        <div class="span7">    
+            <iframe src="http://player.vimeo.com/video/68488403" width="100%" height="350px" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <div class="span5">
         <p>Expand your business, customers and reach with your own new personalized and customizable web page... Placed right in the middle of your direct target market!</p>
         <p>The world of MusicMelter creates a unique opportunity for musicians and artists to create and expand on their talents, where they can find you and your services to help get them there!</p>
         <p>Expanding your business has never been easier!</p>
           <span width="75%">
-
             <%= link_to image_tag("register_button.png", class: "button center"), 'https://business.musicmelter.com/business_accounts/new' %>
         </p>
         </div>
@@ -23,15 +16,9 @@
 
 
     <div class="row-fluid mobile-video business hidden-desktop"> 
-         <div class="flowplayer">
-               <video>
-                  <source type="video/mp4" src="http://assets.musicmelter.com.s3.amazonaws.com/MMELTER_v2_720.mp4" poster="<%= image_path 'video.png' %>">
-                  <source type="video/ogg" src="http://assets.musicmelter.com.s3.amazonaws.com/MMELTER_v2_720.ogv" poster="<%= image_path 'video.png' %>">
-                  <source type="video/webm" src="http://assets.musicmelter.com.s3.amazonaws.com/MMELTER_v2_720.webm" poster="<%= image_path 'video.png' %>">
-               </video>
-            </div>
-     </div>
-    <div class="row-fluid business hidden-desktop hidden-phone">
+        <iframe src="http://player.vimeo.com/video/68488403" width="100%" height="350px" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+    <div class="row-fluid business  hidden-phone">
         <span class="icebreaker">
             <h2 class="top">BREAKING THE ICE </h2>
             <h2 class="bottom">IN THE MUSIC WORLD!</h2>
