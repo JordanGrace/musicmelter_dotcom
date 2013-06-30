@@ -6,6 +6,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "Music Melter" %></title>
     <meta name="description" content="">
     <meta name="author" content="Groovy Object LLC">
+    <link rel="stylesheet" type="text/css" href="//releases.flowplayer.org/5.4.3/skin/minimalist.css">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script src="https://checkout.stripe.com/v2/checkout.js"></script>
@@ -20,16 +21,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <div class="hidden-phone hidden-tablet">
-          <%= image_tag 'mm-header.png' %>
-      </div>
-      <div class="hidden-desktop">
-          <%= image_tag 'mm-header-mobile.png' %>
-      </div>
-    </header>
+      <%= render "layouts/video_header" %>
       <%= yield %>
-
-
   </body>
 </html>
