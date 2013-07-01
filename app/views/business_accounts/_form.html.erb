@@ -61,7 +61,7 @@
       <%= select :business_account, :state, us_states %>
     </div>
   </div>
-<legend>Price: $600</legend>
+<legend>Price: <span id="offerprice">$600</span> </legend>
   <h4>Limited Time Offer: One Full Year!!!</h4>
    <div class="field">
       <%= label_tag :discount, class: "checkbox inline" do %>
@@ -70,6 +70,7 @@
    </div>
   <div id="coupon" class="hide">
         <%= f.text_field :coupon_code, placeholder: "Discount" %>
+        <p class="hide discount-text discount_message"></p>
         <p class="discount-text"><i class="icon-key"></i> &nbsp; Lock this price in for 2 years</p>
      </div>
   <div><ul id="stripe_error"></ul></div>
@@ -134,7 +135,41 @@
 
   $('#show_coupon').click(function(){$('#coupon').toggle()});
 
+  //Coupon Code communication with API method bindings
+  // Binds to the discount box on typing event, with a delay of 1sec
+  var timeout = null;
+  $('#business_account_coupon_code').on('keyup', function() {
+    var that = this;
+    if (timeout !== null) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function() {
+      callAPI();
+    }, 1000);
+  });
   
+  // ping the api with the coupon code. Only returns 200OK if the object is found, and is valid
+  function callAPI(){
+    $.ajax({
+      url: "<%= coupon_validate_path %>",
+      type: "get",
+      data: "coupon_code=" + $('#business_account_coupon_code').val(),
+      success: function(d) {
+          $('.discount_message').empty().html('<i class="icon-thumbs-up"></i> Saved: $' + d.amount).show()
+          $('#offerprice').empty().html('$' + (<%= us_price %> - d.amount) ).show();
+      },
+      error: function(d) {
+        if (d.status === 404){
+          $('.discount_message').empty().html('<i class="icon-thumbs-down"></i>NotFound - <small>CaseSenSiTiVe</small>').show()
+          if ($('#business_account_country').val() === "US") {
+            $('#offerprice').empty().html('$' + <%= us_price %> ).show();
+          } else {
+            $('#offerprice').empty().html('$' + <%= ca_price %>).show();
+          }
+        }
+      }
+    })
+  }
   
 
   //   $('#business_account_country').val('US')

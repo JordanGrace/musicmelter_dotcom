@@ -9,16 +9,25 @@ class CouponCode
 
 
   validates_presence_of :code, :quantity, :redeemed
+  validate :expired?
+  validate :redeemed?
+
 
   def self.find_by_code coupon_code
     CouponCode.where({code: /#{coupon_code}/}).last
   end
 
     def redeemed?
+      if self.redeemed >= quantity
+        errors.add(:redeemed, "No more redemptions allowed")
+      end
         redeemed >= quantity
     end
 
     def expired?
+        if Date.today >= expiration
+          errors.add(:expiration, "Coupon expired")
+        end
         Date.today >= expiration
     end
 

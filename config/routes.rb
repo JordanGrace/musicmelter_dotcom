@@ -1,6 +1,8 @@
 Musicmelter::Application.routes.draw do
 
   
+  get "coupon/validate"
+
   devise_for :admin_users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

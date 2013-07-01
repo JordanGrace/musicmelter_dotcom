@@ -8,4 +8,12 @@ module SignupHelper
 		SiteConfig.last.stripe_enabled
 	end
 
+	def us_price
+		SiteConfig.last.default_us_price
+	end
+
+	def ca_price
+		SiteConfig.last.default_ca_price
+	end
+
 end
