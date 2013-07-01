@@ -37,8 +37,8 @@
   </div>
     <div class="field">
        <%= label_tag :country, "Select your country" %>
-       <%= image_tag 'signup/america.png', onclick: "show_us()" %> 
-       <%= image_tag 'signup/canada.png', onclick: "show_ca()" %>
+       <%= image_tag 'signup/america.png', onclick: "show_us()", class: "murica" %> 
+       <%= image_tag 'signup/canada.png', onclick: "show_ca()", class: "canada" %>
        <%= f.hidden_field :country %>
   </div>
    <div class="hide ca_fields">

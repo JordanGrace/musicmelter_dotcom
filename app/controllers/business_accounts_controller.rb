@@ -31,9 +31,13 @@ class BusinessAccountsController < ApplicationController
   end
 
   # # GET /business_accounts/1/edit
-  # def edit
-  #   @business_account = BusinessAccount.find(params[:id])
-  # end
+   def edit
+     @business_account = BusinessAccount.find(params[:id])
+     respond_to do |format|
+      format.html #edit.html.erb
+      format.json{ render json: @business_account }
+    end
+   end
 
   # # POST /business_accounts
   # # POST /business_accounts.json
@@ -51,7 +55,7 @@ class BusinessAccountsController < ApplicationController
         format.html { redirect_to "/thankyou", notice: 'Business account was successfully created.' }
         format.json { render json: @business_account, status: :created, location: @business_account }
       else
-        format.html { render action: "new" }
+        format.html { render action: "edit" }
         format.json { render json: @business_account.errors, status: :unprocessable_entity }
       end
     end
