@@ -8,16 +8,12 @@ describe SiteConfig do
         end
 
         it "report when invalid" do
-            expect(FactoryGirl.build :site_config, default_price: nil).to_not be_valid
+            expect(FactoryGirl.build :site_config, default_us_price: nil).to_not be_valid
         end
     end
 
     context "When saving pricing information" do
-        let(:config) {FactoryGirl.create :site_config, default_price: 5000}
-
-        it "converts integers to currency" do
-            #expect(config.default_price).to eq("$50.00")
-        end
+        let(:config) {FactoryGirl.create :site_config, default_us_price: 600}
     end
 
 end

@@ -2,8 +2,10 @@
 
 FactoryGirl.define do
   factory :site_config do
-    default_subscription "MyString"
-    default_price "MyString"
-    accept_promos false
+    accept_promos true
+    stripe_enabled true
+    paypal_enabled true
+  	default_us_price 600.00
+    default_ca_price 600.00
   end
 end
