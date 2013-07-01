@@ -76,8 +76,12 @@
   <div class="row">
     <div class="span4 centered">
       <div class="payments">
+        <% if stripe_enabled? %>
         <a class="btn btn-primary" id="credit">Credit Card</a>
-        <!-- <a class="btn btn-primary btn-inline" id="paypal">PayPal</a> -->
+        <% end %>
+        <% if paypal_enabled? %>
+        <a class="btn btn-primary btn-inline" id="paypal">Pay Pal</a>
+        <% end %>
       </div>
     </div>
   </div>
