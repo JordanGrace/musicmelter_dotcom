@@ -177,11 +177,11 @@
       },
       error: function(d) {
         if (d.status === 404){
-          update_price('<i class="icon-thumbs-down"></i>NotFound - <small>CaseSenSiTiVe</small>', $('.discount_message'))
+          updatePrice('<i class="icon-thumbs-down"></i>NotFound - <small>CaseSenSiTiVe</small>', $('.discount_message'))
           if (get_country() === "US") {
-            update_price('$' + sessionStorage.getItem("usprice"), $('#offerprice'));
+            updatePrice('$' + sessionStorage.getItem("usprice"), $('#offerprice'));
           } else {
-            update_price('$' + sessionStorage.getItem("caprice"), $('#offerprice'));
+            updatePrice('$' + sessionStorage.getItem("caprice"), $('#offerprice'));
           }
         }
       }
