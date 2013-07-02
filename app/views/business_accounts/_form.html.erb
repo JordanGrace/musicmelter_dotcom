@@ -93,6 +93,8 @@
   <!-- DOM Storage for price -->
   sessionStorage.setItem("usprice", <%= us_price %>);
   sessionStorage.setItem("caprice", <%= ca_price %>);
+  sessionStorage.setItem("defaultusprice", <%= us_price %>);
+  sessionStorage.setItem("defaultcaprice", <%= ca_price %>);
   sessionStorage.setItem("redeem", false)
   
   function get_country() {
@@ -176,14 +178,7 @@
         do_success(d);
       },
       error: function(d) {
-        if (d.status === 404){
-          updatePrice('<i class="icon-thumbs-down"></i>NotFound - <small>CaseSenSiTiVe</small>', $('.discount_message'))
-          if (get_country() === "US") {
-            updatePrice('$' + sessionStorage.getItem("usprice"), $('#offerprice'));
-          } else {
-            updatePrice('$' + sessionStorage.getItem("caprice"), $('#offerprice'));
-          }
-        }
+       do_error(d);
       }
     })
   }
@@ -193,7 +188,7 @@
         usprice = sessionStorage.getItem("usprice")
         caprice = sessionStorage.getItem("caprice")
         redeemed = sessionStorage.getItem("redeem")
-        if(redeemed){
+        if(redeemed != true){
           if(get_country() === "CA"){
             updatePrice('<i class="icon-thumbs-up"></i> Saved: $' + d.amount, $('.discount_message'))
             updatePrice('$' + (caprice - d.amount), $('#offerprice'))
@@ -205,6 +200,20 @@
           sessionStorage.setItem("usprice", usprice - d.amount)
           sessionStorage.setItem("redeem", true)
         }
+  }
+
+  function do_error(d) {
+    if (d.status === 404){
+      updatePrice('<i class="icon-thumbs-down"></i>NotFound - <small>CaseSenSiTiVe</small>', $('.discount_message'))
+      if (get_country() === "US") {
+        updatePrice('$' + sessionStorage.getItem("defaultusprice"), $('#offerprice'));
+        sessionStorage.setItem("usprice", sessionStorage.getItem("defaultusprice"));
+      } else {
+        updatePrice('$' + sessionStorage.getItem("defaultcaprice"), $('#offerprice'));
+        sessionStorage.setItem("caprice", sessionStorage.getItem("defaultcaprice"));
+      }
+      sessionStorage.setItem("redeem", false)
+    }
   }
 
   function updatePrice(content, element){
