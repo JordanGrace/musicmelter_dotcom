@@ -6,14 +6,6 @@ GIT
       multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
 
-GIT
-  remote: https://github.com/thoughtbot/capybara-webkit.git
-  revision: 9bbf4f6b5572f7c63485f6eca915b49c581b13b2
-  specs:
-    capybara-webkit (1.0.0)
-      capybara (~> 2.0, >= 2.0.2)
-      json
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -78,7 +70,7 @@ GEM
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.1)
     debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.2)
+    debugger-ruby_core_source (1.2.3)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -285,7 +277,6 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   capybara-screenshot
-  capybara-webkit!
   coffee-rails (~> 3.2.1)
   debugger
   devise

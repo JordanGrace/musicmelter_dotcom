@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass'
@@ -35,7 +35,7 @@ group :development, :test do
     gem 'terminal-notifier-guard'
     gem 'guard-rspec'
     gem 'capybara'
-    gem 'capybara-webkit', :git => 'https://github.com/thoughtbot/capybara-webkit.git'
+    #gem 'capybara-webkit', :git => 'https://github.com/thoughtbot/capybara-webkit.git'
     gem 'selenium-webdriver'
     gem 'launchy'
     gem 'factory_girl_rails'
