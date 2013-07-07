@@ -102,6 +102,10 @@
   }
   
 
+ $('#paypal').click(function(){
+	var $input = $('<inupt type=hidden name=business_account[paypal_token] />).val('true');
+	$('form').append($input).submit();
+		 });
 
  $('#credit').click(function(){
       var token = function(res){

@@ -9,7 +9,7 @@ gem 'mongoid', '~> 3.0'
 gem 'mongoid-history', '~> 0.3.3'
 gem 'newrelic_rpm'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-
+gem 'paypal-express'
 
 #admin
 gem 'rails_admin'

@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+  	#to function it must have a site configuration out the gate 
+	SiteConfig.create([{ accept_promos: true, default_us_price: 600, default_ca_price: 600, stripe_enabled: true, paypal_enabled: true}])
+

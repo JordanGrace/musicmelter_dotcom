@@ -22,5 +22,14 @@ describe Payment do
         end
     end
 
-   
+  context "creates charges" do
+	let(:payment) { FactoryGirl.build(:payment, paypal_token: true) }
+
+	it "to paypal" do
+		expect(payment.process).should include("/payment/#{payment.id}")
+	end	
+
+  end
+
+
 end

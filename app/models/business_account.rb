@@ -30,11 +30,11 @@ class BusinessAccount
 
   #single use token - updateable
   field :stripe_token,      :type => String
-
+  
   validates_presence_of :name_first, :name_last, :business, :email, :country, :stripe_token
   #validates_presence_of :address, :city, :state, :zip, 
 
-  attr_accessor :valid_types, :coupon_code
+  attr_accessor :valid_types, :coupon_code, :paypal_token
   
   #Validator(?) Doesnt seem intuitive.
   @valid_types = ["Recording Studio", "Rehearsal Studio", "Mix/Mastering Studio",
