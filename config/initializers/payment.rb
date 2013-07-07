@@ -12,7 +12,8 @@ Rails.configuration.paypal = {
 	:secret => ENV['PAYPAL_SECRET'],
 	:user => ENV['PAYPAL_USER'],
 	:pass => ENV['PAYPAL_PASS'],
-	:signature => ENV['PAYPAL_SIGNATURE']
+	:signature => ENV['PAYPAL_SIGNATURE'],
+	:sandbox => ENV['PAYPAL_SANDBOX']
 }
 
-
+Paypal.sandbox! if RAILS.configuration.paypal[:sandbox]
