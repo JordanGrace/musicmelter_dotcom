@@ -1,6 +1,8 @@
 Musicmelter::Application.routes.draw do
 
   
+  get "user/index"
+
   get "coupon/validate"
 
   devise_for :admin_users
@@ -29,7 +31,10 @@ Musicmelter::Application.routes.draw do
 
   get "register/user"
 
-  root :to => "signup#business"
+  root :to => "signup#business", :constraints => { :subdomain => 'business' }
+  root :to => "user#index", :constraints => { :subdomain => 'www' }
+  root :to => "user#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
