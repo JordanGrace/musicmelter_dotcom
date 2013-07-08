@@ -82,7 +82,8 @@
         <% end %>
         <% if paypal_enabled? %>
         <a class="btn btn-primary btn-inline" id="paypal">Pay Pal</a>
-        <% end %>
+	<% end %>
+	<%= f.hidden_field :paypal_token %>
       </div>
     </div>
   </div>
@@ -100,12 +101,25 @@
   function get_country() {
     $('#business_account_country').val()
   }
-  
+
+
+  function show_us() {
+      $('.ca_fields').hide()
+      $('.us_fields').show()
+      $('#business_account_country').val('US');
+    }
+    function show_ca() {
+      $('.ca_fields').show();
+      $('.us_fields').hide();
+      $('#business_account_country').val('CA');
+    }
+
+
 
  $('#paypal').click(function(){
-	var $input = $('<inupt type=hidden name=business_account[paypal_token] />).val('true');
-	$('form').append($input).submit();
-		 });
+	$('#business_account_paypal_token').val(true);
+	$('form').submit();
+   });
 
  $('#credit').click(function(){
       var token = function(res){
@@ -141,17 +155,6 @@
   } else {
     $('.us_fields').show();
   }
-
-  function show_us() {
-      $('.ca_fields').hide()
-      $('.us_fields').show()
-      $('#business_account_country').val('US');
-    }
-    function show_ca() {
-      $('.ca_fields').show();
-      $('.us_fields').hide();
-      $('#business_account_country').val('CA');
-    }
     
  
 

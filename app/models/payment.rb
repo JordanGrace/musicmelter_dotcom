@@ -11,36 +11,97 @@ class Payment
   field :recorded_amount,type: Integer
   field :fingerprint,    type: String
   field :coupon_id,      type: String
+  field :customer_id,	 type: String 
+  field :provider,	 type: String
   attr_accessor :stripe_token, :paypal_token
+  attr_reader :redirect_uri, :popup_uri
+
+
 
   belongs_to :business_account
   embedded_in :business_account, inverse_of: :payments
 
   validates_presence_of :status, :comment
 
+  scope :canceled,  where(status: "canceled") 
+  scope :complete,  where(status: "complete") 
+  scope :failed, where(status: "failed")
+
+
   # Stripe is the only provider so far, they have
   # confirmation ids - every payment must be 
   # stamped with a stripe ID to complete the payment
   def process 
     raise "No Payment Method" if self.stripe_token.blank? && self.paypal_token.blank?
-
     if self.stripe_token.present?
+	self.provider = "stripe"	
 	charge_stripe
-    elseif self.paypal_token.present?
-    	charge_paypal
+    end  
+    if self.paypal_token.present?
+	self.provider = "paypal"
+      	self.paypal_setup!("https://business.musicmelter.com/payments/#{self.id}/success", "https://business.musicmelter.com/payments/#{self.id}/cancel")
     end
-    
+end
+
+
+ 
+# cancel!
+#  Sets status to canceled. Returns payment object
+#  = Example
+#  payment.cancel!
+def cancel!
+	self.status = "canceled"
+	self.save!
+	self
+end
+
+# complete!
+#
+# = Example
+#
+def complete!(payer_id = nil)
+ response = paypal_client.checkout!(self.confirmation, payer_id, paypal_payment_request)
+ self.customer_id = payer_id
+ self.charge_id = response.payment_info.first.transaction_id
+
+ self.status = "complete"
+ self.save!
+ self
+end
+
+
+def paypal_setup!(return_url, cancel_url)
+	response = paypal_client.setup(
+		paypal_payment_request,
+		return_url,
+		cancel_url,
+		pay_on_paypal: true,
+		no_shipping: true
+	)
+	self.fingerprint = response.token
+	self.comment = response.redirect_uri
+	self.save!
+	
+	rescue Paypal::Exception::APIError => e
+	 puts e.message
+	 self.comment = e.message
+
+end
+
+# paypal_payment_request
+def paypal_payment_request 
+  Paypal::Payment::Request.new(currency_code: :USD, amount: self.amount, description: self.comment)
+	
 end
 
 
 
-private
 def charge_stripe
     
     #stripe works in pennies
     charge_amount = self.amount * 100
 
-    charge = stripe::charge.create({amount: charge_amount, 
+    charge = Stripe::Charge.create({amount: charge_amount, 
 				    customer: self.stripe_token,
 				    description: self.comment,
 				    currency: "usd"  
@@ -58,7 +119,7 @@ def charge_stripe
       self.coupon_id = coupon_id
     end
 
-    rescue stripe::stripeerror => e
+    rescue Stripe::StripeError => e
       logger.error "stripe error: " + e.message
       errors.add :base, "#{e.message}."
       self.status = "failed"
@@ -67,24 +128,14 @@ def charge_stripe
     end
 end
 
-def charge_paypal
-  charge_amount = self.amount * 100
+private
 
-	  request = Paypal::Express::Request.new(
-		  username: Rails.config.paypal[:user],
-		  password: Rails.config.paypal[:password],
-		  signature: Rails.config.paypal[:signature]
-		)
-	  payment_request = Paypal::Payment::Request.new(
-		 currency_code: :USD,
-		 amount: charge_amount,
-		 description: self.comment
-	       )
-	 response = request.setup(
-		 payment_request,
-		 update_payment_url(self),
-		 delete_payment_url(self)
-		)
-	response.redirect_uri
+# paypal_client 
+# Returns the object used to communicate with Paypals API  
+# = Example
+# @paypal_client = payment.paypal_client 
+def paypal_client
+	Paypal::Express::Request.new Rails.configuration.paypal 
 end
+
 

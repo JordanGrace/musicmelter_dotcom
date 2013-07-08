@@ -29,6 +29,7 @@ group :production do
 end
 
 group :development, :test do
+    gem 'foreman'
     gem 'rspec'
     gem 'rspec-rails'
     gem 'guard'

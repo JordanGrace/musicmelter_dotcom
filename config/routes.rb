@@ -13,7 +13,13 @@ Musicmelter::Application.routes.draw do
   resources :business_accounts, only: [:create, :show, :new, :update, :index] do
     resources :payment
   end
-  resources :payment, only: [:create, :index, :update, :show]
+  resources :payments, only: [:create, :index, :update, :show] do
+	collection do
+		get :success
+		get :cancel
+		post :notify	
+	end
+  end
 
   get "signup/business"
   get "signup/user"

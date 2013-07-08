@@ -8,12 +8,12 @@ Rails.configuration.stripe = {
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
 
 Rails.configuration.paypal = {
-	:client => ENV['PAYPAL_CLIENT'],
-	:secret => ENV['PAYPAL_SECRET'],
-	:user => ENV['PAYPAL_USER'],
-	:pass => ENV['PAYPAL_PASS'],
-	:signature => ENV['PAYPAL_SIGNATURE'],
-	:sandbox => ENV['PAYPAL_SANDBOX']
+	:client 	=> 	ENV['PAYPAL_CLIENT'],
+	:secret 	=> 	ENV['PAYPAL_SECRET'],
+	:username 	=> 	ENV['PAYPAL_USER'],
+	:password 	=> 	ENV['PAYPAL_PASSWORD'],
+	:signature 	=> 	ENV['PAYPAL_SIGNATURE'],
+	:sandbox 	=> 	ENV['PAYPAL_SANDBOX']
 }
 
-Paypal.sandbox! if RAILS.configuration.paypal[:sandbox]
+Paypal.sandbox! if Rails.configuration.paypal[:sandbox]

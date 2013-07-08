@@ -29,12 +29,11 @@ class BusinessAccount
   field :last4,             :type => Integer
 
   #single use token - updateable
-  field :stripe_token,      :type => String
+  #field :stripe_token,      :type => String
   
-  validates_presence_of :name_first, :name_last, :business, :email, :country, :stripe_token
-  #validates_presence_of :address, :city, :state, :zip, 
+  validates_presence_of :name_first, :name_last, :business, :email, :country
 
-  attr_accessor :valid_types, :coupon_code, :paypal_token
+  attr_accessor :valid_types, :coupon_code, :paypal_token, :stripe_token
   
   #Validator(?) Doesnt seem intuitive.
   @valid_types = ["Recording Studio", "Rehearsal Studio", "Mix/Mastering Studio",
@@ -75,7 +74,7 @@ class BusinessAccount
   # param coupon_code: String - The distributable description of the coupon.
   # example usage: @business_account.purchase(600, "test purchase", "tok_121212121", "CheapSkate")
   def purchase(amount, description, payment_id, coupon_code = self.coupon_code)
-   raise "No Payment Method" if self.customer_id.blank? && self.stripe_token.blank?
+   raise "No Payment Method" if self.customer_id.blank? && self.stripe_token.blank? && self.paypal_token.blank?
 
     coupon = CouponCode.find_by_code(coupon_code)
     unless coupon.blank?

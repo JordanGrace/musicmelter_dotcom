@@ -5,10 +5,10 @@ describe Payment do
 
     let(:payment) { FactoryGirl.build(:payment) }
     before(:each) do
-        stub_request(:post, "https://api.stripe.com/v1/customers").
-         with(:body => {"card"=>"tok_111111111", "description"=>"MyString MyString", "email"=>"test@test.com"},
-              :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_WQ62JCppYxctpsEiH0GBvfN6', 'Content-Length'=>'72', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.8.3', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.8.3","lang":"ruby","lang_version":"1.9.3 p429 (2013-05-15)","platform":"x86_64-darwin12.4.0","publisher":"stripe","uname":"Darwin devops 12.4.0 Darwin Kernel Version 12.4.0: Wed May  1 17:57:12 PDT 2013; root:xnu-2050.24.15~1/RELEASE_X86_64 x86_64"}'}).
-         to_return(:status => 200, :body => "", :headers => {})
+	
+        #stub_request(:post, "https://api.stripe.com/v1/customers").
+         #with(:body => {"card"=>"tok_111111111", "description"=>"MyString MyString", "email"=>"test@test.com"}).
+         #to_return(:status => 200, :body => "", :headers => {})
      end
 
     context "To validate it must " do
@@ -23,10 +23,17 @@ describe Payment do
     end
 
   context "creates charges" do
-	let(:payment) { FactoryGirl.build(:payment, paypal_token: true) }
+	before(:each) do
+		@paypal_redirect = File.open("spec/fixtures/paypal_setexpresscheckout_response.json").read
+		stub_request(:post, "https://api-3t.sandbox.paypal.com/nvp").
+		to_return(:status => 200, :body => @paypal_redirect, :headers => {})
+
+	end
+  
+	  let(:payment) { FactoryGirl.build(:payment, paypal_token: true, amount: 600) }
 
 	it "to paypal" do
-		expect(payment.process).should include("/payment/#{payment.id}")
+		expect(payment.process).to_not be_nil
 	end	
 
   end

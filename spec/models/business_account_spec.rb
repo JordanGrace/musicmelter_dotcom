@@ -59,7 +59,7 @@ describe BusinessAccount do
 
                 business.purchase(600, "Testing purchase", "tok_229DddqhXKbEqc", "unit_test")
                 expect(business.payments.count).to eq(1)
-                expect(business.payments[0][:status]).to eq("Complete")
+                expect(business.payments[0][:status]).to eq("complete")
                 expect(business.payments[0][:fingerprint]).to eq("XZ12pjL0OW1bJJV1")
 
             end
@@ -70,7 +70,7 @@ describe BusinessAccount do
 
                 business.purchase(600, "Failed test purchase", "fail", "unit_test")
                 expect(business.payments.count).to eq(1)
-                expect(business.payments[0][:status]).to eq("Failed")
+                expect(business.payments[0][:status]).to eq("failed")
             end
 
 

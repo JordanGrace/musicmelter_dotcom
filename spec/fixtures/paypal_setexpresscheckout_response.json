@@ -1,0 +1,65 @@
+{
+    "ack": "Success",
+    "address_status": null,
+    "build": "6680107",
+    "billing_agreement_accepted_status": null,
+    "checkout_status": null,
+    "colleration_id": "e2ce5bc9aafb1",
+    "country_code": null,
+    "currency_code": null,
+    "description": null,
+    "notify_url": null,
+    "timestamp": "2013-07-08T01: 43: 17Z",
+    "token": "EC-51E356401X517692C",
+    "version": "88.0",
+    "receiver_email": null,
+    "receiver_id": null,
+    "address_owner": null,
+    "subject": null,
+    "transaction_id": null,
+    "transaction_type": null,
+    "payment_type": null,
+    "order_time": null,
+    "payment_status": null,
+    "pending_reason": null,
+    "reason_code": null,
+    "protection_eligibility": null,
+    "protection_eligibility_type": null,
+    "shipping_options_is_default": false,
+    "success_page_redirect_requested": false,
+    "insurance_option_selected": false,
+    "amount": {
+        "total": 0,
+        "item": 0,
+        "fee": 0,
+        "handing": 0,
+        "insurance": 0,
+        "ship_disc": 0,
+        "shipping": 0,
+        "tax": 0,
+        "gross": 0,
+        "net": 0
+    },
+    "ship_to": {
+        "owner": null,
+        "status": null,
+        "name": null,
+        "zip": null,
+        "street": null,
+        "street2": null,
+        "city": null,
+        "state": null,
+        "country_code": null,
+        "country_name": null
+    },
+    "payment_responses": [
+        
+    ],
+    "payment_info": [
+        
+    ],
+    "items": [
+        
+    ],
+    "pay_on_paypal": true
+}
