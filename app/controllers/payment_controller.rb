@@ -32,6 +32,7 @@ class PaymentController < ApplicationController
 
 	def cancel
 	  @payment.cancel!
+	  redirect_to "/thankyou"
 	end
 
 

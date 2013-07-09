@@ -1,6 +1,69 @@
-<h1>Editing business_account</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @business_account %> |
-<%= link_to 'Back', business_accounts_path %>
+<div class="container">
+    <div class="row">
+        <div class="span4 formglow">
+            <div class="formbox">
+                <%= render 'form' %>
+                <div class="row hidden-phone hidden-tablet">
+                    <div class="span4 clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                    </div>
+                </div>
+                <!-- Desktop -->
+                <div class="row hidden-phone hidden-tablet">
+                    <div class="span2 pull-left">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                    <div class="span2 pull-right">
+                        <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms pull-right" %>
+                    </div>
+                </div>
+                <!-- Tablet -->
+                <div class="row hidden-desktop hidden-phone clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                </div>
+                <div class="row hidden-desktop hidden-phone">
+                    <div class="span2 pull-left">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                    <div class="span2 pull-right">
+                        <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms" %>
+                    </div>
+                </div>
+                <!-- Phone -->
+                <div class="row hidden-desktop hidden-tablet clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                </div>
+                <div class="row hidden-desktop hidden-tablet">
+                    <div class="span2">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                    <div class="span2">
+                        <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="span7 pull-right">
+            <div class="row">
+                <%= image_tag 'signup/wanted.png' , width: "600", height: "auto" %>
+            </div>
+            <div class="row">
+                <%= image_tag 'signup/buy-and-sell.png', width: "600", height: "auto" %>
+            </div>
+            <div class="row">
+                <%= image_tag 'signup/profiles.png', width: "600", height: "auto" %>
+            </div>
+            <div class="row">
+                <%= image_tag 'signup/search-and-find.png', width: "600", height: "auto" %>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</footer>
+
+
