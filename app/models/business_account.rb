@@ -93,7 +93,9 @@ class BusinessAccount
     self.save
 
     #kick off the receipt email
-    StripePayment.business_account_registration_receipt(self).deliver
+    unless paypal_token.present? 
+    	StripePayment.business_account_registration_receipt(self).deliver
+    end
   end
 
 

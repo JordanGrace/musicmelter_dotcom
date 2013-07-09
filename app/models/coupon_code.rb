@@ -14,7 +14,8 @@ class CouponCode
 
 
   def self.find_by_code coupon_code
-    CouponCode.where({code: /#{coupon_code}/}).last
+   return if coupon_code.blank?
+   CouponCode.where({code: /#{coupon_code}/}).last
   end
 
     def redeemed?
