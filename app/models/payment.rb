@@ -40,7 +40,7 @@ class Payment
     end  
     if self.paypal_token.present?
 	self.provider = "paypal"
-      	self.paypal_setup!("http://localhost:5000/payment/#{self.id}/success", "http://localhost:5000/payment/#{self.id}/cancel")
+      	self.paypal_setup!("http://staging.musicmelter.com/payment/#{self.id}/success", "http://staging.musicmelter.com/payment/#{self.id}/cancel")
     end
 end
 
