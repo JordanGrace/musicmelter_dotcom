@@ -13,6 +13,7 @@ class Payment
   field :coupon_id,      type: String
   field :customer_id,	 type: String 
   field :provider,	 type: String
+  field :raw_log,	 type: String 
   attr_accessor :stripe_token, :paypal_token
   attr_reader :redirect_uri, :popup_uri
 
@@ -70,6 +71,9 @@ def complete!(payer_id = nil, token = nil)
  self.status = "complete"
  self.save!
  self
+
+ rescue Paypal::Exception::APIError => e
+ self.comment = e.message
 end
 
 
