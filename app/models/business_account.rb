@@ -87,7 +87,7 @@ class BusinessAccount
       amount += hst_tax
     end
 
-    charge = self.payments.create(amount: amount, comment: description, stripe_token: payment_id)
+    charge = self.payments.create(amount: amount, comment: description, stripe_token: payment_id, paypal_token: paypal_token)
     charge.process
     charge.save
     self.save
@@ -99,7 +99,7 @@ class BusinessAccount
 
   private  
   def create_stripe_customer
-    raise "No Payment Information" if stripe_token.blank?
+    return if stripe_token.blank?
     info = { 
       email: email, 
       description: name_first << " " << name_last, 

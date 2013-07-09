@@ -13,13 +13,13 @@ Musicmelter::Application.routes.draw do
   resources :business_accounts, only: [:create, :show, :new, :update, :index] do
     resources :payment
   end
-  resources :payments, only: [:create, :index, :update, :show] do
-	collection do
+  resources :payment, only: [:create, :index, :update, :show] do
 		get :success
 		get :cancel
 		post :notify	
-	end
   end
+  match "payment/:id/success", controller: :payment, action: :success
+  match "payment/:id/cancel", controller: :payment, action: :cancel
 
   get "signup/business"
   get "signup/user"

@@ -23,17 +23,23 @@ describe Payment do
     end
 
   context "creates charges" do
-	before(:each) do
-		@paypal_redirect = File.open("spec/fixtures/paypal_setexpresscheckout_response.json").read
-		stub_request(:post, "https://api-3t.sandbox.paypal.com/nvp").
-		to_return(:status => 200, :body => @paypal_redirect, :headers => {})
+	paypal_response = { redirect_uri: 'https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-58A90229PY3493744&useraction=commit', token: 'EC-58A90229PY3493744' }	
+	  
+	  before(:each) do
+		#@paypal_redirect = File.open(
+			#"spec/fixtures/paypal_setexpresscheckout_response.json").read
 
+		stub_request(:post, "https://api-3t.sandbox.paypal.com/nvp").
+		to_return(:status => 200, :body => "", :headers => {})
+
+		Payment.stub(:paypal_client).and_return(paypal_response) 
 	end
   
 	  let(:payment) { FactoryGirl.build(:payment, paypal_token: true, amount: 600) }
 
 	it "to paypal" do
-		expect(payment.process).to_not be_nil
+			
+		expect(payment.process).to include "paypal.com"
 	end	
 
   end
