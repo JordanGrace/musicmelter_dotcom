@@ -63,7 +63,7 @@ def complete!(payer_id = nil, token = nil)
  if token.present? 
 	 self.confirmation = token
  end
- response = paypal_client.checkout!(token, payer_id, paypal_payment_request)
+ response = paypal_client.checkout!(fingerprint, payer_id, paypal_payment_request)
  self.customer_id = payer_id
  self.charge_id = response.payment_info.first.transaction_id
 
