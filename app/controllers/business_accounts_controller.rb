@@ -43,7 +43,6 @@ class BusinessAccountsController < ApplicationController
   # # POST /business_accounts.json
   def create 
     @business_account = BusinessAccount.new(params[:business_account])
-    debugger 
     if @business_account.stripe_token.blank? && @business_account.paypal_token.blank?
       render action: "new"
       return

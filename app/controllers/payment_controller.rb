@@ -26,7 +26,6 @@ class PaymentController < ApplicationController
 	end
 
 	def success
-	  debugger
 	  @payment.complete!(params['token'],params['PayerID'])
 	  redirect_to "/thankyou"
 	end
