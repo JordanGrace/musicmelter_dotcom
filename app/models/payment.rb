@@ -73,7 +73,9 @@ def complete!(payer_id = nil, token = nil)
  self
 
  rescue Paypal::Exception::APIError => e
- self.comment = e.message
+  self.comment = e.message
+  self.status = "error" 
+  self.save!
 end
 
 
