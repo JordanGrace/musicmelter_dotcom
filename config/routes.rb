@@ -1,13 +1,10 @@
 Musicmelter::Application.routes.draw do
   
-  
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  get "coupon/validate"
+   get "coupon/validate"
 
   devise_for :admin_users
-  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
 
   get "terms/refund"
   get "terms/privacy"
