@@ -6,7 +6,7 @@
 
 
 //Set Breaks for media queries
-$break-micro: 340px;
+$break-micro: 400px;
 $break-small: 980px;
 $break-large: 1200px;
 
@@ -184,11 +184,12 @@ h3 {
         @media screen and (min-width: $break-small) and (max-width: $break-large){
             font-size: 14pt;
             line-height: 15pt;
-            padding: 28px 25px 15px 25px;
+            padding: 28px 25px 20px 25px;
+            margin-bottom: 15px;
         }
        
         @media screen and (max-width: $break-micro) {
-            font-size: 10pt;
+            font-size: 9pt;
             line-height: 11pt;
             padding: 28px 25px 15px 25px;
         }
@@ -198,9 +199,14 @@ h3 {
                 width: 42px;
                 padding-left: 12px;
             }
-            @media screen and (max-width: $break-large) {
+            @media screen and (min-width: $break-micro) and (max-width: $break-large) {
                 height: 38px;
                 width: 35px;    
+            }
+            @media screen and (max-width: $break-micro) {
+                height: 25px;
+                width: 22px;
+                padding-left: 9px;
             }
         }
 
@@ -247,6 +253,9 @@ footer {
         font-size: 12pt;
         color: #92BE6E;
         font-weight: 100;
+         @media screen and (max-width: $break-micro) {
+                font-size: 8px;
+            }
     }
 }
 
