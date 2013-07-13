@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+//Set Breaks for media queries
+$break-micro: 340px;
+$break-small: 980px;
+$break-large: 1200px;
+
 /* move me to overrides for global */
 .centered {
     display: inline;
@@ -69,6 +75,67 @@ h3 {
 
     }
 }
+.blur-container {
+    z-index: -1;
+    position: absolute;
+    margin-top: -8%;
+
+    img {
+        max-width: 90%;
+        position: relative;
+        padding-left: 37%;
+    }
+}
+
+.grill {
+    background-image: image-url('signup-grill-background.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    @media screen and (min-width: $break-large) {
+        padding-bottom: 68px;
+    }
+    @media screen and (min-width: $break-small) and (max-width: $break-large){
+        padding-bottom: 34px;
+    }
+    width: 100%;
+
+
+    .registertext {
+        font-family: berthold;
+        text-align: center;
+        @media screen and (min-width: $break-large) {
+            font-size: 21pt;
+            line-height: 23pt;
+            padding: 50px 25px 15px 25px;
+        }
+        @media screen and (min-width: $break-small) and (max-width: $break-large){
+            font-size: 17pt;
+            line-height: 20pt;
+            padding: 28px 25px 15px 25px;
+        }
+       @media screen and (min-width : 768px) and (max-width : 1024px){
+            font-size: 28pt;
+            line-height: 29pt;
+            padding: 55px 25px 135px 25px;
+        } 
+        @media screen and (max-width: $break-micro) {
+            font-size: 10pt;
+            line-height: 11pt;
+            padding: 28px 25px 15px 25px;
+        }
+     
+        .e {
+            @media screen and (max-width: $break-micro) {
+                height: 25px;
+                width: 25px;    
+            }
+        }
+
+    }
+}
+
+
+
 
 /* Font Special Effects */
 .sharper-glow {
@@ -153,38 +220,69 @@ footer {
 .business {
 
     p{
-        /* font-family: 'cleanhousemedium'; */
-        font-size: 17pt;
-        color: #FFFFFF;
-        line-height: 19pt;
-        padding-right: 16px;
-        text-align: justify;
+         color: #FFFFFF; 
     }
- 
+    
+    p.bodytext {
+        font-family: 'cleanhousemedium';
+        color: #FFFFFF; 
+        font-size: 17pt;
+        line-height: 19pt;
+    }
+
+    .videobox {
+        padding-top: 50px;
+    }
+
     .icebreaker {
 
            .top {
                 font-family: 'crackhouseregular';
-                font-size: 70pt;
-                color: #FFF;
-                line-height: 75pt;
+                
+                @media screen and (min-width: $break-large) {
+                    font-size: 70pt;
+                    line-height: 75pt;
+                }
+                @media screen and (min-width: $break-small) and (max-width: $break-large){
+                   font-size: 62pt;
+                    line-height: 38pt;
+                }
+
             }
             .bottom {
                 font-family: 'crackhouseregular';
-                font-size: 65pt;
+                font-size: 63pt;
                 color: #FFF;
-                line-height: 67pt;   
+                
+                @media screen and (min-width: $break-large) {
+                    font-size: 63pt;
+                    
+                }
+                @media screen and (min-width: $break-small) and (max-width: $break-large){
+                    font-size: 52pt;
+                    
+                }   
             }
        
     }
+   
+
 
     h1{
         font-family: 'OldStamperRegular';
-        font-size: 33pt;
         color: #92BE6E;
-        line-height: 34pt;
+        line-height: 40pt;
         margin: auto;
         text-decoration: none;
+        padding-top: 10px;
+        @media screen and (min-width: $break-large) {
+            font-size: 33pt;
+            
+        }
+        @media screen and (min-width: $break-small) and (max-width: $break-large){
+            font-size: 28pt;
+            
+        }   
     
     }
 
