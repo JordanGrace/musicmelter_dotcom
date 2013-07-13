@@ -3,10 +3,77 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+
 //Set Breaks for media queries
 $break-micro: 340px;
 $break-small: 980px;
 $break-large: 1200px;
+
+
+/* Smartphones (portrait and landscape) ----------- */
+// @media only screen 
+// and (min-device-width : 320px) 
+// and (max-device-width : 480px) {
+// /* Styles */
+// }
+
+// /* Smartphones (landscape) ----------- */
+// @media only screen 
+// and (min-width : 321px) {
+// /* Styles */
+// }
+
+// /* Smartphones (portrait) ----------- */
+// @media only screen 
+// and (max-width : 320px) {
+// /* Styles */
+// }
+
+// /* iPads (portrait and landscape) ----------- */
+// @media only screen 
+// and (min-device-width : 768px) 
+// and (max-device-width : 1024px) {
+// /* Styles */
+// }
+
+// /* iPads (landscape) ----------- */
+// @media only screen 
+// and (min-device-width : 768px) 
+// and (max-device-width : 1024px) 
+// and (orientation : landscape) {
+// /* Styles */
+// }
+
+// /* iPads (portrait) ----------- */
+// @media only screen 
+// and (min-device-width : 768px) 
+// and (max-device-width : 1024px) 
+// and (orientation : portrait) {
+// /* Styles */
+// }
+
+// /* Desktops and laptops ----------- */
+// @media only screen 
+// and (min-width : 1224px) {
+// /* Styles */
+// }
+
+// /* Large screens ----------- */
+// @media only screen 
+// and (min-width : 1824px) {
+// /* Styles */
+// }
+
+// /* iPhone 4 ----------- */
+// @media
+// only screen and (-webkit-min-device-pixel-ratio : 1.5),
+// only screen and (min-device-pixel-ratio : 1.5) {
+// /* Styles */
+// }
+
+
+
 
 /* move me to overrides for global */
 .centered {
@@ -95,7 +162,8 @@ h3 {
         padding-bottom: 68px;
     }
     @media screen and (min-width: $break-small) and (max-width: $break-large){
-        padding-bottom: 34px;
+        padding-bottom: 52px;
+        margin-top: 53px;
     }
     width: 100%;
 
@@ -104,8 +172,8 @@ h3 {
         font-family: berthold;
         text-align: center;
         @media screen and (min-width: $break-large) {
-            font-size: 21pt;
-            line-height: 23pt;
+            font-size: 17pt;
+            line-height: 20pt;
             padding: 50px 25px 15px 25px;
         }
         @media screen and (min-width : 768px) and (max-width : 1024px){
@@ -114,8 +182,8 @@ h3 {
             padding: 55px 25px 135px 25px;
         } 
         @media screen and (min-width: $break-small) and (max-width: $break-large){
-            font-size: 17pt;
-            line-height: 20pt;
+            font-size: 14pt;
+            line-height: 15pt;
             padding: 28px 25px 15px 25px;
         }
        
@@ -126,9 +194,13 @@ h3 {
         }
      
         .e {
-            @media screen and (max-width: $break-micro) {
-                height: 25px;
-                width: 25px;    
+            @media screen and (min-width: $break-large) {
+                width: 42px;
+                padding-left: 12px;
+            }
+            @media screen and (max-width: $break-large) {
+                height: 38px;
+                width: 35px;    
             }
         }
 
@@ -137,7 +209,9 @@ h3 {
 
 
 
-
+.boom-container {
+    text-align: center;
+}
 /* Font Special Effects */
 .sharper-glow {
     text-shadow: 1px 0px 0px #686868, 1px 1px 0px #686868, 0px 1px 0px #686868, 
@@ -231,10 +305,6 @@ footer {
         line-height: 19pt;
     }
 
-    .videobox {
-        padding-top: 50px;
-    }
-
     .icebreaker {
 
            .top {
@@ -308,6 +378,7 @@ footer {
         line-height: 32pt;
         margin: auto;
         text-decoration: none;    
+        text-align: center;
     }
 
     .center {
