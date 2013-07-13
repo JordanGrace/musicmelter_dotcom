@@ -165,6 +165,8 @@ h3 {
         padding-bottom: 52px;
         margin-top: 53px;
     }
+
+
     width: 100%;
 
 
@@ -176,7 +178,7 @@ h3 {
             line-height: 20pt;
             padding: 50px 25px 15px 25px;
         }
-        @media screen and (min-width : 768px) and (max-width : 1024px){
+        @media screen and (min-width : 450px) and (max-width : 1024px){
             font-size: 28pt;
             line-height: 29pt;
             padding: 55px 25px 135px 25px;
@@ -193,15 +195,20 @@ h3 {
             line-height: 11pt;
             padding: 28px 25px 15px 25px;
         }
+
+       
      
         .e {
             @media screen and (min-width: $break-large) {
                 width: 42px;
                 padding-left: 12px;
             }
-            @media screen and (min-width: $break-micro) and (max-width: $break-large) {
+            @media screen and (min-width: 1024px) and (max-width: $break-large) {
                 height: 38px;
                 width: 35px;    
+            }
+            @media screen and (min-width : 450px) and (max-width : 1024px){
+                padding-left: 15px;
             }
             @media screen and (max-width: $break-micro) {
                 height: 25px;
