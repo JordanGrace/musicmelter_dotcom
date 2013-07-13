@@ -41,7 +41,7 @@ h3 {
 
 .video {
     position: relative;
-    padding-bottom: 39.25%; /* 16:9 */
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
 
      iframe {
@@ -108,16 +108,17 @@ h3 {
             line-height: 23pt;
             padding: 50px 25px 15px 25px;
         }
+        @media screen and (min-width : 768px) and (max-width : 1024px){
+            font-size: 28pt;
+            line-height: 29pt;
+            padding: 55px 25px 135px 25px;
+        } 
         @media screen and (min-width: $break-small) and (max-width: $break-large){
             font-size: 17pt;
             line-height: 20pt;
             padding: 28px 25px 15px 25px;
         }
-       @media screen and (min-width : 768px) and (max-width : 1024px){
-            font-size: 28pt;
-            line-height: 29pt;
-            padding: 55px 25px 135px 25px;
-        } 
+       
         @media screen and (max-width: $break-micro) {
             font-size: 10pt;
             line-height: 11pt;
