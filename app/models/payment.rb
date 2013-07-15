@@ -40,7 +40,7 @@ class Payment
     end  
     if self.paypal_token.present?
 	self.provider = "paypal"
-      	self.paypal_setup!("http://staging.musicmelter.com/payment/#{self.id}/success", "http://staging.musicmelter.com/payment/#{self.id}/cancel")
+      	self.paypal_setup!(ENV['PAYPAL_ROOT_CALLBACK'] + "#{self.id}/success", ENV['PAYPAL_ROOT_CALLBACK'] + "#{self.id}/cancel")
     end
 end
 
@@ -53,7 +53,7 @@ end
 def cancel!
 	self.status = "canceled"
 	self.save!
-	self
+  redirect_to root_url
 end
 
 # complete!
