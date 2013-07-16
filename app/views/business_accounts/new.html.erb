@@ -1,9 +1,10 @@
 
-
+<div class="buffer">
+</div>
 <div class="container">
     <div class="row">
-        <div class="span4 formglow">
-            <div class="formbox">
+            <div class="span4 formbox">
+                <div id="formtop"></div>
                 <%= render 'form' %>
                 <div class="row hidden-phone hidden-tablet">
                     <div class="span4 clearfix email-row">
@@ -43,9 +44,9 @@
                         <%= link_to "Refund Policy", url_for(terms_refund_url), class: "terms" %>
                     </div>
                 </div>
+                <div id="formbottom"></div>
             </div>
-        </div>
-
+        
         <div class="span7 pull-right">
             <div class="row">
                 <%= image_tag 'signup/wanted.png' , width: "600", height: "auto" %>
@@ -59,7 +60,6 @@
             <div class="row">
                 <%= image_tag 'signup/search-and-find.png', width: "600", height: "auto" %>
             </div>
-
         </div>
     </div>
 </div>

@@ -15,9 +15,11 @@
   <h2 class="error_count"></h2>
   <ul class="user_error"></ul>
   </div> 
-  <div class="field">
-    <%= label_tag :name_first, "First Name" %>
-    <%= f.text_field :name_first, placeholder: "First Name" %>
+  <div class="control-group">
+    <%= label_tag :name_first, "First Name", class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :name_first, placeholder: "First Name" %>
+    </div>
   </div>
   <div class="field">
         <%= label_tag :last_name, "Last Name" %>
@@ -63,10 +65,12 @@
   </div>
 <legend>Price: <span id="offerprice">$600</span> </legend>
   <h4>Limited Time Offer: One Full Year!!!</h4>
-   <div class="field">
-      <%= label_tag :discount, class: "checkbox inline" do %>
-      <%= check_box_tag("show_coupon") %> Have a discount code?
+   <div class="control-group">
+      <%= label_tag :discount, class: "checkbox inline pull-left", class: "checkbox" do %>
+      <div class="controls">
+        Have a Coupon Code? <%= check_box_tag("show_coupon") %>
       <% end %>
+      </div>
    </div>
   <div id="coupon" class="hide">
         <%= f.text_field :coupon_code, placeholder: "Discount" %>
@@ -76,14 +80,19 @@
   <div><ul id="stripe_error"></ul></div>
   <div class="row">
     <div class="span4 centered">
+      <p></p>
       <div class="payments">
         <% if stripe_enabled? %>
-        <a class="btn btn-primary" id="credit">Credit Card</a>
+        <div class="control-group">
+          <a class="btn btn-primary" id="credit">Credit Card</a>
+        </div>
         <% end %>
         <% if paypal_enabled? %>
-        <a class="btn btn-primary btn-inline" id="paypal">Pay Pal</a>
+        <div class="control-group paypal">
+          <img id="paypal" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif">
+        </div>
 	<% end %>
-	<%= f.hidden_field :paypal_token %>
+  <%= f.hidden_field :paypal_token %>
       </div>
     </div>
   </div>

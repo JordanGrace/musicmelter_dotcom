@@ -2,177 +2,293 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.formglow {
 
-    -moz-box-shadow: 3px 2px 45px #ffffff;
-    -webkit-box-shadow: 3px 2px 45px #ffffff;
-    box-shadow: 3px 2px 45px #ffffff;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 15px;
-
-    .formbackground {
-        background-color: rgba(255, 255, 255, 0.8);
-        background: rgba(255, 255, 255, 0.8);
-        padding-top: 20px;   
-        padding-bottom: 20px;
-        opacity: 0.5;
-        border-radius: 15px;
-    }
-    
-    a {
-        font-size: 15pt;
-    }
-    .red {
-       color: red;
-    }
-    .formbox {
-
-        legend {
-            font-family: 'crackhouseregular';
-            font-size: 31pt;
-            width: auto;
-            border: none;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h4 {
-            text-align: center;
-            padding-bottom: 15px;
-        }
-
-        form 
-            input {
-            height: 30px;
-            width: 80%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-
-        }
-
-        form input[type=image] {
-            opacity: 2;
-            height: auto;
-        }
-
-        form select {
-            height: 30px;
-            width: 85%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;            
-        }
-
-        input#show_coupon {
-            width: 50px;
-        }
-
-        img {
-            padding-left: 20px;
-        }
-        #card_month {
-            width: 90%;
-        }
-
-        #card_year {
-            width: 90%;
-        }
-
-        .email-row {
-            text-align: center;
-        }
-
-        /* Desktop Styles */
-        .hidden-tablet .terms{
-            font-weight: bold;
-            font-family: 'crackhouseregular';
-            font-size: 22pt;
-            line-height: 47px;
-            margin-bottom: 0px;
+//Set Breaks for media queries
+$break-micro: 400px;
+$break-tiny: 730px;
+$break-small: 980px;
+$break-large: 1200px;
 
 
-        }
-        .hidden-tablet .info-email{
-            font-family: 'crackhouseregular';
-            font-size: 31pt;
-            line-height: 47px;
-            margin-bottom: 0px;
-        }
-
-        /* Tablet Styles */
-
-        .hidden-desktop .terms {
-            color: #FFFFFF;
-            font-family: 'crackhouseregular';
-            font-size: 18pt;
-            line-height: 37px;
-            margin-bottom: 0px;
-            
-        }
-        .hidden-desktop .info-email {
-            font-size: 28pt;
-            display: inline-block;
-            font-weight: bold;
-            margin-bottom: none;
-            text-align: center;
-        }
-
-        /* Phone Styles */
-
-        .hidden-tablet
-
-
-        .warranty {
-            font-size: 14pt;
-            line-height: 18px;
-            font-weight: 300;
-            font-family: 'cleanhousemedium';
-            padding: 0px -1px 0px 30px;
-            .attention {
-                color: green;
-                text-decoration: italic;
-                font-weight: strong;
-            }
-            i {
-                margin-top: 5px;
-            }
-          
-        }
-
-        .user_error li{
-                font-size: 22pt;
-                line-height: 28px;
-                font-weight: 300;
-                font-family: 'crackhouseregular';
-                padding: 0px -1px 0px 30px;
-                list-style-type: none;
-                color: red;
-            }
-
-        #stripe_error li{
-            font-size: 22pt;
-            line-height: 24pt;
-            list-style-type: none;
-        }
-
-        .btn-primary {
-            font-size: 22pt;
-            line-height: 24pt;
-
-        }
-        .payments {
-            margin-left: 3%;
-        }
-
-        .discount-text {
-            padding-left: 30px;
-            font-size: 15pt;
-            font-weight: bold;
-            font-family: 'Helvetica';
-        }
-
-    
-    }
+.buffer {
+    margin-top: 20px;
 }
+
+
+.formbackground {
+    background-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+    padding-top: 20px;   
+    padding-bottom: 20px;
+    opacity: 0.5;
+    border-radius: 15px;
+}
+
+a {
+    font-size: 15pt;
+}
+.red {
+   color: red;
+}
+.formbox {
+
+    background: image-url('grill-bg-tile.png');
+  
+    padding-left: 15px;
+    padding-right: 15px;
+
+    #formtop {
+        @media screen and (min-width: $break-large) {
+            background: image-url('form-top-bar.png');
+            background-repeat: none;
+            height: 20px;
+            margin-left: -15px;
+            margin-top: -2px;
+            margin-bottom: 20px;
+            width: 400px;
+        }
+        @media screen and (min-width: $break-small) and (max-width: $break-large){
+            background: image-url('form-top-bar-330.png');
+            background-repeat: none;
+            height: 16px;
+            margin-left: -15px;
+            margin-top: -2px;
+            margin-bottom: 20px;
+            width: 330px;
+        }
+        @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+            background: image-url('form-top-bar-258.png');
+            background-repeat: none;
+            height: 12px;
+            margin-left: -15px;
+            margin-top: -2px;
+            margin-bottom: 20px;
+            width: 258px;
+        }
+        @media screen and (max-width: $break-tiny) {
+            background: image-url('form-top-bar-617.png');
+            background-repeat: none;
+            height: 20px;
+            margin-left: -15px;
+            margin-top: -2px;
+            margin-bottom: 20px;
+            width: 520px;
+        }
+    }
+
+    #formbottom {
+        @media screen and (min-width: $break-large) {
+            background: image-url('form-bottom-bar.png');
+            background-repeat: none;
+            height: 14px;
+            position: relative;
+            margin-left: -15px;
+            padding-bottom: 2px;
+            margin-top: 20px;
+            width: 400px;
+        }
+        @media screen and (min-width: $break-small) and (max-width: $break-large){
+            background: image-url('form-bottom-bar-330.png');
+            background-repeat: none;
+            height: 10px;
+            position: relative;
+            margin-left: -15px;
+            padding-bottom: 2px;
+            margin-top: 20px;
+            width: 330px;
+        }
+        @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+            background: image-url('form-bottom-bar-258.png');
+            background-repeat: none;
+            height: 11px;
+            position: relative;
+            margin-left: -15px;
+            padding-bottom: 2px;
+            margin-top: 20px;
+            width: 258px; 
+        }
+        @media screen and (max-width: $break-tiny) {
+            background: image-url('form-bottom-bar-617.png');
+            background-repeat: none;
+            height: 19px;
+            margin-left: -15px;
+            margin-top: -2px;
+            margin-bottom: 20px;
+            width: 520px;
+        }
+
+    }
+
+    .payments {
+        margin-top: 20px;
+    }
+
+    .paypal {
+        margin-top: 20px;
+    }
+
+    p {
+        color: white;
+        font-family: 'berthold'
+    }
+
+    legend {
+        font-family: 'berthold';
+        font-size: 27pt;
+        color: #FFF;
+        width: auto;
+        border: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow:0px 0px 0 rgb(215,215,215),1px 1px 0 rgb(184,184,184),2px 2px 0 rgb(154,154,154),3px 3px 0 rgb(124,124,124),4px 4px 0 rgb(93,93,93),5px 5px 0 rgb(63,63,63), 6px 6px 0 rgb(33,33,33),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+    }
+
+    h4 {
+        text-align: center;
+        padding-bottom: 15px;
+        color: #FFF;
+    }
+
+    form 
+        input {
+            height: 30px;
+            width: 70%;
+            display: block;
+            font-family: 'berthold';
+            font-size: 12pt;
+        }
+
+        label {
+            color: #FFF;
+            font-family: 'berthold';
+            font-size: 14pt;
+        }
+
+    form input[type=image] {
+        opacity: 2;
+        height: auto;
+    }
+
+    form select {
+        height: 30px;
+        width: 73%;
+        display: block;
+        font-family: 'berthold';
+        font-size: 12pt;
+    }
+
+    input#show_coupon {
+        width: 50px;
+    }
+
+    img {
+        padding-left: 20px;
+    }
+    #card_month {
+        width: 90%;
+    }
+
+    #card_year {
+        width: 90%;
+    }
+
+    .email-row {
+        text-align: center;
+    }
+
+    /* Desktop Styles */
+    .hidden-tablet .terms{
+        font-weight: bold;
+        font-family: 'berthold';
+        font-size: 18pt;
+        line-height: 19px;
+        margin-bottom: 0px;
+        text-decoration: none;
+
+
+    }
+    .hidden-tablet .info-email{
+        font-family: 'berthold';
+        font-size: 20pt;
+        line-height: 40pt;
+        margin-bottom: 0px;
+        text-decoration: none;
+        color: #FFF;
+    }
+
+    /* Tablet Styles */
+
+    .hidden-desktop .terms {
+        color: #FFFFFF;
+        font-family: 'berthold';
+        font-size: 11pt;
+        line-height: 12pt;
+        margin-bottom: 0px;
+        text-decoration: none;  
+        color: #FFF;      
+    }
+    .hidden-desktop .info-email {
+        font-size: 16pt;
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: none;
+        text-align: center;
+        text-decoration: none;
+        color: #FFF;
+    }
+
+    /* Phone Styles */
+
+    .hidden-tablet
+
+
+    .warranty {
+        font-size: 14pt;
+        line-height: 18px;
+        font-weight: 300;
+        font-family: 'cleanhousemedium';
+        padding: 0px -1px 0px 30px;
+        .attention {
+            color: green;
+            text-decoration: italic;
+            font-weight: strong;
+        }
+        i {
+            margin-top: 5px;
+        }
+      
+    }
+
+    .user_error li{
+            font-size: 22pt;
+            line-height: 28px;
+            font-weight: 300;
+            font-family: 'crackhouseregular';
+            padding: 0px -1px 0px 30px;
+            list-style-type: none;
+            color: red;
+        }
+
+    #stripe_error li{
+        font-size: 22pt;
+        line-height: 24pt;
+        list-style-type: none;
+    }
+
+    .btn-primary {
+        font-size: 22pt;
+        line-height: 24pt;
+
+    }
+
+    .discount-text {
+        padding-left: 30px;
+        font-size: 15pt;
+        font-weight: bold;
+        font-family: 'Helvetica';
+    }
+
+
+}
+
