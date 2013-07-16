@@ -11,9 +11,11 @@ class Payment
   field :recorded_amount,type: Integer
   field :fingerprint,    type: String
   field :coupon_id,      type: String
-  field :customer_id,	 type: String 
-  field :provider,	 type: String
-  field :raw_log,	 type: String 
+  field :customer_id,	   type: String 
+  field :provider,	     type: String
+  field :raw_log,	       type: String 
+  field :description,    type: String
+  
   attr_accessor :stripe_token, :paypal_token
   attr_reader :redirect_uri, :popup_uri
 
@@ -39,8 +41,8 @@ class Payment
 	charge_stripe
     end  
     if self.paypal_token.present?
-	self.provider = "paypal"
-      	self.paypal_setup!(ENV['PAYPAL_ROOT_CALLBACK'] + "#{self.id}/success", ENV['PAYPAL_ROOT_CALLBACK'] + "#{self.id}/cancel")
+	     self.provider = "paypal"
+       self.paypal_setup!(ENV['PAYPAL_ROOT_CALLBACK'] + "#{self.id}/success", ENV['PAYPAL_ROOT_CALLBACK'] + "#{self.id}/cancel")
     end
 end
 
@@ -98,7 +100,13 @@ end
 
 # paypal_payment_request
 def paypal_payment_request 
-  Paypal::Payment::Request.new(currency_code: :USD, amount: self.amount, description: self.comment)
+  
+  #inline hack for dealing with Business Registration
+  unless self.description.present?
+    self.description = "Business Registration"
+  end
+
+  Paypal::Payment::Request.new(currency_code: :USD, amount: self.amount, description: self.description)
 	
 end
 
