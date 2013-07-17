@@ -1,0 +1,60 @@
+<div class="buffer">
+</div>
+<div class="container">
+    <div class="row">
+            <div class="span4 formbox">
+                <div id="formtop"></div>
+                <%= render 'form' %>
+                <div class="row hidden-phone hidden-tablet">
+                    <div class="span4 clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                    </div>
+                </div>
+                <!-- Desktop -->
+                <div class="row hidden-phone hidden-tablet">
+                    <div class="span4 email-row">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                </div>
+                <!-- Tablet -->
+                <div class="row hidden-desktop hidden-phone clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                </div>
+                <div class="row hidden-desktop hidden-phone">
+                    <div class="span4 email-row">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                </div>
+                <!-- Phone -->
+                <div class="row hidden-desktop hidden-tablet clearfix email-row">
+                    <%= link_to "info@musicmelter.com", "mailto:info@musicmelter.com?subject=business-registration", class: "terms info-email" %>
+                </div>
+                    <div class="row hidden-desktop hidden-tablet">
+                    <div class="mobi-terms">
+                        <%= link_to "Privacy Policy", url_for(terms_privacy_url), class: "terms" %>
+                    </div>
+                </div>
+                <div id="formbottom"></div>
+            </div>
+        
+        <div class="span7 pull-right">
+            <div class="row">
+                <%= image_tag 'signup/wanted.png' , width: "600", height: "auto" %>
+            </div>
+            <div class="row">
+                <%= image_tag 'signup/buy-and-sell.png', width: "600", height: "auto" %>
+            </div>
+            <div class="row">
+                <%= image_tag 'signup/profiles.png', width: "600", height: "auto" %>
+            </div>
+            <div class="row">
+                <%= image_tag 'signup/search-and-find.png', width: "600", height: "auto" %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</footer>
+
+
+

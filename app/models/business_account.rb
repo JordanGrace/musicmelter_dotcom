@@ -1,7 +1,8 @@
 class BusinessAccount
   include Mongoid::Document
   include Mongoid::Paranoia
-  include Mongoid::Timestamps
+  include Mongoid::History::Trackable
+  include Mongoid::Timestamps::Short
 
   field :name_first,        :type => String
   field :name_last,         :type => String
@@ -28,9 +29,9 @@ class BusinessAccount
   field :subscription,      :type => String
   field :last4,             :type => Integer
 
-  #single use token - updateable
-  #field :stripe_token,      :type => String
   
+# 
+
   validates_presence_of :name_first, :name_last, :business, :email, :country
 
   attr_accessor :valid_types, :coupon_code, :paypal_token, :stripe_token

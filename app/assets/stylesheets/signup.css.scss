@@ -76,6 +76,23 @@ $break-large: 1200px;
 
 
 .signup {
+    
+    .registertext {        
+        h1.top {
+            font-family: 'crackhouseregular';
+            font-size: 81pt;
+            line-height: 70pt;
+            color: #fff;
+        }
+        h1.bottom{
+            font-family: 'crackhouseregular';
+            font-size: 61pt;
+            line-height: 61pt;
+            color: #fff;
+            margin-bottom: 60px;
+        }
+    }
+
     /* move me to overrides for global */
     .centered {
         display: inline;
@@ -410,5 +427,14 @@ $break-large: 1200px;
             width: 60%;
         }
 
+    }
+}
+
+.signup .user {
+    .business {
+        h1 {
+            font-family: 'OldStamperRegular';
+            font-size: 500px;
+        }
     }
 }

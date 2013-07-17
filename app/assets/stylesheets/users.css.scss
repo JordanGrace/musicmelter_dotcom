@@ -1,0 +1,399 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.checkbox.inline.no_indent,
+.checkbox.inline.no_indent+.checkbox.inline.no_indent {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.checkbox.inline.no_indent:last-child {
+  margin-right: 0px;
+}
+
+
+
+//Set Breaks for media queries
+$break-micro: 400px;
+$break-tiny: 730px;
+$break-small: 980px;
+$break-large: 1200px;
+
+.users {
+
+  .buffer {
+      margin-top: 20px;
+  }
+
+  a {
+      font-size: 15pt;
+  }
+  .red {
+     color: red;
+  }
+
+  .warranty {
+      h2 {
+          text-align: center;
+      }
+  }
+
+  .register-head {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .formbox {
+
+      background: image-url('grill-bg-tile.png');
+      background-repeat: repeat-y;
+      background-position: center;
+    
+
+
+      #formtop {
+          @media screen and (min-width: $break-large) {
+              background: image-url('form-top-bar-370.png');
+              background-repeat: none;
+              height: 20px;
+              margin-top: -2px;
+              margin-bottom: 20px;
+              width: 370px;
+          }
+          @media screen and (min-width: $break-small) and (max-width: $break-large){
+              background: image-url('form-top-bar-300.png');
+              background-repeat: none;
+              height: 16px;
+              margin-top: -2px;
+              margin-bottom: 20px;
+              width: 300px;
+          }
+          @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+              background: image-url('form-top-bar-258.png');
+              background-repeat: none;
+              height: 12px;
+              /*margin-left: -15px;
+              margin-top: -2px;
+              margin-bottom: 20px;*/
+              width: 229px;
+          }
+          @media screen and (min-width: $break-micro) and (max-width: $break-tiny) {
+              background: image-url('form-top-bar-400.png');
+              background-repeat: none;
+              height: 15px;
+              /*margin-left: -16px;
+              margin-top: -2px;
+              margin-bottom: 20px;*/
+              width: 401px;
+              margin: 0 auto;
+              margin-bottom: 15px;
+          }
+          @media screen and (max-width: $break-tiny) {
+              background: image-url('form-top-bar-280.png');
+              background-repeat: none;
+              height: 15px;
+              margin-left: -15px;
+              margin-top: -2px;
+              margin-bottom: 20px;
+              width: 280px;
+              margin: 0 auto;
+
+          }
+      }
+
+      #formbottom {
+          @media screen and (min-width: $break-large) {
+              background: image-url('form-bottom-bar-370.png');
+              background-repeat: none;
+              height: 14px;
+              position: relative;
+              padding-bottom: 2px;
+              margin-top: 20px;
+              width: 370px;
+          }
+          @media screen and (min-width: $break-small) and (max-width: $break-large){
+              background: image-url('form-bottom-bar-300.png');
+              background-repeat: none;
+              height: 10px;
+              position: relative;
+              padding-bottom: 2px;
+              margin-top: 20px;
+              width: 300px;
+          }
+          @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+              background: image-url('form-bottom-bar-258.png');
+              background-repeat: none;
+              height: 11px;
+              position: relative;
+              /*margin-left: -15px;
+              padding-bottom: 2px;
+              margin-top: 20px;*/
+              width: 229px; 
+          }
+          @media screen and (min-width: $break-micro) and (max-width: $break-tiny) {
+              background: image-url('form-bottom-bar-370.png');
+              background-repeat: none;
+              height: 15px;
+              margin-left: -15px;
+              margin-top: -2px;
+              margin-bottom: 20px;
+              width: 400px;
+              margin: 0 auto;
+
+          }
+          @media screen and (max-width: $break-tiny) {
+              background: image-url('form-bottom-bar-280.png');
+              background-repeat: none;
+              height: 15px;
+              margin-left: -15px;
+              margin-top: -2px;
+              margin-bottom: 20px;
+              width: 280px;
+              margin: 0 auto;
+
+          }
+
+      }
+
+      .payments {
+        @media screen and (min-width: $break-large) {
+          margin-top: 20px;
+          margin-left: 40px;
+          margin-right: 20px;
+        }
+        @media screen and (min-width: $break-small) and (max-width: $break-large){
+          margin-top: 20px;
+          margin-left: 22px;
+          margin-right: 5px;
+        }
+        @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+          margin-top: 20px;
+          margin-left: 22px;
+          margin-right: 5px;
+        }
+
+      }
+
+      .paypal {
+          padding-top: 30px;
+      }
+
+      p {
+          color: white;
+          font-family: 'berthold'
+      }
+
+      legend {
+          font-family: 'berthold';
+          font-size: 27pt;
+          color: #FFF;
+          width: auto;
+          border: none;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          text-shadow:0px 0px 0 rgb(215,215,215),1px 1px 0 rgb(184,184,184),2px 2px 0 rgb(154,154,154),3px 3px 0 rgb(124,124,124),4px 4px 0 rgb(93,93,93),5px 5px 0 rgb(63,63,63), 6px 6px 0 rgb(33,33,33),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+      }
+
+      h4 {
+        color: #FFF;
+        text-align: center;
+      }
+
+      h4.top {
+        font-size: 21pt;
+        @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+          font-size: 18pt;
+        }
+
+      }
+
+      h4.bottom {
+        font-size: 27pt;
+        @media screen and (min-width: $break-tiny) and (max-width: $break-small){
+          font-size: 23pt;
+        }
+
+      }
+
+      .control-group {
+          padding-left: 50px;
+      }
+
+      .help-block {
+          color: #FFF;
+      }
+
+      form 
+          input {
+              height: 30px;
+              display: block;
+              font-family: 'berthold';
+              font-size: 12pt;
+          }
+
+          label {
+              color: #FFF;
+              font-family: 'crackhouseregular';
+              font-size: 21pt;
+              text-align: left;
+              display: block;
+          }
+
+          label.checkbox {
+          	font-size: 12pt;
+          	input[type=checkbox]{
+          		float: left;
+          	}
+          }
+
+      form input[type=image] {
+          opacity: 2;
+          height: auto;
+      }
+
+      form input[type=checkbox] {
+        display: inline;
+        float: right;
+        padding-left: 15px;
+        margin-left: 5px;
+        height: 20px;
+        width: 17px;
+      }
+
+      form select {
+          height: 30px;
+          display: block;
+          font-family: 'berthold';
+          font-size: 12pt;
+      }
+
+
+      #coupon {
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 25px;
+      }
+
+      .email-row {
+          text-align: center;
+      }
+
+      /* Desktop Styles */
+      .hidden-tablet .terms{
+          font-weight: bold;
+          font-family: 'berthold';
+          font-size: 18pt;
+          line-height: 19px;
+          margin-bottom: 0px;
+          text-decoration: none;
+          color: #FFF;
+      }
+      .hidden-tablet .info-email{
+          font-family: 'berthold';
+          font-size: 20pt;
+          line-height: 40pt;
+          margin-bottom: 0px;
+          text-decoration: none;
+          color: #FFF;
+          text-align: center;
+
+      }
+
+      /* Tablet Styles */
+
+      .hidden-desktop .terms {
+          color: #FFFFFF;
+          font-family: 'berthold';
+          font-size: 11pt;
+          line-height: 12pt;
+          margin-bottom: 0px;
+          text-decoration: none;  
+          color: #FFF;      
+      }
+      .hidden-desktop .info-email {
+          font-size: 14pt;
+          display: inline-block;
+          font-weight: bold;
+          margin-bottom: none;
+          text-align: center;
+          text-decoration: none;
+          color: #FFF;
+      }
+
+      /* Phone Styles */
+
+      .hidden-tablet
+
+
+      .warranty {
+          font-size: 14pt;
+          line-height: 18px;
+          font-weight: 300;
+          font-family: 'cleanhousemedium';
+          padding: 0px -1px 0px 30px;
+          .attention {
+              color: green;
+              text-decoration: italic;
+              font-weight: strong;
+          }
+         
+          i {
+              margin-top: 5px;
+          }
+        
+      }
+
+      .user_error li{
+              font-size: 22pt;
+              line-height: 28px;
+              font-weight: 300;
+              font-family: 'crackhouseregular';
+              padding: 0px -1px 0px 30px;
+              list-style-type: none;
+              color: red;
+          }
+
+      #stripe_error li{
+          font-size: 22pt;
+          line-height: 24pt;
+          list-style-type: none;
+      }
+
+      .btn-primary {
+          font-size: 22pt;
+          line-height: 24pt;
+
+      }
+
+      .discount-text {
+          font-size: 15pt;
+          font-weight: bold;
+          font-family: 'Helvetica';
+          text-align: center;
+          @media screen and(max-width: $break-small) and (min-width: $break-tiny){
+            font-size: 11pt;
+          }
+      }
+
+
+  }
+
+  .actions{
+  	margin: 0 auto;
+  	text-align: center;
+  	margin-top: 50px;
+  }
+
+  #Register {
+  	margin: 0 auto;
+  	text-align: center;
+  	width: 60%;
+  }
+
+  .mobi-terms {
+    padding-top: 20px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+}
