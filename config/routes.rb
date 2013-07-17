@@ -31,7 +31,7 @@ Musicmelter::Application.routes.draw do
   get "register/business"
   get "register/user"
 
-  get '/' => 'users#new', :constraints => { :subdomain => 'www' }
+  get '/' => 'signup#user', :constraints => { :subdomain => 'www' }
   match '/' => "signup#business", :constraints => { :subdomain => 'business' }
 
   root :to => "users#new"
