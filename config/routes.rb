@@ -1,5 +1,8 @@
 Musicmelter::Application.routes.draw do
   
+  resources :users
+
+
    get "coupon/validate"
 
   devise_for :admin_users
@@ -22,11 +25,11 @@ Musicmelter::Application.routes.draw do
   match "payment/:id/success", controller: :payment, action: :success
   match "payment/:id/cancel", controller: :payment, action: :cancel
 
+  resources :users, only: [:create, :index, :update, :show]
   get "signup/business"
   get "signup/user"
   get "register/business"
   get "register/user"
-  get "user/index"
 
   match '/' => 'user#index', :constraints => { :subdomain => 'www' }
   match '/' => "signup#business", :constraints => { :subdomain => 'business' }
