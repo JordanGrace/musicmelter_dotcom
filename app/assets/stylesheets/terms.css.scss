@@ -1,6 +1,9 @@
 // Place all the styles related to the terms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.buffer {
+    margin-top: 50px;
+}
 .formglow {
     padding-left: 30px; 
     padding-right: 30px;
@@ -13,17 +16,18 @@
 
     h1 {
         position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 59pt;
+        margin: 0 auto;
+        font-size: 28pt;
     }
 
     a {
         color: #FFFFFF;
-        font-family: 'crackhouseregular';
-        font-size: 38pt;
-        line-height: 46px;
-        margin-bottom: 50px;
+        font-family: 'berthold';
+        font-size: 18pt;
+        line-height: 20px;
+        margin-bottom: 15px;
+        text-decoration: none;
     }
+
 
 }
