@@ -2,6 +2,8 @@
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "Error") %></h2>
+   
+      
     </div>
   <% end %>
   <div class="control-group">
@@ -112,7 +114,7 @@
       <div class="controls">
         <%= f.text_field :email, placeholder: "Email" %>
         <% if @user.errors[:email] %>
-          <span class="help-block"><%= @user.errors[:state][0] %></span>
+          <span class="help-block"><%= @user.errors[:email][0] %></span>
         <% end %>
       </div>
     </div>
