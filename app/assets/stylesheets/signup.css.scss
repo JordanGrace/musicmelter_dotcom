@@ -74,337 +74,338 @@ $break-large: 1200px;
 
 
 
-
-/* move me to overrides for global */
-.centered {
-    display: inline;
-    margin-left: 10%;
-    text-align: center;
-}
-
-h1 {
-    font-family: 'OldStamperRegular';
-    font-size: 70pt;
-    color: #9ACE6D;
-    line-height: 72pt;
-}
-
-h2 {
-    font-family: 'crackhouseregular';
-    font-size: 55pt;
-    line-height: 60pt;
-    color: #FFFFFF;
-    font-weight: 200;
-}
-
-h3 {
-    font-family: 'crackhouseregular';
-    font-size: 30pt;
-    line-height: 40pt;
-    color: #FFFFFF;
-    font-weight: 200;
-
-}
-
-.video {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-
-     iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.mobile-video {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-
-     iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-#mobile-header {
-    background-color: #00000;
-    img {
-        width: 100%;
-        margin-left: auto;
-
-    }
-}
-.blur-container {
-    z-index: -1;
-    position: absolute;
-    margin-top: -8%;
-
-    img {
-        max-width: 90%;
-        position: relative;
-        padding-left: 37%;
-    }
-}
-
-.grill {
-    background-image: image-url('signup-grill-background.png');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    @media screen and (min-width: $break-large) {
-        padding-bottom: 68px;
-    }
-    @media screen and (min-width: $break-small) and (max-width: $break-large){
-        padding-bottom: 52px;
-        margin-top: 53px;
-    }
-
-
-    width: 100%;
-
-
-    .registertext {
-        font-family: berthold;
+.signup {
+    /* move me to overrides for global */
+    .centered {
+        display: inline;
+        margin-left: 10%;
         text-align: center;
+    }
+
+    h1 {
+        font-family: 'berthold';
+        font-size: 70pt;
+        color: #9ACE6D;
+        line-height: 72pt;
+    }
+
+    h2 {
+        font-family: 'berthold';
+        font-size: 55pt;
+        line-height: 60pt;
+        color: #FFFFFF;
+        font-weight: 200;
+    }
+
+    h3 {
+        font-family: 'crackhouseregular';
+        font-size: 30pt;
+        line-height: 40pt;
+        color: #FFFFFF;
+        font-weight: 200;
+
+    }
+
+    .video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+
+         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .mobile-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+
+         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    #mobile-header {
+        background-color: #00000;
+        img {
+            width: 100%;
+            margin-left: auto;
+
+        }
+    }
+    .blur-container {
+        z-index: -1;
+        position: absolute;
+        margin-top: -8%;
+
+        img {
+            max-width: 90%;
+            position: relative;
+            padding-left: 37%;
+        }
+    }
+
+    .grill {
+        background-image: image-url('signup-grill-background.png');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
         @media screen and (min-width: $break-large) {
-            font-size: 17pt;
-            line-height: 20pt;
-            padding: 50px 25px 15px 25px;
+            padding-bottom: 68px;
         }
-        @media screen and (min-width : 450px) and (max-width : 1024px){
-            font-size: 28pt;
-            line-height: 29pt;
-            padding: 55px 25px 135px 25px;
-        } 
         @media screen and (min-width: $break-small) and (max-width: $break-large){
-            font-size: 14pt;
-            line-height: 15pt;
-            padding: 28px 25px 20px 25px;
-            margin-bottom: 15px;
-        }
-       
-        @media screen and (max-width: $break-micro) {
-            font-size: 9pt;
-            line-height: 11pt;
-            padding: 28px 25px 15px 25px;
+            padding-bottom: 52px;
+            margin-top: 53px;
         }
 
-       
-     
-        .e {
+
+        width: 100%;
+
+
+        .registertext {
+            font-family: berthold;
+            text-align: center;
             @media screen and (min-width: $break-large) {
-                width: 42px;
-                padding-left: 12px;
-            }
-            @media screen and (min-width: 1024px) and (max-width: $break-large) {
-                height: 38px;
-                width: 35px;    
+                font-size: 17pt;
+                line-height: 20pt;
+                padding: 50px 25px 15px 25px;
             }
             @media screen and (min-width : 450px) and (max-width : 1024px){
-                padding-left: 15px;
+                font-size: 28pt;
+                line-height: 29pt;
+                padding: 55px 25px 135px 25px;
+            } 
+            @media screen and (min-width: $break-small) and (max-width: $break-large){
+                font-size: 14pt;
+                line-height: 15pt;
+                padding: 28px 25px 20px 25px;
+                margin-bottom: 15px;
             }
+           
             @media screen and (max-width: $break-micro) {
-                height: 25px;
-                width: 22px;
-                padding-left: 9px;
+                font-size: 9pt;
+                line-height: 11pt;
+                padding: 28px 25px 15px 25px;
             }
-        }
 
-    }
-}
-
-
-
-.boom-container {
-    text-align: center;
-}
-/* Font Special Effects */
-.sharper-glow {
-    text-shadow: 1px 0px 0px #686868, 1px 1px 0px #686868, 0px 1px 0px #686868, 
-    -1px 1px 0px #686868, -1px 0px 0px #686868, -1px -1px 0px #686868, 
-    0px -1px 0px #686868, 1px -1px 0px #686868, 1px 4px 5px #aeaeae;
-}
-
-.inset {
-    text-shadow: 0px 2px 3px #666;
-}
-
-
-
-/* Page Regions */
-
-
-header {
-
-    img {
-      width: 83%;
-      margin-left: 7%;
-    }
-}
-
-
-footer {
-  /*
-    position: absolute;
-    bottom: 0;
-*/
-    .copyright {
-        font-family: helvetica;
-        font-size: 12pt;
-        color: #92BE6E;
-        font-weight: 100;
-         @media screen and (max-width: $break-micro) {
-                font-size: 8px;
+           
+         
+            .e {
+                @media screen and (min-width: $break-large) {
+                    width: 42px;
+                    padding-left: 12px;
+                }
+                @media screen and (min-width: 1024px) and (max-width: $break-large) {
+                    height: 38px;
+                    width: 35px;    
+                }
+                @media screen and (min-width : 450px) and (max-width : 1024px){
+                    padding-left: 15px;
+                }
+                @media screen and (max-width: $break-micro) {
+                    height: 25px;
+                    width: 22px;
+                    padding-left: 9px;
+                }
             }
-    }
-}
 
-
-/* User specific styles */
-
-
-    .icebreaker{
-       .top {
-            font-family: 'crackhouseregular';
-            font-size: 65pt;
-            color: #FFF;
-            line-height: 67pt;
-        }
-        .bottom {
-            font-family: 'crackhouseregular';
-            font-size: 55pt;
-            color: #FFF;
-            line-height: 67pt;   
         }
     }
-    .register-button {
-        padding-top: 40px;
+
+
+
+    .boom-container {
+        text-align: center;
+    }
+    /* Font Special Effects */
+    .sharper-glow {
+        text-shadow: 1px 0px 0px #686868, 1px 1px 0px #686868, 0px 1px 0px #686868, 
+        -1px 1px 0px #686868, -1px 0px 0px #686868, -1px -1px 0px #686868, 
+        0px -1px 0px #686868, 1px -1px 0px #686868, 1px 4px 5px #aeaeae;
     }
 
-    .tablet {
-        font-family: 'OldStamperRegular';
-        font-size: 36pt;
-        color: #92BE6E;
-        line-height: 37pt;
-        margin: auto;
-        text-decoration: none;
-    }
-
-    .mobile {
-        font-family: 'OldStamperRegular';
-        font-size: 21pt;
-        color: #92BE6E;
-        line-height: 32pt;
-        margin: auto;
-        text-decoration: none;
+    .inset {
+        text-shadow: 0px 2px 3px #666;
     }
 
 
-/* Business specific styles */
-.business {
 
-    p{
-         color: #FFFFFF; 
-    }
-    
-    p.bodytext {
-        font-family: 'cleanhousemedium';
-        color: #FFFFFF; 
-        font-size: 17pt;
-        line-height: 19pt;
+    /* Page Regions */
+
+
+    header {
+
+        img {
+          width: 83%;
+          margin-left: 7%;
+        }
     }
 
-    .icebreaker {
 
+    footer {
+      /*
+        position: absolute;
+        bottom: 0;
+    */
+        .copyright {
+            font-family: helvetica;
+            font-size: 12pt;
+            color: #92BE6E;
+            font-weight: 100;
+             @media screen and (max-width: $break-micro) {
+                    font-size: 8px;
+                }
+        }
+    }
+
+
+    /* User specific styles */
+
+
+        .icebreaker{
            .top {
                 font-family: 'crackhouseregular';
-                
-                @media screen and (min-width: $break-large) {
-                    font-size: 70pt;
-                    line-height: 75pt;
-                }
-                @media screen and (min-width: $break-small) and (max-width: $break-large){
-                   font-size: 62pt;
-                    line-height: 38pt;
-                }
-
+                font-size: 65pt;
+                color: #FFF;
+                line-height: 67pt;
             }
             .bottom {
                 font-family: 'crackhouseregular';
-                font-size: 63pt;
+                font-size: 55pt;
                 color: #FFF;
-                
-                @media screen and (min-width: $break-large) {
-                    font-size: 63pt;
-                    
-                }
-                @media screen and (min-width: $break-small) and (max-width: $break-large){
-                    font-size: 52pt;
-                    
-                }   
+                line-height: 67pt;   
             }
-       
-    }
-   
-
-
-    h1{
-        font-family: 'OldStamperRegular';
-        color: #92BE6E;
-        line-height: 40pt;
-        margin: auto;
-        text-decoration: none;
-        padding-top: 10px;
-        @media screen and (min-width: $break-large) {
-            font-size: 33pt;
-            
         }
-        @media screen and (min-width: $break-small) and (max-width: $break-large){
-            font-size: 28pt;
-            
-        }   
-    
-    }
+        .register-button {
+            padding-top: 40px;
+        }
 
-    h2{
-        font-family: 'OldStamperRegular';
-        font-size: 22pt;
-        color: #92BE6E;
-        line-height: 32pt;
-        margin: auto;
-        text-decoration: none;
-    
-    }
+        .tablet {
+            font-family: 'OldStamperRegular';
+            font-size: 36pt;
+            color: #92BE6E;
+            line-height: 37pt;
+            margin: auto;
+            text-decoration: none;
+        }
 
-    h2.sharper-glow {
-        margin: 15px 0px 15px 0px;
-    }
+        .mobile {
+            font-family: 'OldStamperRegular';
+            font-size: 21pt;
+            color: #92BE6E;
+            line-height: 32pt;
+            margin: auto;
+            text-decoration: none;
+        }
 
-    h3{
-        font-family: 'OldStamperRegular';
-        font-size: 17pt;
-        color: #92BE6E;
-        line-height: 32pt;
-        margin: auto;
-        text-decoration: none;    
-        text-align: center;
-    }
 
-    .center {
-        margin:0 auto;
-        float:none;
-    }
+    /* Business specific styles */
+    .business {
 
-    .button {
-        margin-left: 20%;
-        width: 60%;
-    }
+        p{
+             color: #FFFFFF; 
+        }
+        
+        p.bodytext {
+            font-family: 'cleanhousemedium';
+            color: #FFFFFF; 
+            font-size: 17pt;
+            line-height: 19pt;
+        }
 
+        .icebreaker {
+
+               .top {
+                    font-family: 'crackhouseregular';
+                    
+                    @media screen and (min-width: $break-large) {
+                        font-size: 70pt;
+                        line-height: 75pt;
+                    }
+                    @media screen and (min-width: $break-small) and (max-width: $break-large){
+                       font-size: 62pt;
+                        line-height: 38pt;
+                    }
+
+                }
+                .bottom {
+                    font-family: 'crackhouseregular';
+                    font-size: 63pt;
+                    color: #FFF;
+                    
+                    @media screen and (min-width: $break-large) {
+                        font-size: 63pt;
+                        
+                    }
+                    @media screen and (min-width: $break-small) and (max-width: $break-large){
+                        font-size: 52pt;
+                        
+                    }   
+                }
+           
+        }
+       
+
+
+        h1{
+            font-family: 'OldStamperRegular';
+            color: #92BE6E;
+            line-height: 40pt;
+            margin: auto;
+            text-decoration: none;
+            padding-top: 10px;
+            @media screen and (min-width: $break-large) {
+                font-size: 33pt;
+                
+            }
+            @media screen and (min-width: $break-small) and (max-width: $break-large){
+                font-size: 28pt;
+                
+            }   
+        
+        }
+
+        h2{
+            font-family: 'OldStamperRegular';
+            font-size: 22pt;
+            color: #92BE6E;
+            line-height: 32pt;
+            margin: auto;
+            text-decoration: none;
+        
+        }
+
+        h2.sharper-glow {
+            margin: 15px 0px 15px 0px;
+        }
+
+        h3{
+            font-family: 'OldStamperRegular';
+            font-size: 17pt;
+            color: #92BE6E;
+            line-height: 32pt;
+            margin: auto;
+            text-decoration: none;    
+            text-align: center;
+        }
+
+        .center {
+            margin:0 auto;
+            float:none;
+        }
+
+        .button {
+            margin-left: 20%;
+            width: 60%;
+        }
+
+    }
 }

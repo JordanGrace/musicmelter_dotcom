@@ -1,14 +1,14 @@
 <%= form_for(@business_account) do |f| %>
-<legend>Business Registration</legend>
+<legend></legend>
+<div class="hidden-desktop hidden-tablet register-head">
+  <%= image_tag "business_registration_mobile_header.png" %>
+</div>
+<div class="hidden-phone register-head">
+  <%= image_tag "business_registration_header.png" %>
+</div>
   <% if @business_account.errors.any? %>
     <div class="warranty">
       <h2><%= pluralize(@business_account.errors.count, "error") %> </h2>
-
-      <ul>
-      <% @business_account.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
   <div class="warranty">
@@ -19,58 +19,98 @@
     <%= label_tag :name_first, "First Name", class: 'control-label' %>
     <div class='controls'>
       <%= f.text_field :name_first, placeholder: "First Name" %>
+      <% if @business_account.errors[:name_first] %>
+        <span class="help-block"><%= @business_account.errors[:name_first][0] %></span>
+      <% end %>
     </div>
   </div>
-  <div class="field">
-        <%= label_tag :last_name, "Last Name" %>
-    <%= f.text_field :name_last, placeholder: "Last Name" %>
+  <div class="control-group">
+      <%= label_tag :last_name, "Last Name", class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name_last, placeholder: "Last Name" %>
+    <% if @business_account.errors[:name_last] %>
+        <span class="help-block"><%= @business_account.errors[:name_last][0] %></span>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-        <%= label_tag :business %>
-    <%= f.text_field :business, placeholder: "Business Name" %>
+  <div class="control-group">
+    <%= label_tag :business, "Business", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :business, placeholder: "Business Name" %>
+    <% if @business_account.errors[:name_last] %>
+        <span class="help-block"><%= @business_account.errors[:name_last][0] %></span>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= label_tag :email %>
+  <div class="control-group">
+    <%= label_tag :email, "Email", class: 'control-label' %>
+    <div class="controls">
     <%= f.text_field :email, placeholder: "Email", pattern: "[^ @]*@[^ @]*" %>
+    <% if @business_account.errors[:email] %>
+        <span class="help-block"><%= @business_account.errors[:email][0] %></span>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
+  <div class="control-group">
     <%= label_tag :business_account, "Type of business" %>
+    <div class="controls">
     <%= select :business_account, :type, business_types %>
+    </div>
   </div>
-    <div class="field">
+    <div class="control-group">
        <%= label_tag :country, "Select your country" %>
        <%= image_tag 'signup/america.png', onclick: "show_us()", class: "murica" %> 
        <%= image_tag 'signup/canada.png', onclick: "show_ca()", class: "canada" %>
        <%= f.hidden_field :country, value: "US" %>
+       <% if @business_account.errors[:country] %>
+        <span class="help-block"><%= @business_account.errors[:country][0] %></span>
+      <% end %>
   </div>
    <div class="hide ca_fields">
-    <div class="field">
-      <%= label_tag :postal, "Postal Code" %>
-      <%= f.text_field :postal, placeholder: "PostalCode",  maxlength: 7 %>
+    <div class="control-group">
+      <%= label_tag :postal, "Postal Code", class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :postal, placeholder: "PostalCode",  maxlength: 7 %>
+        <% if @business_account.errors[:postal] %>
+          <span class="help-block"><%= @business_account.errors[:postal][0] %></span>
+        <% end %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag :province %>
-      <%= select :business_account, :province, canadian_provinces %>
+    <div class="control-group">
+      <%= label_tag :province, "Province", class: "control-label" %>
+      <div class="controls">
+        <%= select :business_account, :province, canadian_provinces %>
+        <% if @business_account.errors[:province] %>
+          <span class="help-block"><%= @business_account.errors[:province][0] %></span>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="hide us_fields">
-    <div class="field">
-      <%= label_tag :zip %>
-      <%= f.text_field :zip, placeholder: "Zip",  maxlength: 5 %>
+    <div class="control-group">
+      <%= label_tag :zip, "Zip Code", class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :zip, placeholder: "Zip",  maxlength: 5 %>
+        <% if @business_account.errors[:zip] %>
+          <span class="help-block"><%= @business_account.errors[:zip][0] %></span>
+        <% end %>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag :state %>
-      <%= select :business_account, :state, us_states %>
+    <div class="control-group">
+      <%= label_tag :state, "State", class: "control-label" %>
+      <div class="controls">
+        <%= select :business_account, :state, us_states %>
+        <% if @business_account.errors[:state] %>
+          <span class="help-block"><%= @business_account.errors[:state][0] %></span>
+        <% end %>
+      </div>
     </div>
   </div>
 <legend>Price: <span id="offerprice">$600</span> </legend>
-  <h4>Limited Time Offer: One Full Year!!!</h4>
+  <h4 class="top">Limited Time Offer</h4>
+  <h4 class="bottom">One Full Year!</h4>
    <div class="control-group">
-      <%= label_tag :discount, class: "checkbox inline pull-left", class: "checkbox" do %>
-      <div class="controls">
-        Have a Coupon Code? <%= check_box_tag("show_coupon") %>
-      <% end %>
-      </div>
+      <%= label_tag :discount, "Have a Coupon Code?",class: "checkbox inline" do %>Have a Coupon Code?<%= check_box_tag("show_coupon") %> <% end %>
    </div>
   <div id="coupon" class="hide">
         <%= f.text_field :coupon_code, placeholder: "Discount" %>
@@ -79,18 +119,18 @@
      </div>
   <div><ul id="stripe_error"></ul></div>
   <div class="row">
-    <div class="span4 centered">
+    <div class="control-group">
       <p></p>
       <div class="payments">
         <% if stripe_enabled? %>
-        <div class="control-group">
-          <a class="btn btn-primary" id="credit">Credit Card</a>
-        </div>
+          <a href="#">
+            <%= image_tag "credit-105.png", id: "credit", class: "pull-left" %>
+          </a>
         <% end %>
         <% if paypal_enabled? %>
-        <div class="control-group paypal">
-          <img id="paypal" src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif">
-        </div>
+          <a href="#">
+            <%= image_tag "paypal-105.png", id: "paypal", class: "pull-right" %>          
+          </a>
 	<% end %>
   <%= f.hidden_field :paypal_token %>
       </div>
