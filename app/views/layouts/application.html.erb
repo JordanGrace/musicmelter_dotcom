@@ -20,7 +20,7 @@
     <%= yield(:head) %>
 
   </head>
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
       <%= render "layouts/video_header" %>
       <%= yield %>
 
