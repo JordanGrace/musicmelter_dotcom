@@ -3,11 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-//Set Breaks for media queries
-$break-micro: 400px;
-$break-tiny: 730px;
-$break-small: 980px;
-$break-large: 1200px;
 
 .business_accounts {
 
@@ -36,113 +31,35 @@ $break-large: 1200px;
   .formbox {
 
       background: image-url('grill-bg-tile.png');
+      background-size: contain;
       background-repeat: repeat-y;
       background-position: center;
     
 
 
+//Set Breaks for media queries
+$break-micro: 400px;
+$break-tiny: 769px;
+$break-small: 980px;
+$break-large: 1200px;
       #formtop {
-          @media screen and (min-width: $break-large) {
-              background: image-url('form-top-bar-370.png');
-              background-repeat: none;
-              height: 20px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 370px;
-          }
-          @media screen and (min-width: $break-small) and (max-width: $break-large){
-              background: image-url('form-top-bar-300.png');
-              background-repeat: none;
-              height: 16px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 300px;
-          }
-          @media screen and (min-width: $break-tiny) and (max-width: $break-small){
-              background: image-url('form-top-bar-258.png');
-              background-repeat: none;
-              height: 12px;
-              /*margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;*/
-              width: 229px;
-          }
-          @media screen and (min-width: $break-micro) and (max-width: $break-tiny) {
-              background: image-url('form-top-bar-400.png');
-              background-repeat: none;
-              height: 15px;
-              /*margin-left: -16px;
-              margin-top: -2px;
-              margin-bottom: 20px;*/
-              width: 401px;
-              margin: 0 auto;
-              margin-bottom: 15px;
-          }
-          @media screen and (max-width: $break-tiny) {
-              background: image-url('form-top-bar-280.png');
-              background-repeat: none;
-              height: 15px;
-              margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 280px;
-              margin: 0 auto;
-
-          }
+          width: 100%;
+          background: image-url('form-top-bar-617.png');
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 30px;
+          margin-top: -2px;
+          margin-bottom: 20px;
       }
 
       #formbottom {
-          @media screen and (min-width: $break-large) {
-              background: image-url('form-bottom-bar-370.png');
-              background-repeat: none;
+              background: image-url('form-bottom-bar-617.png');
+              background-size: contain;
+              background-repeat: no-repeat;
               height: 14px;
               position: relative;
               padding-bottom: 2px;
-              margin-top: 20px;
-              width: 370px;
-          }
-          @media screen and (min-width: $break-small) and (max-width: $break-large){
-              background: image-url('form-bottom-bar-300.png');
-              background-repeat: none;
-              height: 10px;
-              position: relative;
-              padding-bottom: 2px;
-              margin-top: 20px;
-              width: 300px;
-          }
-          @media screen and (min-width: $break-tiny) and (max-width: $break-small){
-              background: image-url('form-bottom-bar-258.png');
-              background-repeat: none;
-              height: 11px;
-              position: relative;
-              /*margin-left: -15px;
-              padding-bottom: 2px;
-              margin-top: 20px;*/
-              width: 229px; 
-          }
-          @media screen and (min-width: $break-micro) and (max-width: $break-tiny) {
-              background: image-url('form-bottom-bar-370.png');
-              background-repeat: none;
-              height: 15px;
-              margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 400px;
-              margin: 0 auto;
-
-          }
-          @media screen and (max-width: $break-tiny) {
-              background: image-url('form-bottom-bar-280.png');
-              background-repeat: none;
-              height: 15px;
-              margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 280px;
-              margin: 0 auto;
-
-          }
-
+              margin-top: 30px;
       }
 
       .payments {
@@ -253,7 +170,7 @@ $break-large: 1200px;
         padding-left: 15px;
         margin-left: 5px;
         height: 20px;
-        width: 17px;
+        width: 21px;
       }
 
       form select {

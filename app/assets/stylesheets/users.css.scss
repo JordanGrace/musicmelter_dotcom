@@ -50,108 +50,24 @@ $break-large: 1200px;
     
 
 
-      #formtop {
-          @media screen and (min-width: $break-large) {
-              background: image-url('form-top-bar-370.png');
-              background-repeat: none;
-              height: 20px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 370px;
-          }
-          @media screen and (min-width: $break-small) and (max-width: $break-large){
-              background: image-url('form-top-bar-300.png');
-              background-repeat: none;
-              height: 16px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 300px;
-          }
-          @media screen and (min-width: $break-tiny) and (max-width: $break-small){
-              background: image-url('form-top-bar-258.png');
-              background-repeat: none;
-              height: 12px;
-              /*margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;*/
-              width: 229px;
-          }
-          @media screen and (min-width: $break-micro) and (max-width: $break-tiny) {
-              background: image-url('form-top-bar-400.png');
-              background-repeat: none;
-              height: 15px;
-              /*margin-left: -16px;
-              margin-top: -2px;
-              margin-bottom: 20px;*/
-              width: 401px;
-              margin: 0 auto;
-              margin-bottom: 15px;
-          }
-          @media screen and (max-width: $break-tiny) {
-              background: image-url('form-top-bar-280.png');
-              background-repeat: none;
-              height: 15px;
-              margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 280px;
-              margin: 0 auto;
-
-          }
+        #formtop {
+          width: 100%;
+          background: image-url('form-top-bar-617.png');
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 30px;
+          margin-top: -2px;
+          margin-bottom: 20px;
       }
 
       #formbottom {
-          @media screen and (min-width: $break-large) {
-              background: image-url('form-bottom-bar-370.png');
-              background-repeat: none;
+              background: image-url('form-bottom-bar-617.png');
+              background-size: contain;
+              background-repeat: no-repeat;
               height: 14px;
               position: relative;
               padding-bottom: 2px;
-              margin-top: 20px;
-              width: 370px;
-          }
-          @media screen and (min-width: $break-small) and (max-width: $break-large){
-              background: image-url('form-bottom-bar-300.png');
-              background-repeat: none;
-              height: 10px;
-              position: relative;
-              padding-bottom: 2px;
-              margin-top: 20px;
-              width: 300px;
-          }
-          @media screen and (min-width: $break-tiny) and (max-width: $break-small){
-              background: image-url('form-bottom-bar-258.png');
-              background-repeat: none;
-              height: 11px;
-              position: relative;
-              /*margin-left: -15px;
-              padding-bottom: 2px;
-              margin-top: 20px;*/
-              width: 229px; 
-          }
-          @media screen and (min-width: $break-micro) and (max-width: $break-tiny) {
-              background: image-url('form-bottom-bar-370.png');
-              background-repeat: none;
-              height: 15px;
-              margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 400px;
-              margin: 0 auto;
-
-          }
-          @media screen and (max-width: $break-tiny) {
-              background: image-url('form-bottom-bar-280.png');
-              background-repeat: none;
-              height: 15px;
-              margin-left: -15px;
-              margin-top: -2px;
-              margin-bottom: 20px;
-              width: 280px;
-              margin: 0 auto;
-
-          }
-
+              margin-top: 30px;
       }
 
       .payments {
@@ -224,11 +140,14 @@ $break-large: 1200px;
       }
 
       form 
-          input {
+          input[type=text] {
               height: 30px;
               display: block;
               font-family: 'berthold';
               font-size: 12pt;
+              -webkit-box-shadow: 2px 0px 5px #bbbbbb,-2px 0 0 #bbbbbb;
+              -moz-box-shadow: 2px 0px 5px #bbbbbb,-2px 0px 5px #bbbbbb;
+
           }
 
           label {
@@ -241,6 +160,8 @@ $break-large: 1200px;
 
           label.checkbox {
           	font-size: 12pt;
+            display: inline-block;
+            width: 20px;
           	input[type=checkbox]{
           		float: left;
           	}
@@ -265,6 +186,8 @@ $break-large: 1200px;
           display: block;
           font-family: 'berthold';
           font-size: 12pt;
+            -webkit-box-shadow: 2px 0px 5px #bbbbbb,-2px 0 0 #bbbbbb;
+              -moz-box-shadow: 2px 0px 5px #bbbbbb,-2px 0px 5px #bbbbbb;
       }
 
 

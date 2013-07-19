@@ -1,20 +1,16 @@
 <%= form_for(@business_account) do |f| %>
 <legend></legend>
 <div class="hidden-desktop hidden-tablet register-head">
-  <%= image_tag "business_registration_mobile_header.png" %>
+  <%= image_tag "business_registration_mobile_header.png", alt: "Business Registration" %>
 </div>
 <div class="hidden-phone register-head">
-  <%= image_tag "business_registration_header.png" %>
+  <%= image_tag "business_registration_header.png", alt: "Business Registration" %>
 </div>
   <% if @business_account.errors.any? %>
     <div class="warranty">
       <h2><%= pluralize(@business_account.errors.count, "error") %> </h2>
     </div>
   <% end %>
-  <div class="warranty">
-  <h2 class="error_count"></h2>
-  <ul class="user_error"></ul>
-  </div> 
   <div class="control-group">
     <%= label_tag :name_first, "First Name", class: 'control-label' %>
     <div class='controls'>
@@ -124,12 +120,12 @@
       <div class="payments">
         <% if stripe_enabled? %>
           <a href="#">
-            <%= image_tag "credit-105.png", id: "credit", class: "pull-left" %>
+            <%= image_tag "credit-105.png", id: "credit" %>
           </a>
         <% end %>
         <% if paypal_enabled? %>
           <a href="#">
-            <%= image_tag "paypal-105.png", id: "paypal", class: "pull-right" %>          
+            <%= image_tag "paypal-105.png", id: "paypal" %>          
           </a>
 	<% end %>
   <%= f.hidden_field :paypal_token %>
