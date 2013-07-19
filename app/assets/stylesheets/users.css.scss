@@ -145,9 +145,9 @@ $break-large: 1200px;
               display: block;
               font-family: 'berthold';
               font-size: 12pt;
-              -webkit-box-shadow: 2px 0px 5px #bbbbbb,-2px 0 0 #bbbbbb;
-              -moz-box-shadow: 2px 0px 5px #bbbbbb,-2px 0px 5px #bbbbbb;
-
+              -moz-box-shadow: 11px 8px 16px #111a13;
+              -webkit-box-shadow: 11px 8px 16px #111a13;
+              box-shadow: 11px 8px 16px #111a13;
           }
 
           label {
@@ -179,6 +179,9 @@ $break-large: 1200px;
         margin-left: 5px;
         height: 20px;
         width: 17px;
+        -moz-box-shadow: 11px 8px 16px #111a13;
+              -webkit-box-shadow: 11px 8px 16px #111a13;
+              box-shadow: 11px 8px 16px #111a13;
       }
 
       form select {
@@ -186,8 +189,9 @@ $break-large: 1200px;
           display: block;
           font-family: 'berthold';
           font-size: 12pt;
-            -webkit-box-shadow: 2px 0px 5px #bbbbbb,-2px 0 0 #bbbbbb;
-              -moz-box-shadow: 2px 0px 5px #bbbbbb,-2px 0px 5px #bbbbbb;
+           -moz-box-shadow: 11px 8px 16px #111a13;
+            -webkit-box-shadow: 11px 8px 16px #111a13;
+            box-shadow: 11px 8px 16px #111a13;
       }
 
 

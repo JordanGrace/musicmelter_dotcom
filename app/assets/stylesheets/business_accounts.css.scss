@@ -56,10 +56,10 @@ $break-large: 1200px;
               background: image-url('form-bottom-bar-617.png');
               background-size: contain;
               background-repeat: no-repeat;
-              height: 14px;
+              height: 22px;
               position: relative;
               padding-bottom: 2px;
-              margin-top: 30px;
+              margin-top: 15px;
       }
 
       .payments {
@@ -151,6 +151,9 @@ $break-large: 1200px;
               font-family: 'berthold';
               font-size: 12pt;
               margin: 0 auto;
+              -moz-box-shadow: 11px 8px 16px #111a13;
+              -webkit-box-shadow: 11px 8px 16px #111a13;
+              box-shadow: 11px 8px 16px #111a13;
           }
 
           label {
@@ -171,6 +174,9 @@ $break-large: 1200px;
         margin-left: 5px;
         height: 20px;
         width: 21px;
+        -moz-box-shadow: 11px 8px 16px #111a13;
+              -webkit-box-shadow: 11px 8px 16px #111a13;
+              box-shadow: 11px 8px 16px #111a13;
       }
 
       form select {
@@ -178,6 +184,9 @@ $break-large: 1200px;
           display: block;
           font-family: 'berthold';
           font-size: 12pt;
+          -moz-box-shadow: 11px 8px 16px #111a13;
+              -webkit-box-shadow: 11px 8px 16px #111a13;
+              box-shadow: 11px 8px 16px #111a13;
       }
 
 
