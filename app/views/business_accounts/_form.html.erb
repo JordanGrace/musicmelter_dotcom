@@ -55,8 +55,8 @@
   </div>
     <div class="control-group">
        <%= label_tag :country, "Select your country" %>
-       <%= image_tag 'signup/america.png', onclick: "show_us()", class: "murica" %> 
-       <%= image_tag 'signup/canada.png', onclick: "show_ca()", class: "canada" %>
+       <%= image_tag 'us_flag.png', onclick: "show_us()", class: "murica" %> 
+       <%= image_tag 'ca_flag.png', onclick: "show_ca()", class: "canada" %>
        <%= f.hidden_field :country, value: "US" %>
        <% if @business_account.errors[:country] %>
         <span class="help-block"><%= @business_account.errors[:country][0] %></span>
