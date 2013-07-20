@@ -2,8 +2,6 @@
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "Error") %></h2>
-   
-      
     </div>
   <% end %>
   <div class="control-group">
@@ -53,7 +51,7 @@
       <div>
         <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Other' %>Other<% end %>
         <p />
-        <%= f.text_field :talent, placeholder: "Other", class: "hidden" %>
+        <%= f.text_field :talent, placeholder: "Other", class: "hidden", id: "hidden-other" %>
       </div>
     </div>
 
@@ -62,8 +60,8 @@
 
  <div class="control-group">
        <%= label_tag :country, "Select your country" %>
-       <%= image_tag 'signup/america.png', onclick: "show_us()", class: "murica" %> 
-       <%= image_tag 'signup/canada.png', onclick: "show_ca()", class: "canada" %>
+       <%= image_tag 'us_flag.png', onclick: "show_us()", class: "murica" %> 
+       <%= image_tag 'ca_flag.png', onclick: "show_ca()", class: "canada" %>
        <%= f.hidden_field :country, value: "US" %>
        <% if @user.errors[:country] %>
         <span class="help-block"><%= @user.errors[:country][0] %></span>

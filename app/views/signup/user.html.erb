@@ -14,7 +14,7 @@
                 <h1 class="bottom">As It Should Be</h1>
         	</div>
             <span width="75%">
-            <%= link_to image_tag("register_button.png", class: "button center"), new_user_url %>
+            <%= link_to image_tag("register_button.png", class: "button center"), new_user_url(:protocol => "https") %>
             </span>
         </div>
     </div>
@@ -36,14 +36,14 @@
     <div class="business row-fluid hidden-desktop">
         <div class="span12">
             <div class="registertext">
-                <h1>100% Free</h1>
-                <h1>As It Should Be</h1>
+                <h1 class="top">100% Free</h1>
+                <h1 class="bottom">As It Should Be</h1>
             </div>
         </div>
     </div>
     
     <div class="business row-fluid hidden-desktop">
-            <%= link_to image_tag("register_button.png", class: "button center"), new_user_url %>
+            <%= link_to image_tag("register_button.png", class: "button center"), new_user_url(:protocol => "https") %>
     </div>
     <footer>
         <div class="row">

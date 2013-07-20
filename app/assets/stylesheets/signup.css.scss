@@ -78,6 +78,7 @@ $break-large: 1200px;
 .signup {
     
     .registertext {        
+        text-align: center;
         h1.top {
             font-family: 'crackhouseregular';
             font-size: 81pt;
@@ -160,6 +161,7 @@ $break-large: 1200px;
 
         }
     }
+    
     .blur-container {
         z-index: -1;
         position: absolute;
@@ -172,10 +174,12 @@ $break-large: 1200px;
         }
     }
 
+
+
     .grill {
-        background-image: image-url('signup-grill-background.png');
-        background-repeat: no-repeat;
-        background-size: 100% auto;
+        background-image: image-url('grill-bg-tile.png');
+        background-repeat: repeat;
+      
         @media screen and (min-width: $break-large) {
             padding-bottom: 68px;
         }
@@ -187,33 +191,49 @@ $break-large: 1200px;
 
         width: 100%;
 
+        #formtop {
+          width: 100%;
+          background: image-url('form-top-bar-617.png');
+          background-repeat: no-repeat;
+          background-size: contain;
+          height: 30px;
+          margin-top: -2px;
+          margin-bottom: 20px;
+        }
+        #formbottom {
+            margin-top: 15px;
+            width: 100%;
+        }
 
         .registertext {
             font-family: berthold;
             text-align: center;
+            margin: 0 auto;
             @media screen and (min-width: $break-large) {
                 font-size: 17pt;
                 line-height: 20pt;
                 padding: 50px 25px 15px 25px;
             }
             @media screen and (max-width: $break-large) and (min-width: $break-small){
-                font-size: 14pt;
+                font-size: 12pt;
                 line-height: 15pt;
                 padding: 28px 25px 20px 25px;
                 margin-bottom: 15px;
             }
 
-            @media screen and (min-width : 450px) and (max-width : 1024px){
+            @media screen and (min-width : 450px) and (max-width : 1024px) and (orientation : portrait) {
                 font-size: 28pt;
                 line-height: 29pt;
-                padding: 55px 25px 135px 25px;
             } 
             
+            @media screen and (min-width : 450px) and (max-width : 978px) {
+                font-size: 26pt;
+                line-height: 29pt;
+            } 
            
             @media screen and (max-width: $break-micro) {
                 font-size: 9pt;
                 line-height: 11pt;
-                padding: 28px 25px 15px 25px;
             }
 
            

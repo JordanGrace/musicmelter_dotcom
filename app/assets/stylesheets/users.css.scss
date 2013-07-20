@@ -45,10 +45,9 @@ $break-large: 1200px;
   .formbox {
 
       background: image-url('grill-bg-tile.png');
+      background-size: contain;
       background-repeat: repeat-y;
       background-position: center;
-    
-
 
         #formtop {
           width: 100%;
@@ -61,36 +60,8 @@ $break-large: 1200px;
       }
 
       #formbottom {
-              background: image-url('form-bottom-bar-617.png');
-              background-size: contain;
-              background-repeat: no-repeat;
-              height: 14px;
-              position: relative;
-              padding-bottom: 2px;
-              margin-top: 30px;
-      }
-
-      .payments {
-        @media screen and (min-width: $break-large) {
-          margin-top: 20px;
-          margin-left: 40px;
-          margin-right: 20px;
-        }
-        @media screen and (min-width: $break-small) and (max-width: $break-large){
-          margin-top: 20px;
-          margin-left: 22px;
-          margin-right: 5px;
-        }
-        @media screen and (min-width: $break-tiny) and (max-width: $break-small){
-          margin-top: 20px;
-          margin-left: 22px;
-          margin-right: 5px;
-        }
-
-      }
-
-      .paypal {
-          padding-top: 30px;
+        margin-top: 15px;
+        width: 100%;
       }
 
       p {
@@ -132,7 +103,7 @@ $break-large: 1200px;
       }
 
       .control-group {
-          padding-left: 50px;
+          padding-left: 10px;
       }
 
       .help-block {
@@ -142,12 +113,12 @@ $break-large: 1200px;
       form 
           input[type=text] {
               height: 30px;
-              display: block;
               font-family: 'berthold';
               font-size: 12pt;
               -moz-box-shadow: 11px 8px 16px #111a13;
               -webkit-box-shadow: 11px 8px 16px #111a13;
               box-shadow: 11px 8px 16px #111a13;
+              width: 75%;
           }
 
           label {
@@ -161,10 +132,7 @@ $break-large: 1200px;
           label.checkbox {
           	font-size: 12pt;
             display: inline-block;
-            width: 20px;
-          	input[type=checkbox]{
-          		float: left;
-          	}
+            width: 75px;
           }
 
       form input[type=image] {
@@ -186,6 +154,7 @@ $break-large: 1200px;
 
       form select {
           height: 30px;
+          width: 77%;
           display: block;
           font-family: 'berthold';
           font-size: 12pt;
@@ -270,38 +239,11 @@ $break-large: 1200px;
         
       }
 
-      .user_error li{
-              font-size: 22pt;
-              line-height: 28px;
-              font-weight: 300;
-              font-family: 'crackhouseregular';
-              padding: 0px -1px 0px 30px;
-              list-style-type: none;
-              color: red;
-          }
-
-      #stripe_error li{
-          font-size: 22pt;
-          line-height: 24pt;
-          list-style-type: none;
-      }
-
       .btn-primary {
           font-size: 22pt;
           line-height: 24pt;
 
       }
-
-      .discount-text {
-          font-size: 15pt;
-          font-weight: bold;
-          font-family: 'Helvetica';
-          text-align: center;
-          @media screen and(max-width: $break-small) and (min-width: $break-tiny){
-            font-size: 11pt;
-          }
-      }
-
 
   }
 

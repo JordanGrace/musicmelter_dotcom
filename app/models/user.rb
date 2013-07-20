@@ -14,6 +14,6 @@ class User
   field :email, type: String
 
   validates_uniqueness_of :email
-  validates_presence_of :name, :age, :talent, :country, :postal, :email
+  validates_presence_of :name, :age, :country, :postal, :email
 
 end
