@@ -4,6 +4,8 @@
       <h2><%= pluralize(@user.errors.count, "Error") %></h2>
     </div>
   <% end %>
+  <legend><%= image_tag "register_now.png", class: "headlogo" %>
+</legend>
   <div class="control-group">
     <%= label_tag :name, "Name", class: 'control-label' %>
     <div class='controls'>
@@ -16,7 +18,7 @@
   <div class="control-group">
     <%= label_tag :age, "Age", class: 'control-label' %>
     <div class='controls'>
-      <%= select :user, :age, age_values %>
+      <%= f.text_field :age, placeholder: "Age" %>
       <% if @user.errors[:name] %>
         <span class="help-block"><%= @user.errors[:age][0] %></span>
       <% end %>

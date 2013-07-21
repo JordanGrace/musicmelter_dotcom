@@ -27,6 +27,7 @@
     margin: 0 auto;
     text-align: center;
     margin-bottom: 25px;
+    max-width: 80%;
   }
 
   .formbox {
@@ -95,7 +96,7 @@ $break-large: 1200px;
           display: block;
           margin-left: auto;
           margin-right: auto;
-          text-shadow:0px 0px 0 rgb(215,215,215),1px 1px 0 rgb(184,184,184),2px 2px 0 rgb(154,154,154),3px 3px 0 rgb(124,124,124),4px 4px 0 rgb(93,93,93),5px 5px 0 rgb(63,63,63), 6px 6px 0 rgb(33,33,33),7px 7px 6px rgba(0,0,0,0.6),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+          
       }
 
       h4 {

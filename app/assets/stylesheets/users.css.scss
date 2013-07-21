@@ -64,6 +64,11 @@ $break-large: 1200px;
         width: 100%;
       }
 
+  .headlogo {
+    padding-bottom: 15px;
+    max-width: 80%;
+  }
+
       p {
           color: white;
           font-family: 'berthold'
@@ -104,43 +109,47 @@ $break-large: 1200px;
 
       .control-group {
           padding-left: 10px;
+          padding-bottom: 15px;
       }
 
       .help-block {
           color: #FFF;
       }
 
-      form 
-          input[type=text] {
-              height: 30px;
-              font-family: 'berthold';
-              font-size: 12pt;
-              -moz-box-shadow: 11px 8px 16px #111a13;
-              -webkit-box-shadow: 11px 8px 16px #111a13;
-              box-shadow: 11px 8px 16px #111a13;
-              width: 75%;
-          }
+      form {
+        margin: 0 auto;
+        text-align: center;
+        input[type=text] {
+            height: 30px;
+            font-family: 'berthold';
+            font-size: 12pt;
+            -moz-box-shadow: 11px 8px 16px #111a13;
+            -webkit-box-shadow: 11px 8px 16px #111a13;
+            box-shadow: 11px 8px 16px #111a13;
+            width: 75%;
+        }
 
-          label {
-              color: #FFF;
-              font-family: 'crackhouseregular';
-              font-size: 21pt;
-              text-align: left;
-              display: block;
-          }
+        label {
+            color: #FFF;
+            font-family: 'crackhouseregular';
+            font-size: 21pt;
+            text-align: center;
+            display: block;
+        }
 
-          label.checkbox {
-          	font-size: 12pt;
-            display: inline-block;
-            width: 75px;
-          }
+        label.checkbox {
+        	font-size: 12pt;
+          display: inline-block;
+          width: 75px;
+          text-align: left;
+        }
 
-      form input[type=image] {
+      input[type=image] {
           opacity: 2;
           height: auto;
       }
 
-      form input[type=checkbox] {
+      input[type=checkbox] {
         display: inline;
         float: right;
         padding-left: 15px;
@@ -152,7 +161,9 @@ $break-large: 1200px;
               box-shadow: 11px 8px 16px #111a13;
       }
 
-      form select {
+      select {
+        text-align: center;
+        margin: 0 auto;
           height: 30px;
           width: 77%;
           display: block;
@@ -163,7 +174,7 @@ $break-large: 1200px;
             box-shadow: 11px 8px 16px #111a13;
       }
 
-
+    }
       #coupon {
         margin: 0 auto;
         text-align: center;
@@ -177,16 +188,16 @@ $break-large: 1200px;
       /* Desktop Styles */
       .hidden-tablet .terms{
           font-weight: bold;
-          font-family: 'berthold';
-          font-size: 18pt;
+          font-family: 'crackhouseregular';
+          font-size: 22pt;
           line-height: 19px;
           margin-bottom: 0px;
           text-decoration: none;
           color: #FFF;
       }
       .hidden-tablet .info-email{
-          font-family: 'berthold';
-          font-size: 20pt;
+          font-family: 'crackhouseregular';
+          font-size: 24pt;
           line-height: 40pt;
           margin-bottom: 0px;
           text-decoration: none;
@@ -199,15 +210,15 @@ $break-large: 1200px;
 
       .hidden-desktop .terms {
           color: #FFFFFF;
-          font-family: 'berthold';
-          font-size: 11pt;
+          font-family: 'crackhouseregular';
+          font-size: 14pt;
           line-height: 12pt;
           margin-bottom: 0px;
           text-decoration: none;  
           color: #FFF;      
       }
       .hidden-desktop .info-email {
-          font-size: 14pt;
+          font-size: 18pt;
           display: inline-block;
           font-weight: bold;
           margin-bottom: none;

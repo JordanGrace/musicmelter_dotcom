@@ -7,4 +7,6 @@ $(document).ready(function() {
 			$('#hidden-other').addClass("hidden");
 		}
 	})
+
+	$('#user_age').regexMask(/^\d+$/);
 })
