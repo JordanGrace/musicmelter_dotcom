@@ -201,16 +201,18 @@ $break-large: 1200px;
       .hidden-tablet .terms{
           font-weight: bold;
           font-family: 'berthold';
-          font-size: 14pt;
+          font-size: 12pt;
           line-height: 19px;
           margin-bottom: 0px;
           text-decoration: none;
           color: #FFF;
+          padding-left: 10px;
+          padding-right: 10px;
       }
       .hidden-tablet .info-email{
           font-family: 'berthold';
-          font-size: 20pt;
-          line-height: 40pt;
+          font-size: 17pt;
+          line-height: 30pt;
           margin-bottom: 0px;
           text-decoration: none;
           color: #FFF;
