@@ -137,15 +137,16 @@ $break-large: 1200px;
         label {
             color: #FFF;
             font-family: 'crackhouseregular';
-            font-size: 21pt;
             text-align: center;
             display: block;
+            font-size: 32pt;
+            line-height: 19pt;
         }
 
         label.checkbox {
-        	font-size: 12pt;
+        	font-size: 16pt;
           display: inline-block;
-          width: 75px;
+          width: 82px;
           text-align: left;
         }
 
