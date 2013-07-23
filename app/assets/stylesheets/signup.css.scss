@@ -84,6 +84,10 @@ $break-large: 1200px;
             font-size: 81pt;
             line-height: 70pt;
             color: #fff;
+            @media screen and (max-width: $break-small) {
+                font-size: 50pt;
+                line-height: 40pt;
+            }
         }
         h1.bottom{
             font-family: 'crackhouseregular';
@@ -91,6 +95,10 @@ $break-large: 1200px;
             line-height: 61pt;
             color: #fff;
             margin-bottom: 60px;
+             @media screen and (max-width: $break-small) {
+                font-size: 38pt;
+                line-height: 0pt;
+            }
         }
     }
 
@@ -390,13 +398,14 @@ $break-large: 1200px;
             line-height: 40pt;
             margin: auto;
             text-decoration: none;
-            padding-top: 10px;
+            padding-top: 20px;
             @media screen and (min-width: $break-large) {
-                font-size: 33pt;
-                
+                font-size: 65pt;
+                padding-bottom: 21px;
             }
             @media screen and (min-width: $break-small) and (max-width: $break-large){
-                font-size: 28pt;
+                font-size: 50pt;
+                padding-bottom: 21px;
                 
             }   
         
@@ -418,7 +427,7 @@ $break-large: 1200px;
 
         h3{
             font-family: 'OldStamperRegular';
-            font-size: 17pt;
+            font-size: 15pt;
             color: #92BE6E;
             line-height: 32pt;
             margin: auto;
