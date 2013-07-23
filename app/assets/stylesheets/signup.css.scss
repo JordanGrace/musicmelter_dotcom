@@ -413,12 +413,20 @@ $break-large: 1200px;
 
         h2{
             font-family: 'OldStamperRegular';
-            font-size: 22pt;
+            font-size: 36pt;
             color: #92BE6E;
-            line-height: 32pt;
+            line-height: 31pt;
             margin: auto;
             text-decoration: none;
-        
+            @media screen and (min-width: $break-large) {
+                font-size: 36pt;
+                line-height: 31pt;
+            }
+            @media screen and (min-width: $break-small) and (max-width: $break-large){
+                font-size: 28pt;
+                line-height: 31pt;
+            }
+
         }
 
         h2.sharper-glow {
