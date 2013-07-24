@@ -120,12 +120,12 @@
       <div class="payments">
         <% if stripe_enabled? %>
           <a href="#">
-            <%= image_tag "credit-105.png", id: "credit" %>
+            <button id="credit" class="stripe-button-el" style="visibility: visible;"><span style="display: block; min-height: 30px;">Pay with Card</span></button>
           </a>
         <% end %>
         <% if paypal_enabled? %>
           <a href="#">
-            <%= image_tag "paypal-105.png", id: "paypal" %>          
+            <%= image_tag "paypal-150.png", id: "paypal" %>          
           </a>
 	<% end %>
   <%= f.hidden_field :paypal_token %>

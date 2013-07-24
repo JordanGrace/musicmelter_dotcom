@@ -91,8 +91,8 @@ $break-large: 1200px;
         }
         h1.bottom{
             font-family: 'crackhouseregular';
-            font-size: 58pt;
-            line-height: 61pt;
+            font-size: 50pt;
+            line-height: 30pt;
             color: #fff;
             margin-bottom: 60px;
              @media screen and (max-width: $break-small) {
@@ -453,12 +453,14 @@ $break-large: 1200px;
             width: 60%;
         }
 
+        .social {
+            margin: 0 auto;
+            text-align: center;
+        }
+
          .button-padding {
         margin-top: 25px;
-    }
-
-
-
+        }
     }
 }
 
@@ -469,4 +471,9 @@ $break-large: 1200px;
             font-size: 500px;
         }
     }
+}
+
+
+.business-button {
+    height: 50px;
 }
