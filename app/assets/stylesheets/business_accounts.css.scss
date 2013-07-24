@@ -60,6 +60,9 @@ $break-large: 1200px;
       }
 
       .payments {
+
+        position: relative;
+
         @media screen and (min-width: $break-large) {
           margin-top: 20px;
           margin-left: 40px;
@@ -79,7 +82,7 @@ $break-large: 1200px;
       }
 
       .paypal {
-          padding-top: 30px;
+          padding-top: 40px;
       }
 
       p {

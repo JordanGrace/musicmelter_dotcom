@@ -240,7 +240,7 @@
         usprice = sessionStorage.getItem("usprice")
         caprice = sessionStorage.getItem("caprice")
         redeemed = sessionStorage.getItem("redeem")
-        if(redeemed != true){
+        if(redeemed != "true"){
           if(get_country() === "CA"){
             updatePrice('<i class="icon-thumbs-up"></i> Saved: $' + d.amount, $('.discount_message'))
             updatePrice('$' + (caprice - d.amount), $('#offerprice'))
