@@ -142,6 +142,9 @@ $break-large: 1200px;
       }
 
       form 
+          legend {
+            text-align: center;
+          }
           input {
               height: 30px;
               display: block;
