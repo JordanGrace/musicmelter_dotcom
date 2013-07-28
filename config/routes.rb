@@ -13,6 +13,7 @@ Musicmelter::Application.routes.draw do
   get "terms/privacy"
 
   match "thankyou", controller: :thankyou, action: :index
+  match "thankyou/user", controller: :thankyou, action: :user
 
   resources :business_accounts, only: [:create, :show, :new, :update, :index] do
     resources :payment

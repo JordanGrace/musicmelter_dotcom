@@ -16,4 +16,12 @@ class User
   validates_uniqueness_of :email
   validates_presence_of :name, :age, :country, :postal, :email
   validates :age, :numericality => {:only_integer => true}
+
+
+  after_create :complete_registration
+
+  #send the registration email
+  def complete_registration
+    Userregistration.user_registration_receipt(self).deliver
+  end
 end
