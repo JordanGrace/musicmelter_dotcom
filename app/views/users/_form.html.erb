@@ -2,11 +2,6 @@
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "Error") %></h2>
-      <span class="hide">
-        <% @user.errors.each do |e| %>
-          <%= e[:talents][0] %>
-          <% end %>
-      </span>
     </div>
   <% end %>
   <legend><%= image_tag "register_now.png", class: "headlogo" %>
