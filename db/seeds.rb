@@ -9,3 +9,18 @@
   	#to function it must have a site configuration out the gate 
 	SiteConfig.create([{ accept_promos: true, default_us_price: 600, default_ca_price: 600, stripe_enabled: true, paypal_enabled: true}])
 
+	Talent.create([
+		{ name: 'Vocals'},
+		{ name: 'Guitar'},
+		{ name: 'Drums'},
+		{ name: 'Bass'},
+		{ name: 'Keys'},
+		{ name: 'Strings'},
+		{ name: 'Woodwind'},
+		{ name: 'Brass'},
+		{ name: 'Synth'},
+		{ name: 'Band'},
+		{ name: 'Rapper'},
+		{ name: 'DJ'},
+		{ name: 'Other'}
+		])
