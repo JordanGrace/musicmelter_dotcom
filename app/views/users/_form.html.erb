@@ -28,6 +28,10 @@
     <%= label_tag :name, "Musical Talent", class: 'control-label' %>
     <div class="control-grid">
       <div class='controls'>
+        <% Talent.all.each do |tal| %>
+          <%= label_tag tal.name, class: 'checkbox inline no_indent' do %> <%= tal.name %><%= check_box_tag "user[talent_ids][]", tal.id, @user.talents.include?(tal), id: dom_id(tal) %><% end %>
+        <% end %>
+        <!--
         <div>
           <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'vocals', false, id: 'vocals' %> Vocals<% end %>
           <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Guitar', false %> Guitar<% end %>
@@ -52,10 +56,9 @@
           <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Rapper', false %>Rapper<% end %>
           <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'DJ', false %>DJ<% end %>
       </div>
+      -->
       <div>
-        <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Other', false %>Other<% end %>
         <p />
-        <%= f.text_field :talent, placeholder: "Other", class: "hidden", id: "hidden-other" %>
       </div>
     </div>
   </div>

@@ -6,12 +6,14 @@ class User
 
   field :name, type: String
   field :age, type: Integer
-  field :talent, type: Array
   field :country, type: String
   field :postal, type: Integer
   field :state, type: String
   field :province, type: String
   field :email, type: String
+
+ 
+  has_and_belongs_to_many :talents, inverse_of: nil
 
   validates_uniqueness_of :email
   validates_presence_of :name, :age, :country, :postal, :email
@@ -19,6 +21,8 @@ class User
 
 
   after_create :complete_registration
+
+
 
   #send the registration email
   def complete_registration
