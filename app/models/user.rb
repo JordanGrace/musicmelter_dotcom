@@ -4,14 +4,15 @@ class User
   include Mongoid::Paranoia
   include Mongoid::Timestamps::Short
 
-  field :name, type: String
-  field :age, type: Integer
-  field :country, type: String
-  field :postal, type: Integer
-  field :state, type: String
-  field :province, type: String
-  field :email, type: String
+  field :name,      type: String
+  field :age,       type: Integer
+  field :country,   type: String
+  field :postal,    type: Integer
+  field :state,     type: String
+  field :province,  type: String
+  field :email,     type: String
 
+  attr_accessor :hidden_talent
  
   has_and_belongs_to_many :talents, inverse_of: nil
 

@@ -28,41 +28,24 @@
     <%= label_tag :name, "Musical Talent", class: 'control-label' %>
     <div class="control-grid">
       <div class='controls'>
-        <% Talent.all.each do |tal| %>
-          <%= label_tag tal.name, class: 'checkbox inline no_indent' do %> <%= tal.name %><%= check_box_tag "user[talent_ids][]", tal.id, @user.talents.include?(tal), id: dom_id(tal) %><% end %>
+        <% Talent.where(:type => /D/).order_by('priority ASC').each do |tal| %>
+          <%= label_tag tal.name, class: 'checkbox inline no_indent' do %>
+            <% unless tal.name.downcase.include? 'other' %>
+              <%= tal.name %><%= check_box_tag "user[talent_ids][]", tal.id, @user.talents.include?(tal), id: dom_id(tal) %>
+            <% else %>
+              <%= tal.name %><%= check_box_tag "user[talent_ids][]", tal.id, @user.talents.include?(tal), id: 'other' %>
+            <% end %>
+           <% end %>
         <% end %>
-        <!--
-        <div>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'vocals', false, id: 'vocals' %> Vocals<% end %>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Guitar', false %> Guitar<% end %>
-        </div>
-        <div>
-           <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Drums', false %> Drums<% end %>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Bass', false %>Bass<% end %>
-        </div>
-        <div>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Keys', false %>Keys <% end %>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Strings', false %>Strings<% end %>
-        </div>
-        <div>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Woodwind', false %>Woodwind<% end %>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Brass', false %>Brass<% end %>
-        </div>
-        <div>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Synth', false %>Synth<% end %>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Band', false %>Band<% end %>
-        </div>
-        <div>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'Rapper', false %>Rapper<% end %>
-          <%= label_tag 'talent', class: 'checkbox inline no_indent' do %><%= check_box_tag 'talent', 'DJ', false %>DJ<% end %>
-      </div>
-      -->
-      <div>
-        <p />
-      </div>
     </div>
   </div>
   </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_field :hidden_talent, placeholder: "Other", class: "hidden", id: "hidden-other" %>
+    </div>
+  </div>
+
   <div class="buffer"></div>
 
  <div class="control-group">

@@ -41,7 +41,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    
+    #If we have a hidden talent, create a new talent for it    
+    unless @user.hidden_talent.blank?
+      t = Talent.new(name: @user.hidden_talent)
+      t.save
+      @user.talents.push(t)
+    end
 
 
     respond_to do |format|
@@ -82,4 +88,17 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  protected
+
+  def proc_talent(user)
+    #If we have a hidden talent, create a new talent for it    
+    unless user.hidden_talent.blank?
+      t = Talent.find_or_create_by(name: @user.hidden_talent)
+      user.talents.push(t)
+    end
+  end
+
 end
+
