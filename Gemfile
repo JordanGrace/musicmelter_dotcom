@@ -29,6 +29,10 @@ group :production do
   gem 'thin'
 end
 
+group :staging, :development, :test do
+  gem 'better_errors'
+end 
+
 group :development, :test do
     gem 'foreman'
     gem 'rspec'
@@ -43,7 +47,6 @@ group :development, :test do
     gem 'factory_girl_rails'
     gem 'faker'
     gem 'debugger'
-    gem 'better_errors'
 end
 
 group :test do
