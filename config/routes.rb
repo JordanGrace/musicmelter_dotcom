@@ -11,6 +11,7 @@ Musicmelter::Application.routes.draw do
 
   get "terms/refund"
   get "terms/privacy"
+  get "terms/privacy/user", controller: :terms, action: :user_privacy
 
   match "thankyou", controller: :thankyou, action: :index
   match "thankyou/user", controller: :thankyou, action: :user
@@ -34,7 +35,7 @@ Musicmelter::Application.routes.draw do
 
   get '/' => 'signup#user', :constraints => { :subdomain => 'www' }
   match '/' => "signup#business", :constraints => { :subdomain => 'business' }
-
+  
   root :to => "signup#user"
 
 end

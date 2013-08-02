@@ -4,4 +4,8 @@ class TermsController < ApplicationController
 
   def privacy
   end
+
+  def user_privacy
+  end
+
 end
