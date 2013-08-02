@@ -193,6 +193,11 @@ $break-large: 1200px;
       }
 
 
+      #cards {
+        width: 69%;
+        padding-left: 14px;
+      }
+
       #coupon {
         margin: 0 auto;
         text-align: center;
@@ -217,7 +222,7 @@ $break-large: 1200px;
       }
       .hidden-tablet .info-email{
           font-family: 'berthold';
-          font-size: 17pt;
+          font-size: 16pt;
           line-height: 30pt;
           margin-bottom: 0px;
           text-decoration: none;
