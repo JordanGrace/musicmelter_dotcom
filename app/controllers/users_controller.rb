@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     
     #If we have a hidden talent, create a new talent for it    
     unless @user.hidden_talent.blank?
-      t = Talent.new(name: @user.hidden_talent)
+      t = Talent.find_or_create_by(:name => @user.hidden_talent)
       t.save
       @user.talents.push(t)
     end
