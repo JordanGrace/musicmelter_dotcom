@@ -129,7 +129,7 @@ $break-large: 1200px;
 
           .controls {
               input {
-                  text-align: center;
+                  text-align: left;
                   margin: 0 auto;
               }
 
@@ -157,13 +157,25 @@ $break-large: 1200px;
               -moz-box-shadow: 11px 8px 16px #111a13;
               -webkit-box-shadow: 11px 8px 16px #111a13;
               box-shadow: 11px 8px 16px #111a13;
+              width: 75%;
           }
-
+          .muricaGlow {
+            background: url('/assets/us_flag_glow.png');
+          }
+          .canadaGlow {
+            background: url('/assets/ca_flag_glow.png');
+          }
           label {
               color: #FFF;
               font-family: 'berthold';
               font-size: 13pt;
           }
+          .label-left {
+          text-align: left;
+          padding-left: 11%;
+          padding-top: 10px;
+          padding-bottom: 5px;
+        }
 
       form input[type=image] {
           opacity: 2;
@@ -190,6 +202,7 @@ $break-large: 1200px;
           -moz-box-shadow: 11px 8px 16px #111a13;
               -webkit-box-shadow: 11px 8px 16px #111a13;
               box-shadow: 11px 8px 16px #111a13;
+          width: 75%;
       }
 
 
@@ -243,13 +256,14 @@ $break-large: 1200px;
           color: #FFF;      
       }
       .hidden-desktop .info-email {
-          font-size: 14pt;
+          font-size: 12pt;
           display: inline-block;
           font-weight: bold;
           margin-bottom: none;
           text-align: center;
           text-decoration: none;
           color: #FFF;
+          margin-left:20px;
       }
 
       /* Phone Styles */
@@ -319,6 +333,7 @@ $break-large: 1200px;
 }
 
 .stripe-button-el {
+  margin-bottom: 10px;
   overflow: hidden;
 display: inline-block;
 visibility: visible !important;

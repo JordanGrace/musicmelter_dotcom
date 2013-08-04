@@ -12,7 +12,7 @@
     </div>
   <% end %>
   <div class="control-group">
-    <%= label_tag :name_first, "First Name", class: 'control-label' %>
+    <%= label_tag :name_first, "First Name", class: 'control-label label-left' %>
     <div class='controls'>
       <%= f.text_field :name_first, placeholder: "First Name" %>
       <% if @business_account.errors[:name_first] %>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="control-group">
-      <%= label_tag :last_name, "Last Name", class: 'control-label' %>
+      <%= label_tag :last_name, "Last Name", class: 'control-label label-left' %>
     <div class="controls">
       <%= f.text_field :name_last, placeholder: "Last Name" %>
     <% if @business_account.errors[:name_last] %>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :business, "Business", class: "control-label" %>
+    <%= label_tag :business, "Business", class: "control-label label-left" %>
     <div class="controls">
       <%= f.text_field :business, placeholder: "Business Name" %>
     <% if @business_account.errors[:name_last] %>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :email, "Email", class: 'control-label' %>
+    <%= label_tag :email, "Email", class: 'control-label label-left' %>
     <div class="controls">
     <%= f.text_field :email, placeholder: "Email", pattern: "[^ @]*@[^ @]*" %>
     <% if @business_account.errors[:email] %>
@@ -47,15 +47,15 @@
       <% end %>
     </div>
   </div>
-  <div class="control-group">
+  <div class="control-group" style="margin-top:20px;">
     <%= label_tag :business_account, "Type of business" %>
     <div class="controls">
     <%= select :business_account, :type, business_types %>
     </div>
   </div>
-    <div class="control-group">
+    <div class="control-group" style="margin-top:20px;">
        <%= label_tag :country, "Select your country" %>
-       <%= image_tag 'us_flag.png', onclick: "show_us()", class: "murica" %> 
+       <%= image_tag 'us_flag.png', onclick: "show_us()", class: "murica muricaGlow" %> 
        <%= image_tag 'ca_flag.png', onclick: "show_ca()", class: "canada" %>
        <%= f.hidden_field :country, value: "US" %>
        <% if @business_account.errors[:country] %>
@@ -64,7 +64,7 @@
   </div>
    <div class="hide ca_fields">
     <div class="control-group">
-      <%= label_tag :postal, "Postal Code", class: "control-label" %>
+      <%= label_tag :postal, "Postal Code", class: "control-label label-left" %>
       <div class="controls">
         <%= f.text_field :postal, placeholder: "PostalCode",  maxlength: 7 %>
         <% if @business_account.errors[:postal] %>
@@ -73,7 +73,7 @@
       </div>
     </div>
     <div class="control-group">
-      <%= label_tag :province, "Province", class: "control-label" %>
+      <%= label_tag :province, "Province", class: "control-label label-left" %>
       <div class="controls">
         <%= select :business_account, :province, canadian_provinces %>
         <% if @business_account.errors[:province] %>
@@ -84,7 +84,7 @@
   </div>
   <div class="hide us_fields">
     <div class="control-group">
-      <%= label_tag :zip, "Zip Code", class: "control-label" %>
+      <%= label_tag :zip, "Zip Code", class: "control-label label-left" %>
       <div class="controls">
         <%= f.text_field :zip, placeholder: "Zip",  maxlength: 5 %>
         <% if @business_account.errors[:zip] %>
@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="control-group">
-      <%= label_tag :state, "State", class: "control-label" %>
+      <%= label_tag :state, "State", class: "control-label label-left" %>
       <div class="controls">
         <%= select :business_account, :state, us_states %>
         <% if @business_account.errors[:state] %>
@@ -152,11 +152,17 @@
 
 
   function show_us() {
+      $('.murica').addClass("muricaGlow");
+      $('.canada').removeClass("canadaGlow");
+
       $('.ca_fields').hide()
       $('.us_fields').show()
       $('#business_account_country').val('US');
     }
     function show_ca() {
+      $('.murica').removeClass("muricaGlow");
+      $('.canada').addClass("canadaGlow");
+
       $('.ca_fields').show();
       $('.us_fields').hide();
       $('#business_account_country').val('CA');

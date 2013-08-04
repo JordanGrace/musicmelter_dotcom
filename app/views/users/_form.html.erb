@@ -6,7 +6,7 @@
   <% end %>
   <legend><%= image_tag "register_now.png", class: "headlogo" %></legend>
   <div class="control-group">
-    <%= label_tag :name, "Name", class: 'control-label' %>
+    <%= label_tag :name, "Name", class: 'control-label label-left' %>
     <div class='controls'>
       <%= f.text_field :name, placeholder: "Name" %>
       <% if @user.errors[:name] %>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :age, "Age", class: 'control-label' %>
+    <%= label_tag :age, "Age", class: 'control-label label-left' %>
     <div class='controls'>
       <%= f.text_field :age, placeholder: "Age", maxlength: 3 %>
       <% if @user.errors[:name] %>
@@ -49,7 +49,7 @@
 
  <div class="control-group">
        <%= label_tag :country, "Select your country" %>
-       <%= image_tag 'us_flag.png', onclick: "show_us()", class: "murica" %> 
+       <%= image_tag 'us_flag.png', onclick: "show_us()", class: "murica muricaGlow" %> 
        <%= image_tag 'ca_flag.png', onclick: "show_ca()", class: "canada" %>
        <%= f.hidden_field :country, value: "US" %>
        <% if @user.errors[:country] %>
@@ -58,10 +58,10 @@
   </div>
     <div class="control-group">
       <div class="hide ca_fields">
-      <%= label_tag :postal, "Postal Code", class: "control-label" %>
+      <%= label_tag :postal, "Postal Code", class: "control-label label-left" %>
       </div>
       <div class="us_fields">
-        <%= label_tag :postal, "Zip Code", class: "control-label" %>
+        <%= label_tag :postal, "Zip Code", class: "control-label label-left" %>
       </div>
       <div class="controls">
         <%= f.text_field :postal, placeholder: "PostalCode",  maxlength: 7 %>
@@ -72,7 +72,7 @@
     </div>
     <div class="hide ca_fields">
     <div class="control-group">
-      <%= label_tag :province, "Province", class: "control-label" %>
+      <%= label_tag :province, "Province", class: "control-label label-left" %>
       <div class="controls">
         <%= select :user, :province, canadian_provinces %>
         <% if @user.errors[:province] %>
@@ -83,7 +83,7 @@
   </div>
   <div class="us_fields">
     <div class="control-group">
-      <%= label_tag :state, "State", class: "control-label" %>
+      <%= label_tag :state, "State", class: "control-label label-left" %>
       <div class="controls">
         <%= select :user, :state, us_states %>
         <% if @user.errors[:state] %>
@@ -93,7 +93,7 @@
     </div>
   </div>
   <div class="control-group">
-      <%= label_tag :email, "Email", class: "control-label" %>
+      <%= label_tag :email, "Email", class: "control-label label-left" %>
       <div class="controls">
         <%= f.text_field :email, placeholder: "Email" %>
         <% if @user.errors[:email] %>
@@ -113,11 +113,17 @@
 <script>
 
   function show_us() {
+      $('.murica').addClass("muricaGlow");
+      $('.canada').removeClass("canadaGlow");
+
       $('.ca_fields').hide()
       $('.us_fields').show()
       $('#user_country').val('US');
     }
     function show_ca() {
+      $('.murica').removeClass("muricaGlow");
+      $('.canada').addClass("canadaGlow");
+
       $('.ca_fields').show();
       $('.us_fields').hide();
       $('#user_country').val('CA');
